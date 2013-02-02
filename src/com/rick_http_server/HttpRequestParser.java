@@ -2,6 +2,7 @@ package com.rick_http_server;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.net.Socket;
 
 /**
  * Created with IntelliJ IDEA.
@@ -10,13 +11,14 @@ import java.io.IOException;
  * Time: 9:39 PM
  * To change this template use File | Settings | File Templates.
  */
+
 public class HttpRequestParser {
     BufferedReader inStream;
     String requestLine;
     String[] requestLineArray;
     StringBuilder headers;
 
-    public HttpRequestParser(BufferedReader inStream, String requestLine) {
+    public HttpRequestParser(BufferedReader inStream, String requestLine) throws Exception {
         this.inStream         = inStream;
         this.requestLine      = requestLine;
         this.requestLineArray = parseRequest();

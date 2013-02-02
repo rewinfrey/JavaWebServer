@@ -15,19 +15,8 @@ public class Logger {
     public Logger() {
     }
 
-    public void request(String request, String date) {
-        System.out.println("\n" + request);
+    public void request(String requestSummary, String date) {
+        System.out.println("\n" + requestSummary);
         System.out.println(date);
-    }
-
-    public void writeFileToLog(String fileName) throws FileNotFoundException {
-        File resource      = new File(fileName);
-        Scanner fileReader = new Scanner(resource);
-        System.out.println("\nRequested Content:");
-        while(fileReader.hasNext()) {
-            String line = fileReader.nextLine();
-            System.out.println(line);
-        }
-        fileReader.close();
     }
 }

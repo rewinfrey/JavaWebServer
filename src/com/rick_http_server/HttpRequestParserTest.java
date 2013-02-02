@@ -57,7 +57,7 @@ public class HttpRequestParserTest extends TestCase {
         return new BufferedReader( new InputStreamReader( requestSocket.getInputStream() ) );
     }
 
-    public void testHttpRequestParser() throws IOException, InterruptedException {
+    public void testHttpRequestParser() throws Exception {
         HttpServer httpServer = configureServer(5007);
         Socket requestSocket  = configureSocket(5007, getRequest);
         BufferedReader in     = getInputStream(requestSocket);
@@ -66,7 +66,7 @@ public class HttpRequestParserTest extends TestCase {
         httpServer.stop();
     }
 
-    public void testRequestTypes() throws IOException, InterruptedException {
+    public void testRequestTypes() throws Exception {
         HttpServer httpServer = configureServer(5007);
         Socket requestSocket  = configureSocket(5007, getRequest);
         BufferedReader in     = getInputStream(requestSocket);
@@ -75,7 +75,7 @@ public class HttpRequestParserTest extends TestCase {
         httpServer.stop();
     }
 
-    public void testRequestResource() throws IOException, InterruptedException {
+    public void testRequestResource() throws Exception {
         HttpServer httpServer = configureServer(5007);
         Socket requestSocket  = configureSocket(5007, getRequest);
         BufferedReader in     = getInputStream(requestSocket);

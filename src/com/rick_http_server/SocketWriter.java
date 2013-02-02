@@ -17,6 +17,7 @@ public class SocketWriter {
     private Socket request;
     private PrintWriter outPrintStream;
     private DataOutputStream outDataStream;
+    private Logger logger = new Logger();
 
     private String HTTPVERSION   = "HTTP1/1 ";
     private String LASTMODIFIED  = "Last-Modified: ";
@@ -56,21 +57,33 @@ public class SocketWriter {
         outPrintStream.write(CRLF);
     }
 
+    public void writeLogToTerminal(String requestLine, String requestStatus) {
+        String requestSummary = requestLine + " " + requestStatus;
+        logger.request(requestSummary, dateFormat.format(new Date()));
+    }
+
     public void writeOutputToClient(String output) throws IOException {
         outDataStream.writeBytes(output);
         outDataStream.flush();
         closeRequest();
     }
 
-    public void writeFileToClient(String fileName) throws IOException {
-        FileInputStream inFileStream = new FileInputStream( new File( fileName ) );
-        byte[] buf                   = new byte[1024];
-        int count = 0;
-        while ((count = inFileStream.read(buf)) >= 0) {
-            outDataStream.write(buf, 0, count);
+    public void writeFileToClient(String fileName) {
+        try {
+            FileInputStream inFileStream = new FileInputStream( new File( fileName ) );
+            byte[] buf                   = new byte[1024];
+            int count = 0;
+            while ((count = inFileStream.read(buf)) >= 0) {
+                outDataStream.write(buf, 0, count);
+            }
+            inFileStream.close();
+            outDataStream.flush();
+            closeRequest();
+        } catch ( IOException e ) {
+            e.printStackTrace();
+        } catch ( NullPointerException f ) {
+            f.printStackTrace();
         }
-        outDataStream.flush();
-        closeRequest();
     }
 
     private void setIOStreams() throws IOException {

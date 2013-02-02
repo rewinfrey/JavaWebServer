@@ -40,7 +40,7 @@ public class HttpRequestRouterTest extends TestCase {
 
     }
 
-    public void testHttpRequestRouter() throws IOException, InterruptedException {
+    public void testHttpRequestRouter() throws Exception, IOException, InterruptedException {
         //System.setOut(new PrintStream(outContent));
         //HttpServer httpServer = configureServer(5007);
         Socket requestSocket  = configureSocket(5007, getRequest);

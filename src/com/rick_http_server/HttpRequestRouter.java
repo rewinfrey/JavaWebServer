@@ -17,7 +17,7 @@ import java.util.Date;
  * To change this template use File | Settings | File Templates.
  */
 public class HttpRequestRouter {
-    private DateFormat dateFormat = new SimpleDateFormat( "HH:mm:ss dd/MM/yyyy" );
+    private DateFormat dateFormat = new SimpleDateFormat( "HH:mm:ss:SS dd/MM/yyyy" );
 
     private Socket request;
     private BufferedReader inStream;
@@ -25,23 +25,29 @@ public class HttpRequestRouter {
 
     private HttpRequestParser httpRequestParser;
     public  Wrangler wrangler;
-    private Logger logger = new Logger();
 
-    public HttpRequestRouter(Socket request) throws IOException {
-        this.request           = request;
-        this.inStream          = new BufferedReader( new InputStreamReader( request.getInputStream() ) );
-        this.requestLine       = inStream.readLine();
-        this.httpRequestParser = new HttpRequestParser(inStream, requestLine);
-        logger.request(requestLine, dateFormat.format(new Date()));
+    public HttpRequestRouter(Socket request) {
+        try {
+            this.request           = request;
+            this.inStream          = new BufferedReader( new InputStreamReader( request.getInputStream() ) );
+            this.requestLine       = inStream.readLine();
+
+            this.httpRequestParser = new HttpRequestParser(inStream, requestLine);
+
+        } catch ( Exception e ) {
+        }
     }
 
-    public void routeRequest() throws IOException, InterruptedException {
-        if (httpRequestParser.httpRequestType().equals("GET")) {
-            this.wrangler = new GetWrangler(httpRequestParser, request);
-        } else {
-            this.wrangler = new PostWrangler(httpRequestParser, request);
-        }
+    public void routeRequest() {
+        try {
+            if (httpRequestParser.httpRequestType().equals("GET")) {
+                this.wrangler = new GetWrangler(httpRequestParser, request);
+            } else {
+                this.wrangler = new PostWrangler(httpRequestParser, request);
+            }
 
-        wrangler.process();
+            wrangler.process();
+        } catch ( Exception e ) {
+        }
     }
 }

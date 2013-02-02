@@ -15,7 +15,7 @@ import java.net.SocketException;
 public class HttpServer implements Runnable {
     private Thread serverThread;
     private ServerSocket welcomeSocket;
-    private static int port = 3000;
+    private static int port = 5813;
 
     public static void main(String[] args) throws IOException {
         parseCommands(args);
@@ -32,7 +32,6 @@ public class HttpServer implements Runnable {
         }
     }
 
-
     public HttpServer(int port) {
         this.port = port;
     }
@@ -45,12 +44,14 @@ public class HttpServer implements Runnable {
                 Thread clientThread          = new Thread(newRequest);
                 clientThread.start();
             } catch ( SocketException f ) {
+            } catch ( NullPointerException g ) {
+                System.out.println("NullPointerException caught");
             }
         }
     }
 
     public void bindServerSocket() throws IOException {
-        this.welcomeSocket = new ServerSocket(port);
+        welcomeSocket = new ServerSocket(port);
     }
 
     public void serverThreadStart() throws IOException {
@@ -86,15 +87,15 @@ public class HttpServer implements Runnable {
     @Override
     public void run() {
         try {
+            System.out.println("Server is running...please make your requests to http://localhost:"+port);
             runServer();
         } catch (IOException e) {
-            System.out.println("ServerThread run()");
             try {
                 unBindServerSocket();
             } catch (IOException e1) {
-                e1.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                e1.printStackTrace();
             }
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            e.printStackTrace();
         }
     }
 }

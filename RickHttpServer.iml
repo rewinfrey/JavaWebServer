@@ -25,6 +25,7 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="coverage" level="project" />
   </component>
 </module>
 

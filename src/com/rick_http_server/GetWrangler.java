@@ -19,7 +19,6 @@ public class GetWrangler extends Wrangler {
 
     private ResourceFetcher resourceFetcher;
 
-    private Logger logger;
 
     private String[] preDefinedRoutes = {"/", "/hello", "/time", "/form"};
 
@@ -28,7 +27,6 @@ public class GetWrangler extends Wrangler {
         this.request           = request;
         this.socketWriter      = new SocketWriter(request);
         this.resourceFetcher   = new ResourceFetcher();
-        this.logger            = new Logger();
     }
 
     @Override
@@ -80,7 +78,7 @@ public class GetWrangler extends Wrangler {
         if ( resourceExists(expandFilePath(httpRequestParser.httpRequestResource()))) {
             validFileStream(expandFilePath(httpRequestParser.httpRequestResource()));
         } else {
-           bogusFileStream();
+           bogusFileStream(httpRequestParser.httpRequestResource());
         }
     }
 
@@ -104,6 +102,7 @@ public class GetWrangler extends Wrangler {
     private void getTime() throws InterruptedException, IOException {
         Thread.sleep(1000);
         socketWriter.writeOutputToClient(dateFormat.format(new Date()));
+        socketWriter.writeLogToTerminal(httpRequestParser.requestLine, "200 OK" );
     }
 
     private void getForm() throws IOException {
@@ -141,19 +140,23 @@ public class GetWrangler extends Wrangler {
 
     private void validFileStream(String fileName) throws IOException {
         File requestedFile = new File(fileName);
-        writeFileToSocketAndLogger(fileName, requestedFile);
+        writeFileToSocket(fileName, requestedFile);
+        writeLogToTerminal("200 OK");
    }
 
-    private void bogusFileStream() throws IOException {
+    private void bogusFileStream(String fileName) throws IOException {
         File requestedFile = new File("files/404.html");
-        writeFileToSocketAndLogger("files/404.html", requestedFile);
+        writeFileToSocket("files/404.html", requestedFile);
+        writeLogToTerminal("404 NotFound");
     }
 
-    private void writeFileToSocketAndLogger(String fileName, File requestedFile) throws IOException {
+    private void writeFileToSocket(String fileName, File requestedFile) throws IOException {
         socketWriter.setResponseHeaders(mimeTypeMatcher.getMimeType(fileName), requestedFile.length() + "", requestedFile.lastModified() + "", "200 OK");
         socketWriter.writeResponseHeaders();
         socketWriter.writeFileToClient(fileName);
+    }
 
-        logger.writeFileToLog(fileName);
+    private void writeLogToTerminal(String status) {
+        socketWriter.writeLogToTerminal(httpRequestParser.requestLine, status);
     }
 }

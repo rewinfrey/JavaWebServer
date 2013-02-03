@@ -6,6 +6,7 @@ import java.io.*;
 import java.net.Socket;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 
 /**
@@ -16,17 +17,16 @@ import java.util.Date;
  * To change this template use File | Settings | File Templates.
  */
 public class SocketWriter {
-    private Socket request;
-    private PrintWriter outPrintStream;
     private DataOutputStream outDataStream;
     private Logger logger = new Logger();
 
-    private String HTTPVERSION   = "HTTP1/1 ";
+    private String HTTPVERSION   = "HTTP/1.1 ";
     private String LASTMODIFIED  = "Last-Modified: ";
     private String CONTENTTYPE   = "Content-Type: ";
     private String CONTENTLENGTH = "Content-Length: ";
     private String CONNECTION    = "Connection: close";
     private String SERVER        = "Server: BoomTown";
+    private String DATE          = "Date: ";
     private String CRLF          = "\r\n";
 
     private String httpStatus;
@@ -34,11 +34,10 @@ public class SocketWriter {
     private String contentType;
     private String contentLength;
 
-    private DateFormat dateFormat = new SimpleDateFormat( "HH:mm:ss dd/MM/yyyy" );
+    private DateFormat dateFormat = new SimpleDateFormat( "HH:mm:ss MM/dd/yyyy" );
 
-    public SocketWriter(Socket request) throws IOException {
-        this.request = request;
-        setIOStreams();
+    public SocketWriter(DataOutputStream outStream) throws IOException {
+        this.outDataStream = outStream;
     }
 
     public void setResponseHeaders(String contentType, String fileLength, String lastModified, String httpStatus) {
@@ -48,15 +47,15 @@ public class SocketWriter {
         this.httpStatus      = httpStatus;
     }
 
-    public void writeResponseHeaders() {
-        outPrintStream.write(HTTPVERSION + httpStatus + CRLF);
-        outPrintStream.write(CONNECTION + CRLF);
-        outPrintStream.write(dateFormat.format(new Date()) + CRLF);
-        outPrintStream.write(SERVER + CRLF);
-        outPrintStream.write(LASTMODIFIED + lastModified + CRLF);
-        outPrintStream.write(CONTENTTYPE + contentType + CRLF);
-        outPrintStream.write(CONTENTLENGTH + contentLength + CRLF);
-        outPrintStream.write(CRLF);
+    public void writeResponseHeaders() throws IOException {
+        outDataStream.writeBytes(HTTPVERSION + httpStatus + CRLF);
+        outDataStream.writeBytes(CONNECTION + CRLF);
+        outDataStream.writeBytes(DATE + dateFormat.format(new Date()) + CRLF);
+        outDataStream.writeBytes(SERVER + CRLF);
+        outDataStream.writeBytes(LASTMODIFIED + lastModified + CRLF);
+        outDataStream.writeBytes(CONTENTTYPE + contentType + CRLF);
+        outDataStream.writeBytes(CONTENTLENGTH + contentLength + CRLF);
+        outDataStream.writeBytes(CRLF);
     }
 
     public void writeLogToTerminal(String requestLine, String requestStatus) {
@@ -66,7 +65,6 @@ public class SocketWriter {
 
     public void writeOutputToClient(String output) throws IOException {
         outDataStream.writeBytes(output);
-        outDataStream.flush();
         closeRequest();
     }
 
@@ -88,14 +86,7 @@ public class SocketWriter {
         }
     }
 
-    private void setIOStreams() throws IOException {
-        this.outPrintStream = new PrintWriter( request.getOutputStream(), true );
-        this.outDataStream  = new DataOutputStream( request.getOutputStream() );
-    }
-
     public void closeRequest() throws IOException {
         outDataStream.close();
-        outPrintStream.close();
-        request.close();
     }
 }

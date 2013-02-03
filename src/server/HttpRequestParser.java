@@ -43,7 +43,6 @@ public class HttpRequestParser {
         while((lines != null) && (!lines.equals(""))) {
             headers.append(lines + "\r\n");
             lines = inStream.readLine();
-            System.out.println(lines);
         }
 
         return headers.toString();

@@ -11,35 +11,26 @@ import java.net.Socket;
  * To change this template use File | Settings | File Templates.
  */
 public class PostWrangler extends Wrangler {
-    private Socket request;
     private SocketWriter socketWriter;
-
     private HttpRequestParser httpRequestParser;
 
-    private ResourceFetcher resourceFetcher;
-
-    private Logger logger;
-
-    public PostWrangler(HttpRequestParser httpRequestParser, Socket request) throws IOException {
+    public PostWrangler(HttpRequestParser httpRequestParser, SocketWriter socketWriter) throws IOException {
         this.httpRequestParser = httpRequestParser;
-        this.request           = request;
-        this.httpRequestParser = httpRequestParser;
-        this.request           = request;
-        this.socketWriter      = new SocketWriter(request);
-        this.resourceFetcher   = new ResourceFetcher();
-        this.logger            = new Logger();
+        this.socketWriter      = socketWriter;
     }
 
     @Override
     public void process() throws IOException {
-        socketWriter.writeOutputToClient(constructParamsList(httpRequestParser.httpPostData()));
+        String formResult = constructParamsList(httpRequestParser.httpPostData());
+        socketWriter.writeOutputToClient(formResult);
     }
 
     public String constructParamsList(String postContent) {
+        socketWriter.writeLogToTerminal(httpRequestParser.requestLine, "200 OK");
         String[] parsedPostData = postContent.split("&");
         StringBuilder paramsString = new StringBuilder();
         for(String value: parsedPostData)
-           paramsString.append(value.replace("=", " = ") + "\r\n");
+            paramsString.append(value.replace("=", " = ") + "\r\n");
         return paramsString.toString();
     }
 }

@@ -23,12 +23,12 @@ import static junit.framework.Assert.*;
 public class RequestHandlerTest {
     static HttpServer httpServer;
     static int port = 3006;
-    static Socket mockSocket;
+    static Socket testSocket;
     RequestHandler requestHandler;
 
-    public static void mockSocket() throws IOException {
-        mockSocket = new Socket(InetAddress.getLocalHost(), port);
-        PrintWriter out = new PrintWriter( mockSocket.getOutputStream(), true);
+    public static void testSocket() throws IOException {
+        testSocket = new Socket(InetAddress.getLocalHost(), port);
+        PrintWriter out = new PrintWriter( testSocket.getOutputStream(), true);
         out.write("GET /hello HTTP/1.1\r\nHost: localhost:"+port+"\r\n");
         out.write("\r\n");
         out.flush();
@@ -39,12 +39,12 @@ public class RequestHandlerTest {
         httpServer = new HttpServer(port);
         httpServer.bindServerSocket();
         httpServer.serverThreadStart();
-        mockSocket();
+        testSocket();
     }
 
     @Before
     public void initializeRequestHandler() {
-        requestHandler = new RequestHandler(mockSocket, "test");
+        requestHandler = new RequestHandler(testSocket, "testPathToServedDir");
     }
 
     @AfterClass
@@ -54,8 +54,8 @@ public class RequestHandlerTest {
 
     @Test
     public void requestHandlerConstructor() throws IOException {
-        assertEquals(mockSocket, requestHandler.request);
-        assertEquals("test", requestHandler.directory);
+        assertEquals(testSocket, requestHandler.request);
+        assertEquals("testPathToServedDir", requestHandler.directory);
     }
 
     @Test
@@ -63,7 +63,7 @@ public class RequestHandlerTest {
         assertTrue(requestHandler.request.isConnected());
         assertNull(requestHandler.httpRequestRouter);
         requestHandler.processRequest();
-        assertNotNull(requestHandler.httpRequestRouter.wrangler);
+        assertNotNull(requestHandler.httpRequestRouter);
         assertTrue(requestHandler.request.isClosed());
     }
 
@@ -72,11 +72,12 @@ public class RequestHandlerTest {
         assertNull(requestHandler.httpRequestRouter);
         requestHandler.initializeHttpRequestRouter();
         assertNotNull(requestHandler.httpRequestRouter);
+        assertEquals(testSocket, requestHandler.httpRequestRouter.request);
     }
 /*
     @Test
     public void requestHandler() throws IOException {
-        RequestHandler requestHandler = new RequestHandler(mockSocket(), "");
+        RequestHandler requestHandler = new RequestHandler(testSocket(), "");
         String testHeaders = "GET / HTTP/1.1\r\nHost: localhost:"+port+"\r\n\r\n\r\n";
         Socket testRequest = requestHandler.request;
         PrintWriter out = new PrintWriter( new DataOutputStream(testRequest.getOutputStream()));

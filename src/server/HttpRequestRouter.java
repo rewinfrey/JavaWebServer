@@ -1,6 +1,7 @@
 package server;
 
 import java.io.BufferedReader;
+import java.io.DataOutputStream;
 import java.io.InputStreamReader;
 import java.net.Socket;
 import java.text.DateFormat;
@@ -16,18 +17,20 @@ import java.text.SimpleDateFormat;
 public class HttpRequestRouter {
     private DateFormat dateFormat = new SimpleDateFormat( "HH:mm:ss:SS dd/MM/yyyy" );
 
-    private Socket request;
-    private BufferedReader inStream;
-    private String requestLine;
-    private String directory;
+    public Socket request;
+    public BufferedReader inStream;
+    public DataOutputStream outStream;
+    public String requestLine;
+    public String directory;
 
-    private HttpRequestParser httpRequestParser;
+    public HttpRequestParser httpRequestParser;
     public Wrangler wrangler;
 
-    public HttpRequestRouter(Socket request, String directory) {
+    public HttpRequestRouter(BufferedReader inStream, DataOutputStream outStream, String directory) {
         try {
             this.request           = request;
-            this.inStream          = new BufferedReader( new InputStreamReader( request.getInputStream() ) );
+            this.inStream          = inStream;
+            this.outStream         = outStream;
             this.requestLine       = inStream.readLine();
             this.directory         = directory;
 
@@ -39,10 +42,11 @@ public class HttpRequestRouter {
 
     public void routeRequest() {
         try {
+            SocketWriter socketWriter = new SocketWriter(outStream);
             if (httpRequestParser.httpRequestType().equals("GET")) {
-                this.wrangler = new GetWrangler(httpRequestParser, request);
+                wrangler = new GetWrangler(httpRequestParser, socketWriter, directory);
             } else {
-                this.wrangler = new PostWrangler(httpRequestParser, request);
+                wrangler = new PostWrangler(httpRequestParser, socketWriter);
             }
 
             wrangler.process();

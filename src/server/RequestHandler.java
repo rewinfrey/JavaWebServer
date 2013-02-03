@@ -2,6 +2,9 @@ package server;
 
 import server.HttpRequestRouter;
 
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.InputStreamReader;
 import java.net.Socket;
 
 public class RequestHandler implements Runnable {
@@ -23,7 +26,7 @@ public class RequestHandler implements Runnable {
     }
 
     public void initializeHttpRequestRouter() throws Exception {
-        this.httpRequestRouter = new HttpRequestRouter(request, directory);
+        this.httpRequestRouter = new HttpRequestRouter(new BufferedReader( new InputStreamReader(request.getInputStream())), new DataOutputStream( request.getOutputStream()), directory);
     }
 
 

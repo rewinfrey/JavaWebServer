@@ -17,7 +17,7 @@ public class MimeTypeMatcher {
         String parsedFileEnding = requestFile.substring(index);
         String mimeType;
         if (parsedFileEnding.equals(".html")) {
-            mimeType = "text/html;charset=utf-8";
+            mimeType = "text/html; charset=UTF-8";
         } else if (parsedFileEnding.equals(".txt")) {
             mimeType = "text/plain";
         } else if (parsedFileEnding.equals(".gif")) {
@@ -28,6 +28,8 @@ public class MimeTypeMatcher {
             mimeType = "application/pdf";
         } else if (parsedFileEnding.equals(".jpg")) {
             mimeType = "image/jpg";
+        } else if (parsedFileEnding.equals(".ico")) {
+            mimeType = "image/png";
         } else {
             mimeType = "text/html;charset=UTF-8";
         }

@@ -2,6 +2,8 @@ package server;
 
 import java.io.*;
 import java.net.Socket;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -12,9 +14,9 @@ import java.util.Date;
  * To change this template use File | Settings | File Templates.
  */
 public class GetWrangler extends Wrangler {
-    private Socket request;
     private SocketWriter socketWriter;
-
+    private String directory;
+    private DateFormat dateFormat = new SimpleDateFormat( "HH:mm:ss MM/dd/yyyy" );
     private HttpRequestParser httpRequestParser;
 
     private ResourceFetcher resourceFetcher;
@@ -22,11 +24,11 @@ public class GetWrangler extends Wrangler {
 
     private String[] preDefinedRoutes = {"/", "/hello", "/time", "/form"};
 
-    public GetWrangler(HttpRequestParser httpRequestParser, Socket request) throws IOException {
+    public GetWrangler(HttpRequestParser httpRequestParser, SocketWriter socketWriter, String directory) throws IOException {
         this.httpRequestParser = httpRequestParser;
-        this.request           = request;
-        this.socketWriter      = new SocketWriter(request);
+        this.socketWriter      = socketWriter;
         this.resourceFetcher   = new ResourceFetcher();
+        this.directory         = directory;
     }
 
     @Override
@@ -92,21 +94,29 @@ public class GetWrangler extends Wrangler {
 
     private void getRoot() throws IOException {
         buildIndex();
-        validFileStream("files/index.html");
+        validFileStream(directory + "index.html");
     }
 
     private void getHello() throws IOException {
-        validFileStream("files/hello.html");
+        validFileStream("hello.html");
     }
 
     private void getTime() throws InterruptedException, IOException {
         Thread.sleep(1000);
-        socketWriter.writeOutputToClient(dateFormat.format(new Date()));
-        socketWriter.writeLogToTerminal(httpRequestParser.requestLine, "200 OK" );
+        StringBuilder timeString = new StringBuilder();
+        timeString.append("<!DOCTYPE html><html><head></head><body style=\"text-align: center; margin-top: 100px; font-size: 50px; font-family: monaco;\"><h1>\n");
+        timeString.append(dateFormat.format(new Date())+"\n");
+        timeString.append("</h1></body></html>\n");
+        socketWriter.setResponseHeaders("text/html; charset=UTF-8", timeString.length()+"", dateFormat.format(new Date()), "200 OK");
+
+        //socketWriter.writeOutputToClient(dateFormat.format(new Date()));
+        socketWriter.writeResponseHeaders();
+        socketWriter.writeOutputToClient(timeString.toString());
+        socketWriter.writeLogToTerminal(httpRequestParser.requestLine, "200 OK");
     }
 
     private void getForm() throws IOException {
-        validFileStream("files/form.html");
+        validFileStream("form.html");
     }
 
     private void buildIndex() throws IOException {
@@ -146,7 +156,7 @@ public class GetWrangler extends Wrangler {
 
     private void bogusFileStream(String fileName) throws IOException {
         File requestedFile = new File("files/404.html");
-        writeFileToSocket("files/404.html", requestedFile);
+        writeFileToSocket("404.html", requestedFile);
         writeLogToTerminal("404 NotFound");
     }
 

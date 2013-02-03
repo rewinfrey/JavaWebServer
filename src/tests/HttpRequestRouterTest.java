@@ -1,12 +1,17 @@
 package tests;
 
-import junit.framework.TestCase;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import server.GetWrangler;
 import server.HttpRequestRouter;
 import server.HttpServer;
 
 import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
+
+import static org.junit.Assert.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,65 +20,109 @@ import java.net.Socket;
  * Time: 11:56 AM
  * To change this template use File | Settings | File Templates.
  */
-public class HttpRequestRouterTest extends TestCase {
+public class HttpRequestRouterTest {
 
-   private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    static HttpServer httpGetServer;
+    static HttpServer httpPostServer;
+    static int getPort = 3010;
+    static int postPort = 3007;
+    static Socket testGetSocket;
+    static Socket testPostSocket;
 
-   String getRequest  = "GET / HTTP/1.1\r\n";
-   String postRequest = "POST / HTTP/1.1";
-
-   private HttpServer configureServer(int port) throws IOException {
-        HttpServer httpServer = new HttpServer(port);
-        httpServer.bindServerSocket();
-        httpServer.serverThreadStart();
-        return httpServer;
-   }
-
-    private Socket configureSocket(int port, String requestContent) throws IOException {
-        Socket requestSocket = new Socket(InetAddress.getLocalHost(), port);
-        PrintWriter pw = new PrintWriter(requestSocket.getOutputStream());
-        pw.write(requestContent);
-        return requestSocket;
+    @BeforeClass
+    public static void startServers() throws IOException {
+        startGetServer();
+//        startPostServer();
     }
 
-    private BufferedReader getInputStream(Socket requestSocket) throws IOException {
-        return new BufferedReader( new InputStreamReader( requestSocket.getInputStream() ) );
-
+    @AfterClass
+    public static void tearDownServers() throws IOException, InterruptedException {
+        httpGetServer.stop();
+//        httpPostServer.stop();
     }
 
-    public void testHttpRequestRouter() throws Exception, IOException, InterruptedException {
-        //System.setOut(new PrintStream(outContent));
-        //HttpServer httpServer = configureServer(5007);
-        Socket requestSocket  = configureSocket(5007, getRequest);
-        //HttpRequestRouter httpRequestRouter = new HttpRequestRouter(requestSocket);
-        //assertEquals("", outContent.toString());
-        //System.setOut(null);
-        //httpServer.stop();
+    public static void testGetSocket() throws IOException {
+        testGetSocket = new Socket(InetAddress.getLocalHost(), getPort);
+        PrintWriter out = new PrintWriter( testGetSocket.getOutputStream(), true);
+        out.write("GET /hello HTTP/1.1\r\nHost: localhost:"+getPort+"\r\n");
+        out.write("\r\n");
+        out.flush();
+    }
+
+    public static Socket testMockSocket() throws IOException {
+        Socket tempSocket = new Socket();
+        PrintWriter out = new PrintWriter( tempSocket.getOutputStream(), true);
+        out.write("GET /hello HTTP/1.1\r\nHost: localhost:"+getPort+"\r\n");
+        out.write("\r\n");
+        out.flush();
+        return tempSocket;
+    }
+
+    public static void testPostSocket() throws IOException {
+        testPostSocket = new Socket(InetAddress.getLocalHost(), postPort);
+        PrintWriter out = new PrintWriter( testPostSocket.getOutputStream(), true);
+        out.write("POST /form HTTP/1.1\r\nHost: localhost:"+postPort+"\r\n");
+        out.write("Content-Type: application/x-www-form-urlencoded\r\n");
+        out.write("Content-Length: 35\r\n");
+        out.write("\r\n");
+        out.write("one=BigBird&two=Oscar&three=Grover\r\n");
+        out.write("\r\n");
+        out.flush();
+    }
+
+    public static void startGetServer() throws IOException {
+        httpGetServer = new HttpServer(getPort);
+        httpGetServer.bindServerSocket();
+        httpGetServer.serverThreadStart();
+        testGetSocket();
+    }
+
+    public static void startPostServer() throws IOException {
+        httpPostServer = new HttpServer(postPort);
+        httpPostServer.bindServerSocket();
+        httpPostServer.serverThreadStart();
+        testPostSocket();
+    }
+
+    @Test
+    public void httpGetRequestRouter() throws IOException, InterruptedException {
+ //       testGetSocket();
+        HttpRequestRouter httpRequestRouter = new HttpRequestRouter(new BufferedReader( new InputStreamReader(testGetSocket.getInputStream())), new DataOutputStream(testGetSocket.getOutputStream()), "testServedDir");
+        assertNotNull(httpRequestRouter.request);
+        assertNotNull(httpRequestRouter.directory);
+        assertNotNull(httpRequestRouter.inStream);
+        assertNotNull(httpRequestRouter.requestLine);
+        assertNotNull(httpRequestRouter.httpRequestParser);
+    }
+
+    @Test
+    public void httpGetWranglerCreated() throws IOException {
+        MockGetSocket tempSocket = new MockGetSocket(InetAddress.getLocalHost(), 3008);
+        HttpRequestRouter httpRequestRouter = new HttpRequestRouter(new BufferedReader( new InputStreamReader(tempSocket.getInputStream())), new DataOutputStream(tempSocket.getOutputStream()), "testServedDir");
+        assertNull(httpRequestRouter.wrangler);
+        assertEquals("GET", httpRequestRouter.httpRequestParser.httpRequestType());
+        assertNotNull(httpRequestRouter.httpRequestParser);
+        httpRequestRouter.routeRequest();
+        //httpRequestRouter.wrangler = new GetWrangler(httpRequestRouter.httpRequestParser, tempSocket);
+        assertNotNull(httpRequestRouter.wrangler);
     }
 /*
-    public void testGetRouteRequest() throws IOException {
-        HttpServer httpServer = configureServer(5007);
-        Socket requestSocket  = configureSocket(5007, getRequest);
-        BufferedReader in     = getInputStream(requestSocket);
-        HttpRequestRouter httpRequestRouter = new HttpRequestRouter(requestSocket);
-        assertEquals("GetWranger", httpRequestRouter.wrangler.getClass().toString());
+    @Test
+    public void httpPostRequestRouter() throws IOException {
+        HttpRequestRouter httpRequestRouter = new HttpRequestRouter(testPostSocket, "testServedDir");
+        assertNotNull(httpRequestRouter.request);
+        assertNotNull(httpRequestRouter.directory);
+        assertNotNull(httpRequestRouter.inStream);
+        assertNotNull(httpRequestRouter.requestLine);
+        assertNotNull(httpRequestRouter.httpRequestParser);
     }
 
-    public void testPostRouteRequest() throws IOException {
-        HttpServer httpServer = configureServer(5007);
-        Socket requestSocket  = configureSocket(5007, postRequest);
-        BufferedReader in     = getInputStream(requestSocket);
-        HttpRequestRouter httpRequestRouter = new HttpRequestRouter(requestSocket);
-        assertEquals("PostWranger", httpRequestRouter.wrangler.getClass().toString());
+    @Test
+    public void httpPostWranglerCreated() throws IOException {
+        testPostSocket();
+        HttpRequestRouter httpRequestRouter = new HttpRequestRouter(testPostSocket, "testServedDir");
+        httpRequestRouter.routeRequest();
+        assertEquals("class server.PostWrangler", httpRequestRouter.wrangler.getClass().toString());
     }
-/*
-    public void routeRequest() throws IOException, InterruptedException {
-        if (httpRequestParser.httpRequestType().equals("GET")) {
-            this.wrangler = new GetWrangler(httpRequestParser, request);
-        } else {
-            this.wrangler = new PostWrangler(httpRequestParser, request);
-        }
-
-        wrangler.process();
-    }*/
+    */
 }

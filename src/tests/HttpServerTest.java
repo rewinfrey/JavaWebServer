@@ -12,9 +12,10 @@ import server.HttpServer;
  * To change this template use File | Settings | File Templates.
  */
 public class HttpServerTest extends TestCase {
+    String testDirectory = "/Users/rickwinfrey/IdeaProjects/RickHttpServer/files/";
 
     private HttpServer serverFactory(int port) throws Exception {
-        return new HttpServer(port);
+        return new HttpServer(port, testDirectory);
     }
 
     public void testServerSocketIsBound() throws Exception {

@@ -17,6 +17,7 @@ import java.util.Date;
  * To change this template use File | Settings | File Templates.
  */
 public class SocketWriter {
+    private OutputStreamWriter outStreamWriter;
     private DataOutputStream outDataStream;
     private Logger logger = new Logger();
 
@@ -36,8 +37,9 @@ public class SocketWriter {
 
     private DateFormat dateFormat = new SimpleDateFormat( "HH:mm:ss MM/dd/yyyy" );
 
-    public SocketWriter(DataOutputStream outStream) throws IOException {
-        this.outDataStream = outStream;
+    public SocketWriter(DataOutputStream outDataStream, OutputStreamWriter outStreamWriter) throws IOException {
+        this.outDataStream = outDataStream;
+        this.outStreamWriter = outStreamWriter;
     }
 
     public void setResponseHeaders(String contentType, String fileLength, String lastModified, String httpStatus) {
@@ -48,14 +50,14 @@ public class SocketWriter {
     }
 
     public void writeResponseHeaders() throws IOException {
-        outDataStream.writeBytes(HTTPVERSION + httpStatus + CRLF);
-        outDataStream.writeBytes(CONNECTION + CRLF);
-        outDataStream.writeBytes(DATE + dateFormat.format(new Date()) + CRLF);
-        outDataStream.writeBytes(SERVER + CRLF);
-        outDataStream.writeBytes(LASTMODIFIED + lastModified + CRLF);
-        outDataStream.writeBytes(CONTENTTYPE + contentType + CRLF);
-        outDataStream.writeBytes(CONTENTLENGTH + contentLength + CRLF);
-        outDataStream.writeBytes(CRLF);
+        outStreamWriter.write(HTTPVERSION + httpStatus + CRLF);
+        outStreamWriter.write(CONNECTION + CRLF);
+        outStreamWriter.write(DATE + dateFormat.format(new Date()) + CRLF);
+        outStreamWriter.write(SERVER + CRLF);
+        outStreamWriter.write(LASTMODIFIED + lastModified + CRLF);
+        outStreamWriter.write(CONTENTTYPE + contentType + CRLF);
+        outStreamWriter.write(CONTENTLENGTH + contentLength + CRLF);
+        outStreamWriter.write(CRLF);
     }
 
     public void writeLogToTerminal(String requestLine, String requestStatus) {
@@ -64,7 +66,10 @@ public class SocketWriter {
     }
 
     public void writeOutputToClient(String output) throws IOException {
-        outDataStream.writeBytes(output);
+        System.out.println(output);
+        outStreamWriter.write(output);
+        outStreamWriter.flush();
+        //outDataStream.writeUTF(output);
         closeRequest();
     }
 
@@ -73,9 +78,11 @@ public class SocketWriter {
             FileInputStream inFileStream = new FileInputStream( new File( fileName ) );
             byte[] buf                   = new byte[1024];
             int count = 0;
+
             while ((count = inFileStream.read(buf)) >= 0) {
-                outDataStream.write(buf, 0, count);
+               outDataStream.write(buf, 0, count);
             }
+
             inFileStream.close();
             outDataStream.flush();
             closeRequest();
@@ -87,6 +94,7 @@ public class SocketWriter {
     }
 
     public void closeRequest() throws IOException {
+        outStreamWriter.close();
         outDataStream.close();
     }
 }

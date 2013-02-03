@@ -10,7 +10,9 @@ import java.io.File;
  * To change this template use File | Settings | File Templates.
  */
 public class ResourceFetcher {
-    public ResourceFetcher() {
+    public String directory;
+    public ResourceFetcher(String directory) {
+        this.directory = directory;
     }
 
     public boolean processRequest(String resource) throws Exception {
@@ -23,6 +25,9 @@ public class ResourceFetcher {
     }
 
     public String expandedPath(String resource) {
-        return resource.replace("/", "files/");
+        String temp = resource.replaceFirst("/", directory + "/");
+        System.out.println("in extendedPath");
+        System.out.println(temp);
+        return temp;
     }
 }

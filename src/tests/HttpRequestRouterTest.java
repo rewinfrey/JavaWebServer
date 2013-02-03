@@ -21,7 +21,7 @@ import static org.junit.Assert.*;
  * To change this template use File | Settings | File Templates.
  */
 public class HttpRequestRouterTest {
-
+/*
     static HttpServer httpGetServer;
     static HttpServer httpPostServer;
     static int getPort = 3010;

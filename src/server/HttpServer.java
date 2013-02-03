@@ -16,11 +16,11 @@ public class HttpServer implements Runnable {
     private Thread serverThread;
     private ServerSocket welcomeSocket;
     private static int port = 5813;
-    private static String directory = "/Users/rickwinfrey/IdeaProjects/RickHttpServer/files/";
+    private static String directory = "/Users/rickwinfrey/play/files";
 
     public static void main(String[] args) throws IOException {
         parseCommands(args);
-        HttpServer server = new HttpServer(port);
+        HttpServer server = new HttpServer(port, directory);
         server.bindServerSocket();
         server.serverThreadStart();
     }
@@ -29,12 +29,15 @@ public class HttpServer implements Runnable {
         for(int i=0; i < args.length; i++ ) {
             if (args[i].equals("-p")) {
                 port = Integer.parseInt(args[i+1]);
+            } else if (args[i].equals("-d")) {
+                directory = args[i + 1];
             }
         }
     }
 
-    public HttpServer(int port) {
+    public HttpServer(int port, String directory) {
         this.port = port;
+        this.directory = directory;
     }
 
     public void runServer() throws IOException {

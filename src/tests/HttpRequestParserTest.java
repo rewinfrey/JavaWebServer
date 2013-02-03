@@ -37,7 +37,7 @@ public class HttpRequestParserTest extends TestCase {
             "\n";
             //"\n" +
             //"Post-Data: first_name=Rick&last_name=Winfrey\n";
-
+/*
     private HttpServer configureServer(int port) throws IOException {
         HttpServer httpServer = new HttpServer(port);
         httpServer.bindServerSocket();

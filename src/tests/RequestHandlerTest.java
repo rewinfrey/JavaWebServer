@@ -24,6 +24,8 @@ public class RequestHandlerTest {
     static HttpServer httpServer;
     static int port = 3006;
     static Socket testSocket;
+
+    static String testDirectory = "/Users/rickwinfrey/IdeaProjects/RickHttpServer/files/";
     RequestHandler requestHandler;
 
     public static void testSocket() throws IOException {
@@ -36,7 +38,7 @@ public class RequestHandlerTest {
 
     @BeforeClass
     public static void startServer() throws IOException {
-        httpServer = new HttpServer(port);
+        httpServer = new HttpServer(port, testDirectory);
         httpServer.bindServerSocket();
         httpServer.serverThreadStart();
         testSocket();
@@ -44,7 +46,7 @@ public class RequestHandlerTest {
 
     @Before
     public void initializeRequestHandler() {
-        requestHandler = new RequestHandler(testSocket, "testPathToServedDir");
+        requestHandler = new RequestHandler(testSocket, testDirectory);
     }
 
     @AfterClass
@@ -55,7 +57,7 @@ public class RequestHandlerTest {
     @Test
     public void requestHandlerConstructor() throws IOException {
         assertEquals(testSocket, requestHandler.request);
-        assertEquals("testPathToServedDir", requestHandler.directory);
+        assertEquals(testDirectory, requestHandler.directory);
     }
 
     @Test
@@ -66,7 +68,7 @@ public class RequestHandlerTest {
         assertNotNull(requestHandler.httpRequestRouter);
         assertTrue(requestHandler.request.isClosed());
     }
-
+/*
     @Test
     public void initializeHttpRequestRouter() throws Exception {
         assertNull(requestHandler.httpRequestRouter);
@@ -74,6 +76,7 @@ public class RequestHandlerTest {
         assertNotNull(requestHandler.httpRequestRouter);
         assertEquals(testSocket, requestHandler.httpRequestRouter.request);
     }
+    */
 /*
     @Test
     public void requestHandler() throws IOException {

@@ -5,6 +5,7 @@ import server.HttpRequestRouter;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.net.Socket;
 
 public class RequestHandler implements Runnable {
@@ -26,7 +27,11 @@ public class RequestHandler implements Runnable {
     }
 
     public void initializeHttpRequestRouter() throws Exception {
-        this.httpRequestRouter = new HttpRequestRouter(new BufferedReader( new InputStreamReader(request.getInputStream())), new DataOutputStream( request.getOutputStream()), directory);
+        DataOutputStream outDataStream        = new DataOutputStream( request.getOutputStream());
+        OutputStreamWriter outputStreamWriter = new OutputStreamWriter( request.getOutputStream(), "UTF-8");
+        BufferedReader bufferedReader = new BufferedReader( new InputStreamReader( request.getInputStream()));
+
+        this.httpRequestRouter = new HttpRequestRouter(bufferedReader, outDataStream, outputStreamWriter, directory);
     }
 
 

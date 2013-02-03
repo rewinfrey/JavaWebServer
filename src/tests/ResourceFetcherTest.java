@@ -11,7 +11,8 @@ import server.ResourceFetcher;
  * To change this template use File | Settings | File Templates.
  */
 public class ResourceFetcherTest extends TestCase {
-    ResourceFetcher resourceFetcher = new ResourceFetcher();
+    String testDirectory = "/Users/rickwinfrey/IdeaProjects/RickHttpServer/files/";
+    ResourceFetcher resourceFetcher = new ResourceFetcher(testDirectory);
 
     public void testProcessRequest() throws Exception {
         assertTrue(resourceFetcher.processRequest("/hello.html"));

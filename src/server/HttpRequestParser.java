@@ -18,9 +18,9 @@ public class HttpRequestParser {
     String[] requestLineArray;
     StringBuilder headers;
 
-    public HttpRequestParser(BufferedReader inStream, String requestLine) throws Exception {
+    public HttpRequestParser(BufferedReader inStream) throws Exception {
         this.inStream         = inStream;
-        this.requestLine      = requestLine;
+        this.requestLine      = this.inStream.readLine();
         this.requestLineArray = parseRequest();
     }
 

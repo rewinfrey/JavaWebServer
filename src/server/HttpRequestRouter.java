@@ -3,6 +3,7 @@ package server;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.net.Socket;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -17,32 +18,30 @@ import java.text.SimpleDateFormat;
 public class HttpRequestRouter {
     private DateFormat dateFormat = new SimpleDateFormat( "HH:mm:ss:SS dd/MM/yyyy" );
 
-    public Socket request;
     public BufferedReader inStream;
-    public DataOutputStream outStream;
+    public DataOutputStream outDataStream;
+    public OutputStreamWriter outputStreamWriter;
     public String requestLine;
     public String directory;
 
     public HttpRequestParser httpRequestParser;
     public Wrangler wrangler;
 
-    public HttpRequestRouter(BufferedReader inStream, DataOutputStream outStream, String directory) {
+    public HttpRequestRouter(BufferedReader inStream, DataOutputStream outDataStream, OutputStreamWriter outputStreamWriter, String directory) {
         try {
-            this.request           = request;
             this.inStream          = inStream;
-            this.outStream         = outStream;
-            this.requestLine       = inStream.readLine();
+            this.outputStreamWriter = outputStreamWriter;
+            this.outDataStream     = outDataStream;
             this.directory         = directory;
 
-            this.httpRequestParser = new HttpRequestParser(inStream, requestLine);
-
+            this.httpRequestParser = new HttpRequestParser(inStream);
         } catch ( Exception e ) {
         }
     }
 
     public void routeRequest() {
         try {
-            SocketWriter socketWriter = new SocketWriter(outStream);
+            SocketWriter socketWriter = new SocketWriter(outDataStream, outputStreamWriter);
             if (httpRequestParser.httpRequestType().equals("GET")) {
                 wrangler = new GetWrangler(httpRequestParser, socketWriter, directory);
             } else {

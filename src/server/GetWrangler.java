@@ -18,6 +18,7 @@ public class GetWrangler extends Wrangler {
     private String directory;
     private DateFormat dateFormat = new SimpleDateFormat( "HH:mm:ss MM/dd/yyyy" );
     private HttpRequestParser httpRequestParser;
+    private HttpGenerator httpGenerator = new HttpGenerator();
 
     private ResourceFetcher resourceFetcher;
 
@@ -27,7 +28,7 @@ public class GetWrangler extends Wrangler {
     public GetWrangler(HttpRequestParser httpRequestParser, SocketWriter socketWriter, String directory) throws IOException {
         this.httpRequestParser = httpRequestParser;
         this.socketWriter      = socketWriter;
-        this.resourceFetcher   = new ResourceFetcher();
+        this.resourceFetcher   = new ResourceFetcher(directory);
         this.directory         = directory;
     }
 
@@ -60,7 +61,7 @@ public class GetWrangler extends Wrangler {
     private void processPredefinedRoute(int route) throws IOException, InterruptedException {
         switch(route) {
             case 0:
-                getRoot();
+                getRoot(directory);
                 break;
             case 1:
                 getHello();
@@ -77,11 +78,19 @@ public class GetWrangler extends Wrangler {
     }
 
     private void processRoute() throws IOException {
-        if ( resourceExists(expandFilePath(httpRequestParser.httpRequestResource()))) {
+        if ( isDirectory(directory + httpRequestParser.httpRequestResource())) {
+            getRoot(directory + httpRequestParser.httpRequestResource());
+        } else  if ( resourceExists(expandFilePath(httpRequestParser.httpRequestResource()))) {
             validFileStream(expandFilePath(httpRequestParser.httpRequestResource()));
         } else {
            bogusFileStream(httpRequestParser.httpRequestResource());
         }
+    }
+
+    private boolean isDirectory(String dir) {
+        System.out.println(dir);
+        File currDir = new File(dir);
+        return currDir.isDirectory();
     }
 
     private boolean resourceExists(String resource) {
@@ -92,61 +101,33 @@ public class GetWrangler extends Wrangler {
         return resourceFetcher.expandedPath(resource);
     }
 
-    private void getRoot() throws IOException {
-        buildIndex();
-        validFileStream(directory + "index.html");
+    private void getRoot(String dir) throws IOException {
+        String htmlString = httpGenerator.generateIndex(dir, directory);
+        outToSocket(htmlString, "200 OK");
     }
 
     private void getHello() throws IOException {
-        validFileStream("hello.html");
+        validFileStream(directory + "/hello.html");
     }
 
     private void getTime() throws InterruptedException, IOException {
         Thread.sleep(1000);
-        StringBuilder timeString = new StringBuilder();
-        timeString.append("<!DOCTYPE html><html><head></head><body style=\"text-align: center; margin-top: 100px; font-size: 50px; font-family: monaco;\"><h1>\n");
-        timeString.append(dateFormat.format(new Date())+"\n");
-        timeString.append("</h1></body></html>\n");
-        socketWriter.setResponseHeaders("text/html; charset=UTF-8", timeString.length()+"", dateFormat.format(new Date()), "200 OK");
+        String htmlString = httpGenerator.generateTime();
+        outToSocket(htmlString, "200 OK");
+    }
 
-        //socketWriter.writeOutputToClient(dateFormat.format(new Date()));
+    private void outToSocket(String outString, String outStatus) throws IOException {
+        socketWriter.setResponseHeaders("text/html; charset=UTF-8", outString.getBytes().length+"", dateFormat.format(new Date()), outStatus);
         socketWriter.writeResponseHeaders();
-        socketWriter.writeOutputToClient(timeString.toString());
-        socketWriter.writeLogToTerminal(httpRequestParser.requestLine, "200 OK");
+        socketWriter.writeOutputToClient(outString);
+        socketWriter.writeLogToTerminal(httpRequestParser.requestLine, outStatus);
     }
 
     private void getForm() throws IOException {
-        validFileStream("form.html");
+        String htmlString = httpGenerator.generateForm();
+        outToSocket(htmlString, "200 OK");
     }
 
-    private void buildIndex() throws IOException {
-        BufferedWriter fOut = new BufferedWriter ( new FileWriter("files/index.html") );
-
-        fOut.write("<!DOCTYPE HTML><html><head></head><body><h1>Index</h1>\n");
-        File directory = new File("files/");
-        File[] files = directory.listFiles();
-        for ( int index = 0; index < files.length; index++) {
-            fOut.write("<a href=\"" + files[index].getName() + "\">" + files[index].getName() + "</a><br />\n");
-        }
-        fOut.write("</body></html>");
-        fOut.flush();
-        fOut.close();
-    }
-
-    private void buildForm() throws IOException {
-        BufferedWriter fOut = new BufferedWriter ( new FileWriter("files/form.html") );
-
-        fOut.write("<!DOCTYPE HTML><html><head></head><body><div style=\"margin: auto; width: 206px;\"><h1 style=\"text-align: center;\">Form!</h1>\n");
-        fOut.write("<form action=\"/form\" method=\"post\">");
-        fOut.write("<ul style=\"list-style: none;\">");
-        fOut.write("<li style=\"margin-top: 20px;\"><label for=\"name1\"></label><input type=\"text\" name=\"name1\" value=\"one\"></li>");
-        fOut.write("<li style=\"margin-top: 20px;\"><label for=\"name2\"></label><input type=\"text\" name=\"name2\" value=\"two\"></li>");
-        fOut.write("<li style=\"margin-top: 20px;\"><label for=\"name3\"></label><input type=\"text\" name=\"name3\" value=\"three\"></li>");
-        fOut.write("<input style=\"width: 80px; margin: 20px 22px;\" type=\"submit\" />");
-        fOut.write("</ul></form></div></body></html>");
-        fOut.flush();
-        fOut.close();
-    }
 
     private void validFileStream(String fileName) throws IOException {
         File requestedFile = new File(fileName);
@@ -155,9 +136,10 @@ public class GetWrangler extends Wrangler {
    }
 
     private void bogusFileStream(String fileName) throws IOException {
-        File requestedFile = new File("files/404.html");
-        writeFileToSocket("404.html", requestedFile);
-        writeLogToTerminal("404 NotFound");
+        System.out.println("preparing 404 string");
+        String notFoundHtml = httpGenerator.generate404();
+        System.out.println(notFoundHtml);
+        outToSocket(notFoundHtml, "404 Not Found");
     }
 
     private void writeFileToSocket(String fileName, File requestedFile) throws IOException {

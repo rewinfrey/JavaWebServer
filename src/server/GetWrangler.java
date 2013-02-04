@@ -88,6 +88,7 @@ public class GetWrangler extends Wrangler {
     }
 
     private boolean isDirectory(String dir) {
+        System.out.println("\nGeWrangler # isDirectory()");
         System.out.println(dir);
         File currDir = new File(dir);
         return currDir.isDirectory();
@@ -107,7 +108,8 @@ public class GetWrangler extends Wrangler {
     }
 
     private void getHello() throws IOException {
-        validFileStream(directory + "/hello.html");
+        String htmlString = httpGenerator.generateHello();
+        outToSocket(htmlString, "200 OK");
     }
 
     private void getTime() throws InterruptedException, IOException {
@@ -136,13 +138,14 @@ public class GetWrangler extends Wrangler {
    }
 
     private void bogusFileStream(String fileName) throws IOException {
-        System.out.println("preparing 404 string");
+        System.out.println("\nGetWranger # preparing 404 string");
         String notFoundHtml = httpGenerator.generate404();
         System.out.println(notFoundHtml);
         outToSocket(notFoundHtml, "404 Not Found");
     }
 
     private void writeFileToSocket(String fileName, File requestedFile) throws IOException {
+        System.out.println("Requested file content-length: "+requestedFile.length());
         socketWriter.setResponseHeaders(mimeTypeMatcher.getMimeType(fileName), requestedFile.length() + "", requestedFile.lastModified() + "", "200 OK");
         socketWriter.writeResponseHeaders();
         socketWriter.writeFileToClient(fileName);

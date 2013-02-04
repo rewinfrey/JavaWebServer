@@ -25,7 +25,7 @@ public class SocketWriter {
     private String LASTMODIFIED  = "Last-Modified: ";
     private String CONTENTTYPE   = "Content-Type: ";
     private String CONTENTLENGTH = "Content-Length: ";
-    private String CONNECTION    = "Connection: close";
+    private String CONNECTION    = "Connection: keep-alive";
     private String SERVER        = "Server: BoomTown";
     private String DATE          = "Date: ";
     private String CRLF          = "\r\n";
@@ -50,14 +50,14 @@ public class SocketWriter {
     }
 
     public void writeResponseHeaders() throws IOException {
-        outStreamWriter.write(HTTPVERSION + httpStatus + CRLF);
-        outStreamWriter.write(CONNECTION + CRLF);
-        outStreamWriter.write(DATE + dateFormat.format(new Date()) + CRLF);
-        outStreamWriter.write(SERVER + CRLF);
-        outStreamWriter.write(LASTMODIFIED + lastModified + CRLF);
-        outStreamWriter.write(CONTENTTYPE + contentType + CRLF);
-        outStreamWriter.write(CONTENTLENGTH + contentLength + CRLF);
-        outStreamWriter.write(CRLF);
+        outDataStream.writeBytes(HTTPVERSION + httpStatus + CRLF);
+        outDataStream.writeBytes(CONNECTION + CRLF);
+        outDataStream.writeBytes(DATE + dateFormat.format(new Date()) + CRLF);
+        outDataStream.writeBytes(SERVER + CRLF);
+        outDataStream.writeBytes(LASTMODIFIED + lastModified + CRLF);
+        outDataStream.writeBytes(CONTENTTYPE + contentType + CRLF);
+        outDataStream.writeBytes(CONTENTLENGTH + contentLength + CRLF);
+        outDataStream.writeBytes(CRLF);
     }
 
     public void writeLogToTerminal(String requestLine, String requestStatus) {
@@ -66,10 +66,9 @@ public class SocketWriter {
     }
 
     public void writeOutputToClient(String output) throws IOException {
+        System.out.println("\nSocketWriter # writeOutputToClient()");
         System.out.println(output);
         outStreamWriter.write(output);
-        outStreamWriter.flush();
-        //outDataStream.writeUTF(output);
         closeRequest();
     }
 
@@ -84,7 +83,6 @@ public class SocketWriter {
             }
 
             inFileStream.close();
-            outDataStream.flush();
             closeRequest();
         } catch ( IOException e ) {
             e.printStackTrace();
@@ -94,7 +92,9 @@ public class SocketWriter {
     }
 
     public void closeRequest() throws IOException {
+        outStreamWriter.flush();
         outStreamWriter.close();
+        outDataStream.flush();
         outDataStream.close();
     }
 }

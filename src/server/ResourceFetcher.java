@@ -26,8 +26,6 @@ public class ResourceFetcher {
 
     public String expandedPath(String resource) {
         String temp = resource.replaceFirst("/", directory + "/");
-        System.out.println("in extendedPath");
-        System.out.println(temp);
         return temp;
     }
 }

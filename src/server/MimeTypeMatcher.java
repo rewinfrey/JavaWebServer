@@ -1,5 +1,11 @@
 package server;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import static java.util.Arrays.asList;
+
 /**
  * Created with IntelliJ IDEA.
  * User: rickwinfrey
@@ -14,11 +20,12 @@ public class MimeTypeMatcher {
 
     public String getMimeType(String requestFile) {
         int index = requestFile.lastIndexOf('.');
-        String parsedFileEnding = requestFile.substring(index);
+        String parsedFileEnding = requestFile.substring(index).toLowerCase();
         String mimeType;
-        if (parsedFileEnding.equals(".html")) {
+        List<String> plain = asList(".txt", ".rb", ".java", ".php", ".coffee");
+        if (parsedFileEnding.contains(".html")) {
             mimeType = "text/html; charset=UTF-8";
-        } else if (parsedFileEnding.equals(".txt")) {
+        } else if (plain.contains(parsedFileEnding)) {
             mimeType = "text/plain";
         } else if (parsedFileEnding.equals(".gif")) {
             mimeType = "image/gif";
@@ -31,7 +38,7 @@ public class MimeTypeMatcher {
         } else if (parsedFileEnding.equals(".ico")) {
             mimeType = "image/png";
         } else {
-            mimeType = "text/html;charset=UTF-8";
+            mimeType = "text/html; charset=UTF-8";
         }
         return mimeType;
     }

@@ -14,22 +14,15 @@ import java.util.Date;
  * To change this template use File | Settings | File Templates.
  */
 public class GetWrangler extends Wrangler {
-    private SocketWriter socketWriter;
-    private String directory;
-    private DateFormat dateFormat = new SimpleDateFormat( "HH:mm:ss MM/dd/yyyy" );
-    private HttpRequestParser httpRequestParser;
-    private HttpGenerator httpGenerator = new HttpGenerator();
-
-    private ResourceFetcher resourceFetcher;
-
 
     private String[] preDefinedRoutes = {"/", "/hello", "/time", "/form"};
-
+    private ResourceFetcher resourceFetcher;
     public GetWrangler(HttpRequestParser httpRequestParser, SocketWriter socketWriter, String directory) throws IOException {
-        this.httpRequestParser = httpRequestParser;
+        super(httpRequestParser, socketWriter, directory);
+/*        this.httpRequestParser = httpRequestParser;
         this.socketWriter      = socketWriter;
+        this.directory         = directory;*/
         this.resourceFetcher   = new ResourceFetcher(directory);
-        this.directory         = directory;
     }
 
     @Override
@@ -79,12 +72,22 @@ public class GetWrangler extends Wrangler {
 
     private void processRoute() throws IOException {
         if ( isDirectory(directory + httpRequestParser.httpRequestResource())) {
-            getRoot(directory + httpRequestParser.httpRequestResource());
-        } else  if ( resourceExists(expandFilePath(httpRequestParser.httpRequestResource()))) {
-            validFileStream(expandFilePath(httpRequestParser.httpRequestResource()));
+           getRoot(directory + httpRequestParser.httpRequestResource());
+        } else if ( resourceExists(expandFilePath(httpRequestParser.httpRequestResource()))) {
+           validFileStream(expandFilePath(httpRequestParser.httpRequestResource()));
+        } else if ( httpRequestParser.httpRequestResource().startsWith("/form?")) {
+           getPostUriParams();
         } else {
            bogusFileStream(httpRequestParser.httpRequestResource());
         }
+    }
+
+    private void getPostUriParams() throws IOException {
+        StringBuilder postParams = new StringBuilder();
+        String temp = httpRequestParser.httpRequestResource();
+        String params = temp.replace("/form?", "");
+        String htmlParams = httpGenerator.generateFormParams(params);
+        outToSocket(htmlParams, "200 OK");
     }
 
     private boolean isDirectory(String dir) {
@@ -116,13 +119,6 @@ public class GetWrangler extends Wrangler {
         Thread.sleep(1000);
         String htmlString = httpGenerator.generateTime();
         outToSocket(htmlString, "200 OK");
-    }
-
-    private void outToSocket(String outString, String outStatus) throws IOException {
-        socketWriter.setResponseHeaders("text/html; charset=UTF-8", outString.getBytes().length+"", dateFormat.format(new Date()), outStatus);
-        socketWriter.writeResponseHeaders();
-        socketWriter.writeOutputToClient(outString);
-        socketWriter.writeLogToTerminal(httpRequestParser.requestLine, outStatus);
     }
 
     private void getForm() throws IOException {

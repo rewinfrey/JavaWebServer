@@ -16,7 +16,7 @@ public class HttpServer implements Runnable {
     private Thread serverThread;
     private ServerSocket welcomeSocket;
     private static int port = 5813;
-    private static String directory = "/Users/rickwinfrey/play/files";
+    private static String directory = "/Users/rickwinfrey/play";
 
     public static void main(String[] args) throws IOException {
         parseCommands(args);
@@ -49,7 +49,6 @@ public class HttpServer implements Runnable {
                 clientThread.start();
             } catch ( SocketException f ) {
             } catch ( NullPointerException g ) {
-                System.out.println("NullPointerException caught");
             }
         }
     }

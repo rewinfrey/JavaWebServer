@@ -22,7 +22,7 @@ public class HttpGenerator {
     public String generate404() {
         StringBuilder notFoundString = new StringBuilder();
         notFoundString.append("<!DOCTYPE html><html><head><title>404</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /></head>\n");
-        notFoundString.append("<body style=\"background-color: #171717; color: whitesmoke;\"><h1 style=\"margin: 100px auto 20px auto; width: 1080px; font-size: 60px;\">探しているページが見つかられません！</h1>\n");
+        notFoundString.append("<body style=\"background-color: #171717; color: whitesmoke;\"><h1 style=\"margin: 100px auto 20px auto; width: 1080px; font-size: 60px;\">探しているページが見つけられません！</h1>\n");
         notFoundString.append("<h1 style=\"margin: 0px auto 50px auto; width: 1080px; font-size: 30px; text-align: center;\">Error 404. The page you are looking for cannot be found</h1>\n");
         notFoundString.append("<div style=\"text-align: center; font-size: 30px;\">\n");
         notFoundString.append("<p>うつくしいものを</p><p>うつくしいとおもえる</p><p>こころが</p>\n");
@@ -60,7 +60,7 @@ public class HttpGenerator {
     public String generateIndex(String currDirectory, String rootDirectory) {
         StringBuilder indexString = new StringBuilder();
         indexString.append(generateHtmlHead());
-        indexString.append("<h1>Index</h1>");
+        indexString.append("<h2 style=\"margin-left: 210px; font-weight: 500; margin-top: 100px;\">Current Location: "+currDirectory+"</h2>");
         indexString.append(generateFileListing(currDirectory, rootDirectory));
         indexString.append(generateHtmlEnd());
         return indexString.toString();
@@ -73,17 +73,35 @@ public class HttpGenerator {
         File[] files = nextDir.listFiles();
 
         for(File dirFile: files) {
+            indexString.append("<div style=\"margin-top: 12px;\">");
             if (dirFile.isDirectory()) {
-                indexString.append("<a href=\""+ tempHrefBase + "/" + dirFile.getName() + "\">" + dirFile.getName() + "/</a><br />\n");
+                indexString.append("<a style=\"margin-top: 12px; margin-left: 220px; text-decoration: none; color: #766F67;\" href=\""+ tempHrefBase + "/" + dirFile.getName() + "\">" + dirFile.getName() + "/</a>");
             } else {
-                indexString.append("<a href=\""+ tempHrefBase + "/" + dirFile.getName() + "\">" + dirFile.getName() + "</a><br />\n");
+                indexString.append("<a style=\"margin-top: 12px; margin-left: 220px; text-decoration: none; color: #A89E92;\" href=\""+ tempHrefBase + "/" + dirFile.getName() + "\">" + dirFile.getName() + "</a>");
             }
+            indexString.append("</div>");
         }
         return indexString.toString();
     }
 
+    public String generateFormParams(String unSplitParams) {
+        StringBuilder formParams = new StringBuilder();
+        formParams.append(generateHtmlHead());
+        formParams.append("<div style=\"width: 400px; margin: 60px auto 0 auto;\">");
+        formParams.append("<h1>Parameters Received:</h1>");
+
+        String[] tempParams = unSplitParams.split("[&]");
+
+        for(String param: tempParams)
+           formParams.append("<h3>"+param.replace("=", " = ")+"</h3>");
+
+        formParams.append("</div>");
+        formParams.append(generateHtmlEnd());
+        return formParams.toString();
+    }
+
     private String generateHtmlHead() {
-        return "<!DOCTYPE html><head></head><html><body style=\"background-color: #171717; color: whitesmoke;\">";
+        return "<!DOCTYPE html><head></head><html><body style=\"background-color: #ECDFCE; color: #766F67; font-family: FrescoSansPlusBold, Helvetica, Arial, sans-serif;\">";
     }
 
     private String generateHtmlEnd() {

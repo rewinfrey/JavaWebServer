@@ -11,26 +11,18 @@ import java.net.Socket;
  * To change this template use File | Settings | File Templates.
  */
 public class PostWrangler extends Wrangler {
-    private SocketWriter socketWriter;
-    private HttpRequestParser httpRequestParser;
 
-    public PostWrangler(HttpRequestParser httpRequestParser, SocketWriter socketWriter) throws IOException {
-        this.httpRequestParser = httpRequestParser;
-        this.socketWriter      = socketWriter;
+    public PostWrangler(HttpRequestParser httpRequestParser, SocketWriter socketWriter, String directory) throws IOException {
+        super(httpRequestParser, socketWriter, directory);
     }
 
     @Override
     public void process() throws IOException {
         String formResult = constructParamsList(httpRequestParser.httpPostData());
-        socketWriter.writeOutputToClient(formResult);
+        outToSocket(formResult, "200 OK");
     }
 
     public String constructParamsList(String postContent) {
-        socketWriter.writeLogToTerminal(httpRequestParser.requestLine, "200 OK");
-        String[] parsedPostData = postContent.split("&");
-        StringBuilder paramsString = new StringBuilder();
-        for(String value: parsedPostData)
-            paramsString.append(value.replace("=", " = ") + "\r\n");
-        return paramsString.toString();
+        return httpGenerator.generateFormParams(postContent);
     }
 }

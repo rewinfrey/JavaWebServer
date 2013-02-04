@@ -7,6 +7,7 @@ import java.io.*;
 import java.net.Socket;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created with IntelliJ IDEA.
@@ -17,14 +18,26 @@ import java.text.SimpleDateFormat;
  */
 public class Wrangler {
 
-    Socket request;
     HttpRequestParser httpRequestParser;
-    DateFormat dateFormat = new SimpleDateFormat( "HH:mm:ss dd/MM/yyyy" );
+    SocketWriter socketWriter;
+    String directory;
+    DateFormat dateFormat           = new SimpleDateFormat( "HH:mm:ss dd/MM/yyyy" );
     MimeTypeMatcher mimeTypeMatcher = new MimeTypeMatcher();
+    HttpGenerator httpGenerator     = new HttpGenerator();
 
-    public Wrangler() {
+    public Wrangler(HttpRequestParser httpRequestParser, SocketWriter socketWriter, String directory) {
+        this.httpRequestParser = httpRequestParser;
+        this.socketWriter = socketWriter;
+        this.directory = directory;
     }
 
     public void process() throws IOException, InterruptedException {
+    }
+
+    public void outToSocket(String outString, String outStatus) throws IOException {
+        socketWriter.setResponseHeaders("text/html; charset=UTF-8", outString.getBytes().length+"", dateFormat.format(new Date()), outStatus);
+        socketWriter.writeResponseHeaders();
+        socketWriter.writeOutputToClient(outString);
+        socketWriter.writeLogToTerminal(httpRequestParser.requestLine, outStatus);
     }
 }

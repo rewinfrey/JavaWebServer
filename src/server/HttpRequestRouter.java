@@ -45,7 +45,7 @@ public class HttpRequestRouter {
             if (httpRequestParser.httpRequestType().equals("GET")) {
                 wrangler = new GetWrangler(httpRequestParser, socketWriter, directory);
             } else {
-                wrangler = new PostWrangler(httpRequestParser, socketWriter);
+                wrangler = new PostWrangler(httpRequestParser, socketWriter, directory);
             }
 
             wrangler.process();

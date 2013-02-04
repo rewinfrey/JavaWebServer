@@ -19,28 +19,32 @@ public class MimeTypeMatcher {
     }
 
     public String getMimeType(String requestFile) {
-        int index = requestFile.lastIndexOf('.');
-        String parsedFileEnding = requestFile.substring(index).toLowerCase();
+        String parsedFileExtension = parseFileExtension(requestFile);
         String mimeType;
         List<String> plain = asList(".txt", ".rb", ".java", ".php", ".coffee");
-        if (parsedFileEnding.contains(".html")) {
+        if (parsedFileExtension.contains(".html")) {
             mimeType = "text/html; charset=UTF-8";
-        } else if (plain.contains(parsedFileEnding)) {
+        } else if (plain.contains(parsedFileExtension)) {
             mimeType = "text/plain";
-        } else if (parsedFileEnding.equals(".gif")) {
+        } else if (parsedFileExtension.equals(".gif")) {
             mimeType = "image/gif";
-        } else if (parsedFileEnding.equals(".png")) {
+        } else if (parsedFileExtension.equals(".png")) {
             mimeType = "image/png";
-        } else if (parsedFileEnding.equals(".pdf")) {
+        } else if (parsedFileExtension.equals(".pdf")) {
             mimeType = "application/pdf";
-        } else if (parsedFileEnding.equals(".jpg")) {
+        } else if (parsedFileExtension.equals(".jpg")) {
             mimeType = "image/jpg";
-        } else if (parsedFileEnding.equals(".ico")) {
+        } else if (parsedFileExtension.equals(".ico")) {
             mimeType = "image/png";
         } else {
             mimeType = "text/html; charset=UTF-8";
         }
         return mimeType;
+    }
+
+    public String parseFileExtension(String fileName) {
+        int index = fileName.lastIndexOf(".");
+        return fileName.substring(index).toLowerCase();
     }
 }
 

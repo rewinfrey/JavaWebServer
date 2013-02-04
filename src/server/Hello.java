@@ -19,6 +19,8 @@ public class Hello {
             "    h2 {width: 148px;margin: 40px auto 0 auto;font-size: 38px;color: whitesmoke;font-weight: 400;}\n" +
             "    h2 span {color: #2295D5; font-size: 40px;font-weight:500;}\n" +
             "    h3 {color: #2B2B2B;width: 176px;margin: 10px auto 0 auto;font-size: 18px;}\n" +
+            "    h4 {color: #4C4C4C; }\n" +
+            "    a {color: #4C4C4C; text-decoration: none; }\n" +
             "    #canvas {width: 741px;margin: auto;}\n" +
             "    #steps {height: 25px;}\n" +
             "    #predefined_routes { float: left; margin-left: 40px;}\n" +
@@ -32,10 +34,10 @@ public class Hello {
             "    <h1>Welcome To <span>Rick's</span> HTTP Server</h1>\n" +
             "    <div id=\"predefined_routes\">\n" +
             "      <h3>Predefined Routes:</h3>\n" +
-            "      <h4>/</h4>\n" +
-            "      <h4>/time</h4>\n" +
-            "      <h4>/form</h4>\n" +
-            "      <h4>/hello</h4>\n" +
+            "      <h4><a href=\"/\">/</a></h4>\n" +
+            "      <h4><a href=\"/time\">/time</a></h4>\n" +
+            "      <h4><a href=\"/form\">/form</a></h4>\n" +
+            "      <h4><a href=\"/hello\">/hello</a></h4>\n" +
             "      <h3>File Types Currently Servable:</h3>\n" +
             "      <h4>.pdf</h4>\n" +
             "      <h4>.gif</h4>\n" +

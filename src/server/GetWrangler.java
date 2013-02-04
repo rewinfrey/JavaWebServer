@@ -117,7 +117,8 @@ public class GetWrangler extends Wrangler {
 
     private void getTime() throws InterruptedException, IOException {
         Thread.sleep(1000);
-        String htmlString = httpGenerator.generateTime();
+        String time = dateFormat.format(new Date());
+        String htmlString = httpGenerator.generateTime(time);
         outToSocket(htmlString, "200 OK");
     }
 

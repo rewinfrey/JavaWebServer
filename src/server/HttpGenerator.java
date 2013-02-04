@@ -14,7 +14,6 @@ import java.util.Date;
  */
 public class HttpGenerator {
 
-    private DateFormat dateFormat = new SimpleDateFormat( "HH:mm:ss MM/dd/yyyy" );
 
     public String generate404() {
         StringBuilder notFoundString = new StringBuilder();
@@ -31,11 +30,11 @@ public class HttpGenerator {
         return Hello.helloHTML;
     }
 
-    public String generateTime() {
+    public String generateTime(String time) {
         StringBuilder timeString = new StringBuilder();
         timeString.append(generateHtmlHead());
         timeString.append("<h1 style=\"text-align: center; margin-top: 100px; font-size: 50px; font-family: monaco;\">");
-        timeString.append(dateFormat.format(new Date())+"\n");
+        timeString.append(time);
         timeString.append("</h1>");
         timeString.append(generateHtmlEnd());
         return timeString.toString();
@@ -97,11 +96,11 @@ public class HttpGenerator {
         return formParams.toString();
     }
 
-    private String generateHtmlHead() {
+    public String generateHtmlHead() {
         return "<!DOCTYPE html><head></head><html><body style=\"background-color: #ECDFCE; color: #766F67; font-family: FrescoSansPlusBold, Helvetica, Arial, sans-serif;\">";
     }
 
-    private String generateHtmlEnd() {
+    public String generateHtmlEnd() {
         return "</body></html>";
     }
 }

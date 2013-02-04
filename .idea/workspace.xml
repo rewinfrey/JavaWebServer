@@ -4,8 +4,8 @@
     <list default="true" id="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" name="Default" comment="" />
     <ignored path="RickHttpServer.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/GetWrangler.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1359993203316" ignored="false" />
-    <file path="/HttpGenerator.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1359992329899" ignored="false" />
+    <file path="/GetWrangler.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1360016009521" ignored="false" />
+    <file path="/HttpGenerator.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1360019454044" ignored="false" />
     <file path="/ResourceFetcher.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1359942832876" ignored="false" />
     <file path="/Hello.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1359938809255" ignored="false" />
     <file path="/MimeTypeMatcher.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1360014965721" ignored="false" />
@@ -32,7 +32,7 @@
     <file path="/Dummy.txt" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1360010487029" ignored="false" />
     <file path="/HttpRequestRouterTest.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1360014276742" ignored="false" />
     <file path="/MimeTypeMatcherTest.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1360015233853" ignored="false" />
-    <file path="/HttpGeneratorTest.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1360015856815" ignored="false" />
+    <file path="/HttpGeneratorTest.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1360019496490" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +95,7 @@
     <highlightCovered>true</highlightCovered>
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/RickHttpServer$HttpServer.coverage" NAME="HttpServer Coverage Results" MODIFIED="1360015514610" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/RickHttpServer$HttpServer.coverage" NAME="HttpServer Coverage Results" MODIFIED="1360019263502" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>server.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/RickHttpServer$tests.coverage" NAME="tests Coverage Results" MODIFIED="1360009527741" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="emma" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
@@ -163,7 +163,7 @@
     <favorites_list name="RickHttpServer" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.47573587">
+    <splitter split-orientation="horizontal" split-proportion="0.47573584">
       <split-first>
         <leaf>
           <file leaf-file-name="HttpRequestParser.java" pinned="false" current="false" current-in-tab="false">
@@ -187,7 +187,7 @@
           <file leaf-file-name="HttpGenerator.java" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/server/HttpGenerator.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="18" column="0" selection-start="398" selection-end="398" vertical-scroll-proportion="0.2637749">
+                <state line="6" column="0" selection-start="125" selection-end="125" vertical-scroll-proportion="0.10067114">
                   <folding />
                 </state>
               </provider>
@@ -214,7 +214,7 @@
           <file leaf-file-name="Wrangler.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/server/Wrangler.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="26" column="0" selection-start="696" selection-end="696" vertical-scroll-proportion="0.0">
+                <state line="35" column="0" selection-start="1013" selection-end="1013" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -223,7 +223,7 @@
           <file leaf-file-name="PostWrangler.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/server/PostWrangler.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="28" column="0" selection-start="793" selection-end="793" vertical-scroll-proportion="0.0">
+                <state line="23" column="0" selection-start="662" selection-end="662" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -232,7 +232,7 @@
           <file leaf-file-name="HttpServer.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/server/HttpServer.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="30" column="46" selection-start="932" selection-end="932" vertical-scroll-proportion="0.0">
+                <state line="34" column="0" selection-start="995" selection-end="995" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -255,15 +255,6 @@
             <entry file="file://$PROJECT_DIR$/src/server/SocketWriter.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state line="50" column="0" selection-start="1653" selection-end="1653" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="GetWranglerTest.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/tests/GetWranglerTest.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="10" column="0" selection-start="205" selection-end="205" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -325,22 +316,29 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="HttpRequestRouterTest.java" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="HttpRequestRouterTest.java" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/tests/HttpRequestRouterTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="32" column="0" selection-start="1235" selection-end="1235" vertical-scroll-proportion="0.0">
+                <state line="30" column="0" selection-start="1028" selection-end="1028" vertical-scroll-proportion="0.60402685">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="HttpGeneratorTest.java" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="HttpGeneratorTest.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/tests/HttpGeneratorTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="36" column="0" selection-start="1456" selection-end="1456" vertical-scroll-proportion="0.6330598">
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
+                <state line="10" column="0" selection-start="178" selection-end="178" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="GetWrangler.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/server/GetWrangler.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="121" column="41" selection-start="4059" selection-end="4059" vertical-scroll-proportion="0.0">
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -358,12 +356,9 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/src/server/ResourceFetcher.java" />
-        <option value="$PROJECT_DIR$/src/server/Hello.java" />
         <option value="$PROJECT_DIR$/src/server/Wrangler.java" />
         <option value="$PROJECT_DIR$/src/server/PostWrangler.java" />
-        <option value="$PROJECT_DIR$/src/server/GetWrangler.java" />
         <option value="$PROJECT_DIR$/src/server/RequestHandler.java" />
-        <option value="$PROJECT_DIR$/src/server/HttpServer.java" />
         <option value="$PROJECT_DIR$/src/tests/HttpServerTest.java" />
         <option value="$PROJECT_DIR$/src/tests/RequestHandlerTest.java" />
         <option value="$PROJECT_DIR$/src/server/HttpRequestRouter.java" />
@@ -371,16 +366,19 @@
         <option value="$PROJECT_DIR$/src/tests/HttpRequestRouterTest.java" />
         <option value="$PROJECT_DIR$/src/server/MimeTypeMatcher.java" />
         <option value="$PROJECT_DIR$/src/tests/MimeTypeMatcherTest.java" />
+        <option value="$PROJECT_DIR$/src/server/GetWrangler.java" />
+        <option value="$PROJECT_DIR$/src/server/HttpServer.java" />
+        <option value="$PROJECT_DIR$/src/server/Hello.java" />
         <option value="$PROJECT_DIR$/src/server/HttpGenerator.java" />
         <option value="$PROJECT_DIR$/src/tests/HttpGeneratorTest.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1" />
+    <option name="x" value="4" />
     <option name="y" value="22" />
-    <option name="width" value="2560" />
-    <option name="height" value="1418" />
+    <option name="width" value="1436" />
+    <option name="height" value="878" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -791,7 +789,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1" y="22" width="2560" height="1418" extended-state="0" />
+    <frame x="4" y="22" width="1436" height="878" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -805,16 +803,16 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32973805" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32975337" sideWeight="0.7064715" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32849604" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294964" sideWeight="0.7044855" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cloverage" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30429596" sideWeight="0.7064715" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24940334" sideWeight="0.7064715" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2935285" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.45107913" sideWeight="0.7044855" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29551452" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Test Runs" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32975337" sideWeight="0.7064715" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -883,43 +881,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/tests/GetWranglerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="205" selection-end="205" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/HttpRequestParserTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="13" selection-start="354" selection-end="354" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/ResourceFetcherTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="4" selection-start="645" selection-end="645" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/HttpServerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="249" selection-end="249" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/HttpServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="46" selection-start="932" selection-end="932" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/tests/RequestHandlerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="22" column="4" selection-start="455" selection-end="455" vertical-scroll-proportion="0.0">
@@ -934,30 +895,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/SocketWriter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="0" selection-start="1653" selection-end="1653" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/RequestHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="250" selection-end="250" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/server/ResourceFetcher.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="4" selection-start="345" selection-end="345" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/HttpRequestRouterTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="0" selection-start="1235" selection-end="1235" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -983,19 +923,73 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/GetWrangler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="121" column="41" selection-start="4059" selection-end="4059" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/HttpServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="0" selection-start="995" selection-end="995" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/PostWrangler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="0" selection-start="662" selection-end="662" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/Wrangler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="0" selection-start="1013" selection-end="1013" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/SocketWriter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="0" selection-start="1653" selection-end="1653" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/RequestHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="0" selection-start="250" selection-end="250" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/Hello.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="57" selection-start="1162" selection-end="1162" vertical-scroll-proportion="0.4245283">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/server/HttpGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="0" selection-start="398" selection-end="398" vertical-scroll-proportion="0.2637749">
+        <state line="6" column="0" selection-start="125" selection-end="125" vertical-scroll-proportion="0.10067114">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/tests/HttpGeneratorTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="0" selection-start="1456" selection-end="1456" vertical-scroll-proportion="0.6330598">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="10" column="0" selection-start="178" selection-end="178" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tests/HttpRequestRouterTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="0" selection-start="1028" selection-end="1028" vertical-scroll-proportion="0.60402685">
+          <folding />
         </state>
       </provider>
     </entry>

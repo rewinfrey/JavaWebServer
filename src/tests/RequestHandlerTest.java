@@ -25,7 +25,7 @@ public class RequestHandlerTest {
     static int port = 3006;
     static Socket testSocket;
 
-    static String testDirectory = "/Users/rickwinfrey/IdeaProjects/RickHttpServer/files/";
+    static String testDirectory = "/Users/rickwinfrey/play/files/";
     RequestHandler requestHandler;
 
     public static void testSocket() throws IOException {
@@ -68,31 +68,4 @@ public class RequestHandlerTest {
         assertNotNull(requestHandler.httpRequestRouter);
         assertTrue(requestHandler.request.isClosed());
     }
-/*
-    @Test
-    public void initializeHttpRequestRouter() throws Exception {
-        assertNull(requestHandler.httpRequestRouter);
-        requestHandler.initializeHttpRequestRouter();
-        assertNotNull(requestHandler.httpRequestRouter);
-        assertEquals(testSocket, requestHandler.httpRequestRouter.request);
-    }
-    */
-/*
-    @Test
-    public void requestHandler() throws IOException {
-        RequestHandler requestHandler = new RequestHandler(testSocket(), "");
-        String testHeaders = "GET / HTTP/1.1\r\nHost: localhost:"+port+"\r\n\r\n\r\n";
-        Socket testRequest = requestHandler.request;
-        PrintWriter out = new PrintWriter( new DataOutputStream(testRequest.getOutputStream()));
-
-        out.write("GET / HTTP/1.1\r\nHost: localhost:"+port+"\r\n\r\n\r\n");
-
-        StringBuilder testString = new StringBuilder();
-
-        BufferedReader input = new BufferedReader( new InputStreamReader(testRequest.getInputStream()));
-        System.out.println(input.readLine());
-        ByteArrayInputStream mockRequest = new ByteArrayInputStream(testHeaders.getBytes());
-        assertEquals("GET / HTTP/1.1", input.readLine());
-        assertNotNull(requestHandler.request);
-    }*/
 }

@@ -1,8 +1,5 @@
 package tests;
 
-import junit.extensions.TestSetup;
-import junit.framework.TestCase;
-
 import org.junit.Test;
 import server.HttpServer;
 
@@ -11,7 +8,6 @@ import java.io.IOException;
 import java.io.PrintStream;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -33,7 +29,6 @@ public class HttpServerTest {
     public void mainServerStartup() throws IOException, InterruptedException {
         String[] args = { "-p", "8755", "-d", testDirectory };
         HttpServer.main(args);
-        System.out.println("actual main start test");
         assertTrue(HttpServer.server.isBound());
         assertTrue(HttpServer.server.isAlive());
         assertEquals(8755, HttpServer.port);

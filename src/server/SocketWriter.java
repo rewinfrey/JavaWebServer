@@ -17,9 +17,9 @@ import java.util.Date;
  * To change this template use File | Settings | File Templates.
  */
 public class SocketWriter {
-    private OutputStreamWriter outStreamWriter;
-    private DataOutputStream outDataStream;
-    private Logger logger = new Logger();
+    public OutputStreamWriter outStreamWriter;
+    public DataOutputStream outDataStream;
+    public Logger logger = new Logger();
 
     private String HTTPVERSION   = "HTTP/1.1 ";
     private String LASTMODIFIED  = "Last-Modified: ";

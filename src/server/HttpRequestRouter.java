@@ -36,7 +36,7 @@ public class HttpRequestRouter {
 
     public void routeRequest() {
         try {
-            SocketWriter socketWriter = new SocketWriter(outDataStream, outputStreamWriter);
+            SocketWriter socketWriter = generateSocketWriter();
             if (httpRequestParser.httpRequestType().equals("GET")) {
                 wrangler = new GetWrangler(httpRequestParser, socketWriter, directory);
             } else {
@@ -46,5 +46,9 @@ public class HttpRequestRouter {
             wrangler.process();
         } catch ( Exception e ) {
         }
+    }
+
+    public SocketWriter generateSocketWriter() throws IOException {
+        return new SocketWriter(outDataStream, outputStreamWriter);
     }
 }

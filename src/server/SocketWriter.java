@@ -21,21 +21,21 @@ public class SocketWriter {
     public DataOutputStream outDataStream;
     public Logger logger = new Logger();
 
-    private String HTTPVERSION   = "HTTP/1.1 ";
-    private String LASTMODIFIED  = "Last-Modified: ";
-    private String CONTENTTYPE   = "Content-Type: ";
-    private String CONTENTLENGTH = "Content-Length: ";
-    private String CONNECTION    = "Connection: keep-alive";
-    private String SERVER        = "Server: BoomTown";
-    private String DATE          = "Date: ";
-    private String CRLF          = "\r\n";
+    public String HTTPVERSION   = "HTTP/1.1 ";
+    public String LASTMODIFIED  = "Last-Modified: ";
+    public String CONTENTTYPE   = "Content-Type: ";
+    public String CONTENTLENGTH = "Content-Length: ";
+    public String CONNECTION    = "Connection: keep-alive";
+    public String SERVER        = "Server: BoomTown";
+    public String DATE          = "Date: ";
+    public String CRLF          = "\r\n";
 
-    private String httpStatus;
-    private String lastModified;
-    private String contentType;
-    private String contentLength;
+    public String httpStatus;
+    public String lastModified;
+    public String contentType;
+    public String contentLength;
 
-    private DateFormat dateFormat = new SimpleDateFormat( "HH:mm:ss MM/dd/yyyy" );
+    public DateFormat dateFormat = new SimpleDateFormat( "HH:mm:ss MM/dd/yyyy" );
 
     public SocketWriter(DataOutputStream outDataStream, OutputStreamWriter outStreamWriter) throws IOException {
         this.outDataStream = outDataStream;

@@ -32,6 +32,7 @@
     <file path="/Dummy.txt" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1360010487029" ignored="false" />
     <file path="/HttpRequestRouterTest.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1360014276742" ignored="false" />
     <file path="/MimeTypeMatcherTest.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1360015233853" ignored="false" />
+    <file path="/HttpGeneratorTest.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1360015856815" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +95,7 @@
     <highlightCovered>true</highlightCovered>
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/RickHttpServer$HttpServer.coverage" NAME="HttpServer Coverage Results" MODIFIED="1360010642075" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/RickHttpServer$HttpServer.coverage" NAME="HttpServer Coverage Results" MODIFIED="1360015514610" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>server.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/RickHttpServer$tests.coverage" NAME="tests Coverage Results" MODIFIED="1360009527741" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="emma" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
@@ -183,10 +184,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="HttpGenerator.java" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="HttpGenerator.java" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/server/HttpGenerator.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="82" column="0" selection-start="4424" selection-end="4424" vertical-scroll-proportion="0.0">
+                <state line="18" column="0" selection-start="398" selection-end="398" vertical-scroll-proportion="0.2637749">
                   <folding />
                 </state>
               </provider>
@@ -237,10 +238,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="MimeTypeMatcher.java" pinned="false" current="false" current-in-tab="true">
+          <file leaf-file-name="MimeTypeMatcher.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/server/MimeTypeMatcher.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="36" column="37" selection-start="1208" selection-end="1208" vertical-scroll-proportion="0.55427253">
+                <state line="25" column="49" selection-start="696" selection-end="696" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -306,10 +307,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="MimeTypeMatcherTest.java" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="MimeTypeMatcherTest.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/tests/MimeTypeMatcherTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="33" column="0" selection-start="1130" selection-end="1130" vertical-scroll-proportion="0.5099648">
+                <state line="26" column="0" selection-start="939" selection-end="939" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -333,6 +334,17 @@
               </provider>
             </entry>
           </file>
+          <file leaf-file-name="HttpGeneratorTest.java" pinned="false" current="true" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/tests/HttpGeneratorTest.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="36" column="0" selection-start="1456" selection-end="1456" vertical-scroll-proportion="0.6330598">
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
         </leaf>
       </split-second>
     </splitter>
@@ -347,7 +359,6 @@
       <list>
         <option value="$PROJECT_DIR$/src/server/ResourceFetcher.java" />
         <option value="$PROJECT_DIR$/src/server/Hello.java" />
-        <option value="$PROJECT_DIR$/src/server/HttpGenerator.java" />
         <option value="$PROJECT_DIR$/src/server/Wrangler.java" />
         <option value="$PROJECT_DIR$/src/server/PostWrangler.java" />
         <option value="$PROJECT_DIR$/src/server/GetWrangler.java" />
@@ -360,6 +371,8 @@
         <option value="$PROJECT_DIR$/src/tests/HttpRequestRouterTest.java" />
         <option value="$PROJECT_DIR$/src/server/MimeTypeMatcher.java" />
         <option value="$PROJECT_DIR$/src/tests/MimeTypeMatcherTest.java" />
+        <option value="$PROJECT_DIR$/src/server/HttpGenerator.java" />
+        <option value="$PROJECT_DIR$/src/tests/HttpGeneratorTest.java" />
       </list>
     </option>
   </component>
@@ -487,7 +500,7 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="dynamic.classpath" value="false" />
   </component>
-  <component name="RunManager" selected="JUnit.MimeTypeMatcherTest">
+  <component name="RunManager" selected="JUnit.HttpGeneratorTest">
     <configuration default="false" name="HttpServer" type="Application" factoryName="Application" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" track_test_folders="true" runner="idea">
         <pattern>
@@ -509,53 +522,6 @@
       <RunnerSettings RunnerId="Cover" />
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Cover" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="HttpServerTest" type="JUnit" factoryName="JUnit" temporary="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" track_test_folders="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-        <pattern>
-          <option name="PATTERN" value="server.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="RickHttpServer" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" value="" />
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.HttpServerTest" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="wholeProject" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Clover Optimizing Runner">
-        <option name="discardSnapshots" value="false" />
-        <option name="compilesBeforeStaleSnapshot" value="10" />
-        <option name="minimize" value="true" />
-        <option name="reorder" value="FAILFAST" />
-      </RunnerSettings>
-      <RunnerSettings RunnerId="Cover" />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Clover Optimizing Runner" />
-      <ConfigurationWrapper RunnerId="Cover" />
-      <ConfigurationWrapper RunnerId="Debug" />
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
@@ -641,6 +607,40 @@
       <option name="ALTERNATIVE_JRE_PATH" value="" />
       <option name="PACKAGE_NAME" value="tests" />
       <option name="MAIN_CLASS_NAME" value="tests.MimeTypeMatcherTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Clover Optimizing Runner">
+        <option name="discardSnapshots" value="false" />
+        <option name="compilesBeforeStaleSnapshot" value="10" />
+        <option name="minimize" value="true" />
+        <option name="reorder" value="FAILFAST" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="HttpGeneratorTest" type="JUnit" factoryName="JUnit" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" track_test_folders="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="RickHttpServer" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.HttpGeneratorTest" />
       <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -762,18 +762,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Application.HttpServer" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.HttpServerTest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.RequestHandlerTest" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.HttpRequestRouterTest" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.MimeTypeMatcherTest" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.RequestHandlerTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.HttpRequestRouterTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.MimeTypeMatcherTest" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.HttpGeneratorTest" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.MimeTypeMatcherTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.HttpRequestRouterTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.RequestHandlerTest" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.HttpServerTest" />
-        <item index="4" class="java.lang.String" itemvalue="Application.HttpServer" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.HttpGeneratorTest" />
+        <item index="1" class="java.lang.String" itemvalue="Application.HttpServer" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.MimeTypeMatcherTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.HttpRequestRouterTest" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.RequestHandlerTest" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -813,7 +813,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24940334" sideWeight="0.7064715" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24940334" sideWeight="0.7064715" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2935285" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Test Runs" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32975337" sideWeight="0.7064715" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -883,13 +883,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/server/PostWrangler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="0" selection-start="793" selection-end="793" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/tests/GetWranglerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="0" selection-start="205" selection-end="205" vertical-scroll-proportion="0.0">
@@ -955,13 +948,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/HttpGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="0" selection-start="4424" selection-end="4424" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/server/ResourceFetcher.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="4" selection-start="345" selection-end="345" vertical-scroll-proportion="0.0">
@@ -976,6 +962,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/tests/MimeTypeMatcherTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="0" selection-start="939" selection-end="939" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/MimeTypeMatcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="49" selection-start="696" selection-end="696" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/server/HttpRequestParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="39" column="37" selection-start="987" selection-end="987" vertical-scroll-proportion="0.0">
@@ -983,17 +983,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/MimeTypeMatcher.java">
+    <entry file="file://$PROJECT_DIR$/src/server/HttpGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="37" selection-start="1208" selection-end="1208" vertical-scroll-proportion="0.55427253">
+        <state line="18" column="0" selection-start="398" selection-end="398" vertical-scroll-proportion="0.2637749">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/MimeTypeMatcherTest.java">
+    <entry file="file://$PROJECT_DIR$/src/tests/HttpGeneratorTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="0" selection-start="1130" selection-end="1130" vertical-scroll-proportion="0.5099648">
-          <folding />
+        <state line="36" column="0" selection-start="1456" selection-end="1456" vertical-scroll-proportion="0.6330598">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

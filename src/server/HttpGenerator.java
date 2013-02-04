@@ -16,9 +16,6 @@ public class HttpGenerator {
 
     private DateFormat dateFormat = new SimpleDateFormat( "HH:mm:ss MM/dd/yyyy" );
 
-    public HttpGenerator() {
-    }
-
     public String generate404() {
         StringBuilder notFoundString = new StringBuilder();
         notFoundString.append("<!DOCTYPE html><html><head><title>404</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /></head>\n");

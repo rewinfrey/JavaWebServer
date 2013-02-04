@@ -1,9 +1,6 @@
 package server;
 
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+import java.io.*;
 import java.net.Socket;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -16,12 +13,10 @@ import java.text.SimpleDateFormat;
  * To change this template use File | Settings | File Templates.
  */
 public class HttpRequestRouter {
-    private DateFormat dateFormat = new SimpleDateFormat( "HH:mm:ss:SS dd/MM/yyyy" );
 
     public BufferedReader inStream;
     public DataOutputStream outDataStream;
     public OutputStreamWriter outputStreamWriter;
-    public String requestLine;
     public String directory;
 
     public HttpRequestParser httpRequestParser;
@@ -29,12 +24,12 @@ public class HttpRequestRouter {
 
     public HttpRequestRouter(BufferedReader inStream, DataOutputStream outDataStream, OutputStreamWriter outputStreamWriter, String directory) {
         try {
-            this.inStream          = inStream;
+            this.inStream           = inStream;
             this.outputStreamWriter = outputStreamWriter;
-            this.outDataStream     = outDataStream;
-            this.directory         = directory;
+            this.outDataStream      = outDataStream;
+            this.directory          = directory;
 
-            this.httpRequestParser = new HttpRequestParser(inStream);
+            this.httpRequestParser  = new HttpRequestParser(inStream);
         } catch ( Exception e ) {
         }
     }

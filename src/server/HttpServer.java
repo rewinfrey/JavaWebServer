@@ -13,16 +13,24 @@ import java.net.SocketException;
  * To change this template use File | Settings | File Templates.
  */
 public class HttpServer implements Runnable {
+    public static HttpServer server;
     private Thread serverThread;
     private ServerSocket welcomeSocket;
-    private static int port = 5813;
-    private static String directory = "/Users/rickwinfrey/play";
+    public static boolean start = true;
+    public static int port = 5813;
+    public static String directory = "/Users";
 
     public static void main(String[] args) throws IOException {
         parseCommands(args);
-        HttpServer server = new HttpServer(port, directory);
-        server.bindServerSocket();
-        server.serverThreadStart();
+        if ( start  == true ) {
+            System.out.println(start);
+            server = new HttpServer(port, directory);
+            server.bindServerSocket();
+            server.serverThreadStart();
+        } else {
+            System.out.println("not running");
+            return;
+        }
     }
 
     private static void parseCommands(String[] args) {
@@ -31,8 +39,18 @@ public class HttpServer implements Runnable {
                 port = Integer.parseInt(args[i+1]);
             } else if (args[i].equals("-d")) {
                 directory = args[i + 1];
+            } else if (args[i].equals("-h")) {
+                start = false;
+                displayHelp();
+            } else if (args[i].equals("--help")) {
+                start = false;
+                displayHelp();
             }
         }
+    }
+
+    public static void displayHelp() {
+        System.out.println("\nUsage: java some_path_to_jar.jar -p 3000 -d dir/you/want/served");
     }
 
     public HttpServer(int port, String directory) {
@@ -73,6 +91,8 @@ public class HttpServer implements Runnable {
     public void stop() throws IOException, InterruptedException {
         serverThread.interrupt();
         unBindServerSocket();
+        System.out.println("Server stopped on port: "+port);
+
     }
 
     public void unBindServerSocket() throws IOException {
@@ -90,7 +110,7 @@ public class HttpServer implements Runnable {
     @Override
     public void run() {
         try {
-            System.out.println("Server is running...please make your requests to http://localhost:"+port);
+            System.out.println("Server started on port: "+port);
             runServer();
         } catch (IOException e) {
             try {

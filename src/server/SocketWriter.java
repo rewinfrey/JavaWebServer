@@ -66,8 +66,6 @@ public class SocketWriter {
     }
 
     public void writeOutputToClient(String output) throws IOException {
-        System.out.println("\nSocketWriter # writeOutputToClient()");
-        System.out.println(output);
         outStreamWriter.write(output);
         closeRequest();
     }

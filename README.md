@@ -16,21 +16,24 @@ This is a simple Java Web Server built lovingly from scratch as part of my 8th L
 
 The Java Server currently serves the following file types:
 
-.html
-.pdf
-.png / .jpg / .gif / .ico
-.txt / .rb / .java / .php
+* .html
+
+* .pdf
+
+* .png / .jpg / .gif / .ico
+
+* .txt / .rb / .java / .php
 
 
 The following predefined routes are also available:
 
-/      : takes you to the base directory (supplied when starting the server)
+- /      : takes you to the base directory (supplied when starting the server)
 
-/hello : serves a friendly hello page
+- /hello : serves a friendly hello page
 
-/time  : serves the current system time
+- /time  : serves the current system time
 
-/form  : serves an http form
+- /form  : serves an http form
 
 ###License
 

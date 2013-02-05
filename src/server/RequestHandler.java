@@ -10,6 +10,7 @@ public class RequestHandler implements Runnable {
     public Socket request;
     public String directory;
     public HttpRequestRouter httpRequestRouter;
+    public int exception = 0;
 
 
     public RequestHandler ( Socket newRequest, String directory ) {
@@ -37,6 +38,8 @@ public class RequestHandler implements Runnable {
         try {
             processRequest();
         } catch (Exception e) {
+            System.out.println("Oops, there was an error. It's probably a bad socket.");
+            exception = 1;
         }
     }
 }

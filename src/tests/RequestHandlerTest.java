@@ -25,7 +25,7 @@ public class RequestHandlerTest {
     static int port = 3006;
     static Socket testSocket;
 
-    static String testDirectory = "/Users/rickwinfrey/play/files/";
+    static String testDirectory = System.getProperty("user.dir") + "/testfiles";
     RequestHandler requestHandler;
 
     private static ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -58,10 +58,13 @@ public class RequestHandlerTest {
     }
 
     @Test
-    public void throwRunException() {
-        RequestHandler ;
+    public void throwRunException() throws InterruptedException {
+        Socket testSocket = new Socket();
+        RequestHandler requestHandler = new RequestHandler(testSocket, testDirectory);
         Thread newThread = new Thread(requestHandler);
         newThread.start();
+        Thread.sleep(1000);
+        assertEquals(1, requestHandler.exception);
     }
 
     @Test

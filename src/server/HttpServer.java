@@ -24,7 +24,6 @@ public class HttpServer implements Runnable {
     public static void main(String[] args) throws IOException {
         parseCommands(args);
         if ( start  == true ) {
-            System.out.println(start);
             server = new HttpServer(port, directory);
             server.bindServerSocket();
             server.serverThreadStart();
@@ -51,10 +50,9 @@ public class HttpServer implements Runnable {
 
     public static void displayHelp() {
         System.out.println("\nUsage:");
-        System.out.println("Choose the port the server is to bound to: -p <port>");
-        System.out.println("Choose the directory the server is to serve: -d <directory/to/serve>");
+        System.out.println("java -jar out/artifacts/RickHttpServer_jar/RickHttpServer.jar -p <port> -d <directory/to/serve>");
         System.out.println("\nExample:");
-        System.out.println("$ java -jar out/artifacts/RickHttpServer_jar/RickHttpServer.jar -p 3000 -d /Users/rickwinfrey/docs");
+        System.out.println("$ java -jar out/artifacts/RickHttpServer_jar/RickHttpServer.jar -p 3000 -d /Users/rickwinfrey/docs\n\n");
     }
 
     public HttpServer(int port, String directory) {

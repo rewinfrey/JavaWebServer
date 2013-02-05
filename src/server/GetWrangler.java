@@ -88,8 +88,6 @@ public class GetWrangler extends Wrangler {
     }
 
     public boolean isDirectory(String dir) {
-        System.out.println("\nGeWrangler # isDirectory()");
-        System.out.println(dir);
         File currDir = new File(dir);
         return currDir.isDirectory();
     }
@@ -133,7 +131,6 @@ public class GetWrangler extends Wrangler {
 
     public void bogusFileStream(String fileName) throws IOException {
         String notFoundHtml = httpGenerator.generate404();
-        System.out.println(notFoundHtml);
         outToSocket(notFoundHtml, "404 Not Found");
     }
 

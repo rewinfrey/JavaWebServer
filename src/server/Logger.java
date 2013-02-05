@@ -12,9 +12,6 @@ import java.util.Scanner;
  * To change this template use File | Settings | File Templates.
  */
 public class Logger {
-    public Logger() {
-    }
-
     public void request(String requestSummary, String date) {
         System.out.println("\n" + requestSummary);
         System.out.println(date);

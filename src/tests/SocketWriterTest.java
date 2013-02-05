@@ -8,7 +8,6 @@ import java.io.*;
 
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertNotNull;
-import static junit.framework.Assert.assertTrue;
 
 /**
  * Created with IntelliJ IDEA.

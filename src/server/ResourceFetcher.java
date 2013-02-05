@@ -11,6 +11,7 @@ import java.io.File;
  */
 public class ResourceFetcher {
     public String directory;
+
     public ResourceFetcher(String directory) {
         this.directory = directory;
     }

@@ -43,7 +43,7 @@ public class PostWranglerTest {
     }
 
     @Test
-    public void getWrangler() throws IOException {
+    public void postWrangler() throws IOException {
         PostWrangler testWrangler = new PostWrangler(httpRequestParser, socketWriter, testDir);
         assertNotNull(testWrangler.httpRequestParser);
         assertNotNull(testWrangler.socketWriter);

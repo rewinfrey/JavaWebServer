@@ -38,7 +38,7 @@
     <file path="/ResourceFetcherTest.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1360084695417" ignored="false" />
     <file path="/HttpRequestParser.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1360051710680" ignored="false" />
     <file path="/HttpRequestParserTest.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1360083057393" ignored="false" />
-    <file path="/GetWranglerTest.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1360084386168" ignored="false" />
+    <file path="/GetWranglerTest.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1360096195646" ignored="false" />
     <file path="/PostWranglerTest.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1360052335490" ignored="false" />
     <file path="/TestSuite.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1360082514002" ignored="false" />
     <file path="/WranglerTest.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1360083574035" ignored="false" />
@@ -126,9 +126,12 @@
       <FILTER>tests.*</FILTER>
       <FILTER>server.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/RickHttpServer$tests_in_RickHttpServer.coverage" NAME="tests in RickHttpServer Coverage Results" MODIFIED="1360093756662" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/RickHttpServer$tests_in_RickHttpServer.coverage" NAME="tests in RickHttpServer Coverage Results" MODIFIED="1360096250962" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>tests.*</FILTER>
       <FILTER>server.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/RickHttpServer$GetWranglerTest_getRootProcess.coverage" NAME="GetWranglerTest.getRootProcess Coverage Results" MODIFIED="1360096212617" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>tests.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/RickHttpServer$tests.coverage" NAME="tests Coverage Results" MODIFIED="1360009527741" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="emma" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>tests.*</FILTER>
@@ -343,7 +346,7 @@
           <file leaf-file-name="GetWranglerTest.java" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/tests/GetWranglerTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="94" column="35" selection-start="3597" selection-end="3597" vertical-scroll-proportion="0.2566709">
+                <state line="92" column="77" selection-start="3410" selection-end="3410" vertical-scroll-proportion="0.24777636">
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -564,42 +567,6 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <configuration default="false" name="GetWranglerTest.getDirProcess" type="JUnit" factoryName="JUnit" temporary="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" track_test_folders="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="RickHttpServer" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" value="" />
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.GetWranglerTest" />
-      <option name="METHOD_NAME" value="getDirProcess" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Clover Optimizing Runner">
-        <option name="discardSnapshots" value="false" />
-        <option name="compilesBeforeStaleSnapshot" value="10" />
-        <option name="minimize" value="true" />
-        <option name="reorder" value="FAILFAST" />
-      </RunnerSettings>
-      <RunnerSettings RunnerId="Cover" />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Cover" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
     <configuration default="false" name="HttpServerTest.throwException" type="JUnit" factoryName="JUnit" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" track_test_folders="true" runner="idea">
         <pattern>
@@ -686,6 +653,42 @@
       <option name="MAIN_CLASS_NAME" value="tests.RequestHandlerTest" />
       <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Clover Optimizing Runner">
+        <option name="discardSnapshots" value="false" />
+        <option name="compilesBeforeStaleSnapshot" value="10" />
+        <option name="minimize" value="true" />
+        <option name="reorder" value="FAILFAST" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Cover" />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Cover" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="GetWranglerTest.getRootProcess" type="JUnit" factoryName="JUnit" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" track_test_folders="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="RickHttpServer" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.GetWranglerTest" />
+      <option name="METHOD_NAME" value="getRootProcess" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
@@ -849,18 +852,18 @@
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="JUnit.tests in RickHttpServer" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.tests in RickHttpServer" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.GetWranglerTest.getDirProcess" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.HttpServerTest.throwException" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.HttpServerTest" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.RequestHandlerTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.HttpServerTest.throwException" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.HttpServerTest" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.RequestHandlerTest" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.GetWranglerTest.getRootProcess" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="JUnit.tests in RickHttpServer" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.RequestHandlerTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.HttpServerTest" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.HttpServerTest.throwException" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.GetWranglerTest.getDirProcess" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.GetWranglerTest.getRootProcess" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.RequestHandlerTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.HttpServerTest" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.HttpServerTest.throwException" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -1085,7 +1088,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/tests/GetWranglerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="35" selection-start="3597" selection-end="3597" vertical-scroll-proportion="0.2566709">
+        <state line="92" column="77" selection-start="3410" selection-end="3410" vertical-scroll-proportion="0.24777636">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

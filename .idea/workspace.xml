@@ -123,7 +123,7 @@
       <FILTER>tests.*</FILTER>
       <FILTER>server.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/RickHttpServer$tests_in_RickHttpServer.coverage" NAME="tests in RickHttpServer Coverage Results" MODIFIED="1360085722342" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/RickHttpServer$tests_in_RickHttpServer.coverage" NAME="tests in RickHttpServer Coverage Results" MODIFIED="1360086118296" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>tests.*</FILTER>
       <FILTER>server.*</FILTER>
     </SUITE>
@@ -317,17 +317,6 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="HttpRequestParserTest.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/tests/HttpRequestParserTest.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="44" column="7" selection-start="1637" selection-end="1637" vertical-scroll-proportion="0.0">
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="HttpRequestRouterTest.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/tests/HttpRequestRouterTest.java">
               <provider selected="true" editor-type-id="text-editor">
@@ -351,10 +340,19 @@
           <file leaf-file-name="GetWranglerTest.java" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/tests/GetWranglerTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="97" column="29" selection-start="3745" selection-end="3745" vertical-scroll-proportion="0.19633508">
+                <state line="94" column="35" selection-start="3597" selection-end="3597" vertical-scroll-proportion="0.2566709">
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="TestSuite.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/tests/TestSuite.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="21" column="271" selection-start="706" selection-end="706" vertical-scroll-proportion="0.0">
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -404,7 +402,6 @@
         <option value="$PROJECT_DIR$/src/server/PostWrangler.java" />
         <option value="$PROJECT_DIR$/src/server/Wrangler.java" />
         <option value="$PROJECT_DIR$/src/tests/HelloTest.java" />
-        <option value="$PROJECT_DIR$/src/tests/TestSuite.java" />
         <option value="$PROJECT_DIR$/src/tests/HttpRequestRouterTest.java" />
         <option value="$PROJECT_DIR$/src/tests/HttpRequestParserTest.java" />
         <option value="$PROJECT_DIR$/src/tests/HttpGeneratorTest.java" />
@@ -415,6 +412,7 @@
         <option value="$PROJECT_DIR$/src/tests/RequestHandlerTest.java" />
         <option value="$PROJECT_DIR$/src/tests/ResourceFetcherTest.java" />
         <option value="$PROJECT_DIR$/src/tests/SocketWriterTest.java" />
+        <option value="$PROJECT_DIR$/src/tests/TestSuite.java" />
         <option value="$PROJECT_DIR$/src/tests/GetWranglerTest.java" />
       </list>
     </option>
@@ -960,13 +958,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/TestSuite.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="794" selection-end="794" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/server/HttpRequestRouter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="29" column="0" selection-start="910" selection-end="910" vertical-scroll-proportion="-0.6">
@@ -1066,9 +1057,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/tests/TestSuite.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="271" selection-start="706" selection-end="706" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/tests/GetWranglerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="97" column="29" selection-start="3745" selection-end="3745" vertical-scroll-proportion="0.19633508">
+        <state line="94" column="35" selection-start="3597" selection-end="3597" vertical-scroll-proportion="0.2566709">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

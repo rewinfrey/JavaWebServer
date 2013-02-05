@@ -1,3 +1,0 @@
-Hi this is Rick. I'm trying to figure out why I'm seeing the HTTP headers. If my theory is correct, then I'll see them with this simple plain text file. I think it's probably because I should be calculating the length of a file in bytes, but I'm calculating this length in characters. This means the lenght will be off...
-これはいいかな？
-

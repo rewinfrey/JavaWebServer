@@ -43,7 +43,6 @@ public class HttpServerTest {
         HttpServer.server.serverThreadStart();
         HttpServer.server.stop();
         HttpServer.server.serverThreadStart();
-        assertEquals(false, HttpServer.start);
     }
 
     @Test

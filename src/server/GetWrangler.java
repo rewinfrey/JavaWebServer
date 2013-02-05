@@ -132,14 +132,12 @@ public class GetWrangler extends Wrangler {
    }
 
     public void bogusFileStream(String fileName) throws IOException {
-        System.out.println("\nGetWranger # preparing 404 string");
         String notFoundHtml = httpGenerator.generate404();
         System.out.println(notFoundHtml);
         outToSocket(notFoundHtml, "404 Not Found");
     }
 
     public void writeFileToSocket(String fileName, File requestedFile) throws IOException {
-        System.out.println("Requested file content-length: "+requestedFile.length());
         socketWriter.setResponseHeaders(mimeTypeMatcher.getMimeType(fileName), requestedFile.length() + "", requestedFile.lastModified() + "", "200 OK", dateFormat.format(new Date()));
         socketWriter.writeResponseHeaders();
         socketWriter.writeFileToClient(fileName);

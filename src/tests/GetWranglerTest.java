@@ -35,6 +35,7 @@ public class GetWranglerTest {
     String getFormRequest = "GET /form HTTP/1.1";
     String getHelloRequest = "GET /hello HTTP/1.1";
     String getBogusRequest = "GET /soudaoiusdf HTTP/1.1";
+    String getPostUriParamsRequest = "GET /form?name=rick&age=30 HTTP/1.1";
 
     BufferedReader inputGetStream = new BufferedReader( new StringReader(getRequest));
 
@@ -189,5 +190,36 @@ public class GetWranglerTest {
         resultString.append(testWrangler.httpGenerator.generate404());
         testWrangler.process();
         assertEquals(resultString.toString(), dataStream.toString());
+    }
+
+    @Test
+    public void getPostUriParams() throws Exception {
+        HttpRequestParser httpRequestParser1 = new HttpRequestParser(brFactory(getPostUriParamsRequest));
+        GetWrangler testWrangler = new GetWrangler(httpRequestParser1, socketWriter, testDir);
+
+        String temp = httpRequestParser1.httpRequestResource();
+        String params = temp.replace("/form?", "");
+
+        StringBuilder resultString = new StringBuilder();
+        resultString.append(
+                "HTTP/1.1 200 OK\r\n" +
+                "Connection: keep-alive\r\n" +
+                "Date: "+ testWrangler.dateFormat.format(new Date()) + "\r\n" +
+                "Server: BoomTown\r\n" +
+                "Last-Modified: "+ testWrangler.dateFormat.format(new Date()) + "\r\n" +
+                "Content-Type: text/html; charset=UTF-8\r\n" +
+                "Content-Length: 293\r\n\r\n"
+                );
+        resultString.append(testWrangler.httpGenerator.generateFormParams(params));
+        testWrangler.process();
+        assertEquals(resultString.toString(), dataStream.toString());
+    }
+
+    @Test
+    public void writeLogToTerminal() {
+        ByteArrayOutputStream bin = new ByteArrayOutputStream();
+        System.setOut( new PrintStream(bin));
+        getWrangler.writeLogToTerminal("200 OK");
+        assertEquals("\nGET / HTTP/1.1 200 OK\n" + getWrangler.dateFormat.format(new Date()) + "\n", bin.toString());
     }
 }

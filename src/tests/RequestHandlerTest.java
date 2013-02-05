@@ -58,6 +58,13 @@ public class RequestHandlerTest {
     }
 
     @Test
+    public void throwRunException() {
+        RequestHandler ;
+        Thread newThread = new Thread(requestHandler);
+        newThread.start();
+    }
+
+    @Test
     public void requestHandlerConstructor() throws IOException {
         assertEquals(testSocket, requestHandler.request);
         assertEquals(testDirectory, requestHandler.directory);

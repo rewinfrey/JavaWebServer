@@ -36,8 +36,10 @@ public class HttpServer implements Runnable {
         for(int i=0; i < args.length; i++ ) {
             if (args[i].equals("-p")) {
                 port = Integer.parseInt(args[i+1]);
+                start = true;
             } else if (args[i].equals("-d")) {
                 directory = args[i + 1];
+                start = true;
             } else if (args[i].equals("-h")) {
                 start = false;
                 displayHelp();
@@ -60,7 +62,7 @@ public class HttpServer implements Runnable {
         this.directory = directory;
     }
 
-    public void runServer() throws IOException, SocketException {
+    public void runServer() throws IOException {
         System.out.println("\nServer started on port: " + port);
         while(isBound()) {
                 Socket clientSocket          = welcomeSocket.accept();

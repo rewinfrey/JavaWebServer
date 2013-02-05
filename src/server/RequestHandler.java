@@ -37,7 +37,6 @@ public class RequestHandler implements Runnable {
         try {
             processRequest();
         } catch (Exception e) {
-            System.out.println(e);
         }
     }
 }

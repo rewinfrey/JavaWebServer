@@ -17,7 +17,7 @@
     <file path="/Game.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1360000229908" ignored="false" />
     <file path="$PROJECT_DIR$/../FifteenthBowlingGameKata/src/Game.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1359987267359" ignored="false" />
     <file path="$PROJECT_DIR$/../FifteenthBowlingGameKata/src/GameTest.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1359987288478" ignored="false" />
-    <file path="/HttpServer.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1360087399661" ignored="false" />
+    <file path="/HttpServer.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1360089210035" ignored="false" />
     <file path="/PostWrangler.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1359993233821" ignored="false" />
     <file path="/Wrangler.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1360047325304" ignored="false" />
     <file path="/HttpRequestRouter.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1360014168282" ignored="false" />
@@ -25,8 +25,8 @@
     <file path="$PROJECT_DIR$/../SixteenthBowlingGameKata/src/Game.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1359996045842" ignored="false" />
     <file path="$PROJECT_DIR$/../SeventheenthBowlingGameKata/src/GameTest.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1359997113139" ignored="false" />
     <file path="$PROJECT_DIR$/../SeventheenthBowlingGameKata/src/Game.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1359997062408" ignored="false" />
-    <file path="/RequestHandler.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1359997541400" ignored="false" />
-    <file path="/HttpServerTest.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1360087976830" ignored="false" />
+    <file path="/RequestHandler.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1360089997699" ignored="false" />
+    <file path="/HttpServerTest.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1360089829906" ignored="false" />
     <file path="$PROJECT_DIR$/../BowlingGameKataPerformance/src/GameTest.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1360001840636" ignored="false" />
     <file path="$PROJECT_DIR$/../BowlingGameKataPerformance/src/Game.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1360000237845" ignored="false" />
     <file path="/Dummy.txt" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1360084585087" ignored="false" />
@@ -43,7 +43,7 @@
     <file path="/TestSuite.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1360082514002" ignored="false" />
     <file path="/WranglerTest.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1360083574035" ignored="false" />
     <file path="/HelloTest.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1360073127342" ignored="false" />
-    <file path="/RequestHandlerTest.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1360083724262" ignored="false" />
+    <file path="/RequestHandlerTest.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1360090164342" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +126,7 @@
       <FILTER>tests.*</FILTER>
       <FILTER>server.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/RickHttpServer$tests_in_RickHttpServer.coverage" NAME="tests in RickHttpServer Coverage Results" MODIFIED="1360087569434" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/RickHttpServer$tests_in_RickHttpServer.coverage" NAME="tests in RickHttpServer Coverage Results" MODIFIED="1360090025817" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>tests.*</FILTER>
       <FILTER>server.*</FILTER>
     </SUITE>
@@ -139,7 +139,7 @@
     <SUITE FILE_PATH="coverage/RickHttpServer$RequestHandlerTest.coverage" NAME="RequestHandlerTest Coverage Results" MODIFIED="1360012542001" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>tests.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/RickHttpServer$HttpServerTest.coverage" NAME="HttpServerTest Coverage Results" MODIFIED="1360053882792" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/RickHttpServer$HttpServerTest.coverage" NAME="HttpServerTest Coverage Results" MODIFIED="1360089297481" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>tests.*</FILTER>
     </SUITE>
   </component>
@@ -206,10 +206,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="RequestHandler.java" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="RequestHandler.java" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/server/RequestHandler.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="26" column="0" selection-start="629" selection-end="629" vertical-scroll-proportion="0.0">
+                <state line="39" column="8" selection-start="1204" selection-end="1204" vertical-scroll-proportion="0.6976744">
                   <folding />
                 </state>
               </provider>
@@ -251,10 +251,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="HttpServer.java" pinned="false" current="false" current-in-tab="true">
+          <file leaf-file-name="HttpServer.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/server/HttpServer.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="47" column="8" selection-start="1468" selection-end="1468" vertical-scroll-proportion="0.7868217">
+                <state line="86" column="0" selection-start="2820" selection-end="2820" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -311,10 +311,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="RequestHandlerTest.java" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="RequestHandlerTest.java" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/tests/RequestHandlerTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="35" column="37" selection-start="1007" selection-end="1007" vertical-scroll-proportion="0.0">
+                <state line="61" column="23" selection-start="1728" selection-end="1728" vertical-scroll-proportion="0.7433291">
                   <folding />
                 </state>
               </provider>
@@ -329,10 +329,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="HttpServerTest.java" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="HttpServerTest.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/tests/HttpServerTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="54" column="0" selection-start="1700" selection-end="1700" vertical-scroll-proportion="0.24777636">
+                <state line="53" column="23" selection-start="1607" selection-end="1607" vertical-scroll-proportion="0.0">
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -401,7 +401,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/server/PostWrangler.java" />
         <option value="$PROJECT_DIR$/src/server/Wrangler.java" />
         <option value="$PROJECT_DIR$/src/tests/HelloTest.java" />
         <option value="$PROJECT_DIR$/src/tests/HttpRequestRouterTest.java" />
@@ -410,13 +409,14 @@
         <option value="$PROJECT_DIR$/src/tests/MimeTypeMatcherTest.java" />
         <option value="$PROJECT_DIR$/src/tests/PostWranglerTest.java" />
         <option value="$PROJECT_DIR$/src/tests/WranglerTest.java" />
-        <option value="$PROJECT_DIR$/src/tests/RequestHandlerTest.java" />
         <option value="$PROJECT_DIR$/src/tests/ResourceFetcherTest.java" />
         <option value="$PROJECT_DIR$/src/tests/SocketWriterTest.java" />
         <option value="$PROJECT_DIR$/src/tests/TestSuite.java" />
         <option value="$PROJECT_DIR$/src/tests/GetWranglerTest.java" />
         <option value="$PROJECT_DIR$/src/server/HttpServer.java" />
         <option value="$PROJECT_DIR$/src/tests/HttpServerTest.java" />
+        <option value="$PROJECT_DIR$/src/server/RequestHandler.java" />
+        <option value="$PROJECT_DIR$/src/tests/RequestHandlerTest.java" />
       </list>
     </option>
   </component>
@@ -523,7 +523,7 @@
     <property name="options.searchVisible" value="true" />
     <property name="dynamic.classpath" value="false" />
   </component>
-  <component name="RunManager" selected="JUnit.HttpServerTest">
+  <component name="RunManager" selected="JUnit.tests in RickHttpServer">
     <configuration default="false" name="tests in RickHttpServer" type="JUnit" factoryName="JUnit" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" track_test_folders="true" runner="idea">
         <pattern>
@@ -688,7 +688,9 @@
         <option name="minimize" value="true" />
         <option name="reorder" value="FAILFAST" />
       </RunnerSettings>
+      <RunnerSettings RunnerId="Cover" />
       <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Cover" />
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
@@ -840,8 +842,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.HttpServerTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.tests in RickHttpServer" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.tests in RickHttpServer" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.HttpServerTest" />
         <item index="2" class="java.lang.String" itemvalue="JUnit.HttpServerTest.throwException" />
         <item index="3" class="java.lang.String" itemvalue="JUnit.GetWranglerTest.getDirProcess" />
         <item index="4" class="java.lang.String" itemvalue="Application.HttpServer" />
@@ -863,7 +865,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="2560" height="1418" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -877,7 +879,7 @@
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3266564" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13285601" sideWeight="0.6456086" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Coverage" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13285601" sideWeight="0.6456086" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cloverage" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30429596" sideWeight="0.7064715" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
@@ -885,7 +887,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16825776" sideWeight="0.6456086" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35439137" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35439137" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Test Runs" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32975337" sideWeight="0.7064715" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -954,13 +956,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/server/HttpRequestRouter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="0" selection-start="910" selection-end="910" vertical-scroll-proportion="-0.6">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/tests/WranglerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="38" column="0" selection-start="1127" selection-end="1127" vertical-scroll-proportion="0.0">
@@ -1046,13 +1041,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/RequestHandlerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="37" selection-start="1007" selection-end="1007" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/tests/HttpRequestRouterTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="34" column="0" selection-start="1210" selection-end="1210" vertical-scroll-proportion="0.0">
@@ -1062,17 +1050,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/server/HttpServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="8" selection-start="1468" selection-end="1468" vertical-scroll-proportion="0.7868217">
+        <state line="86" column="0" selection-start="2820" selection-end="2820" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/RequestHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="8" selection-start="1204" selection-end="1204" vertical-scroll-proportion="0.6976744">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/tests/HttpServerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="0" selection-start="1700" selection-end="1700" vertical-scroll-proportion="0.24777636">
+        <state line="53" column="23" selection-start="1607" selection-end="1607" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tests/RequestHandlerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="23" selection-start="1728" selection-end="1728" vertical-scroll-proportion="0.7433291">
+          <folding />
         </state>
       </provider>
     </entry>

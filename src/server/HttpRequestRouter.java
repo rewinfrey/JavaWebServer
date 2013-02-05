@@ -22,16 +22,13 @@ public class HttpRequestRouter {
     public HttpRequestParser httpRequestParser;
     public Wrangler wrangler;
 
-    public HttpRequestRouter(BufferedReader inStream, DataOutputStream outDataStream, OutputStreamWriter outputStreamWriter, String directory) {
-        try {
-            this.inStream           = inStream;
-            this.outputStreamWriter = outputStreamWriter;
-            this.outDataStream      = outDataStream;
-            this.directory          = directory;
+    public HttpRequestRouter(BufferedReader inStream, DataOutputStream outDataStream, OutputStreamWriter outputStreamWriter, String directory) throws Exception {
+        this.inStream           = inStream;
+        this.outputStreamWriter = outputStreamWriter;
+        this.outDataStream      = outDataStream;
+        this.directory          = directory;
 
-            this.httpRequestParser  = new HttpRequestParser(inStream);
-        } catch ( Exception e ) {
-        }
+        this.httpRequestParser  = new HttpRequestParser(inStream);
     }
 
     public void routeRequest() {

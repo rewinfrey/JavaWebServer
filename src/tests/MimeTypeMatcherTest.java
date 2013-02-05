@@ -31,4 +31,9 @@ public class MimeTypeMatcherTest {
             assertEquals(fileExt, mimeTypeMatcher.parseFileExtension("example"+fileExt));
 
     }
+
+    @Test
+    public void getMimeTypeDefault() {
+        assertEquals("text/plain", mimeTypeMatcher.getMimeType("file.unknown_extension"));
+    }
 }

@@ -53,6 +53,7 @@ public class WranglerTest {
     }
 
     @Test
-    public void process() {
+    public void process() throws IOException, InterruptedException {
+        wrangler.process();
     }
 }

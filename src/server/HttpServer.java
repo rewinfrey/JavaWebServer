@@ -68,7 +68,6 @@ public class HttpServer implements Runnable {
                 Thread clientThread          = new Thread(newRequest);
                 clientThread.start();
             } catch ( SocketException f ) {
-            } catch ( NullPointerException g ) {
             }
         }
     }
@@ -111,16 +110,10 @@ public class HttpServer implements Runnable {
 
     @Override
     public void run() {
+            System.out.println("\nServer started on port: " + port);
         try {
-            System.out.println("\nServer started on port: "+port);
             runServer();
         } catch (IOException e) {
-            try {
-                unBindServerSocket();
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
-            e.printStackTrace();
         }
     }
 }

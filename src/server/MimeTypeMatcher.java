@@ -37,7 +37,7 @@ public class MimeTypeMatcher {
         } else if (parsedFileExtension.equals(".ico")) {
             mimeType = "image/png";
         } else {
-            mimeType = "text/html; charset=UTF-8";
+            mimeType = "text/plain";
         }
         return mimeType;
     }

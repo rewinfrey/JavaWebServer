@@ -72,23 +72,17 @@ public class SocketWriter {
         closeRequest();
     }
 
-    public void writeFileToClient(String fileName) {
-        try {
-            FileInputStream inFileStream = new FileInputStream( new File( fileName ) );
-            byte[] buf                   = new byte[1024];
-            int count = 0;
+    public void writeFileToClient(String fileName) throws IOException {
+        FileInputStream inFileStream = new FileInputStream( new File( fileName ) );
+        byte[] buf                   = new byte[1024];
+        int count = 0;
 
-            while ((count = inFileStream.read(buf)) >= 0) {
-               outDataStream.write(buf, 0, count);
-            }
-
-            inFileStream.close();
-            closeRequest();
-        } catch ( IOException e ) {
-            e.printStackTrace();
-        } catch ( NullPointerException f ) {
-            f.printStackTrace();
+        while ((count = inFileStream.read(buf)) >= 0) {
+           outDataStream.write(buf, 0, count);
         }
+
+        inFileStream.close();
+        closeRequest();
     }
 
     public void closeRequest() throws IOException {

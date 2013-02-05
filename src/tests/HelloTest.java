@@ -4,6 +4,7 @@ import org.junit.Test;
 import server.Hello;
 
 import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertNotNull;
 
 /**
  * Created with IntelliJ IDEA.
@@ -266,8 +267,13 @@ public class HelloTest {
             "  }).call(this);\n" +
             "  </script>\n" +
             "</html>";
-   @Test
+    @Test
     public void hello() {
        assertEquals(hello, Hello.helloHTML);
-   }
+    }
+
+    @Test
+    public void Hello() {
+       assertNotNull(new Hello());
+    }
 }

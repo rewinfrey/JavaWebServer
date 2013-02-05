@@ -1,6 +1,7 @@
 package tests;
 
 import org.junit.AfterClass;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import server.GetWrangler;
@@ -27,9 +28,14 @@ public class HttpRequestRouterTest {
     BufferedReader postBr               = new BufferedReader(     new StringReader("POST /form HTTP/1.1\r\n\r\nname=John&age=23"));
     DataOutputStream outData            = new DataOutputStream(   new ByteArrayOutputStream());
     OutputStreamWriter outWriter        = new OutputStreamWriter( new ByteArrayOutputStream());
+    HttpRequestRouter getRequestRouter;
+    HttpRequestRouter postRequestRouter;
 
-    HttpRequestRouter getRequestRouter  = new HttpRequestRouter(getBr, outData, outWriter, directory);
-    HttpRequestRouter postRequestRouter = new HttpRequestRouter(postBr, outData, outWriter, directory);
+    @Before
+    public void setup() throws Exception {
+        getRequestRouter  = new HttpRequestRouter(getBr, outData, outWriter, directory);
+        postRequestRouter = new HttpRequestRouter(postBr, outData, outWriter, directory);
+    }
 
     @Test
     public void httpRequestRouter() {

@@ -19,6 +19,6 @@ import static junit.framework.Assert.assertEquals;
  */
 
 @RunWith(Suite.class)
-@Suite.SuiteClasses({RequestHandlerTest.class, HttpRequestRouterTest.class, HttpGeneratorTest.class, HttpRequestParserTest.class, LoggerTest.class, MimeTypeMatcherTest.class, PostWranglerTest.class, ResourceFetcherTest.class, SocketWriterTest.class, GetWranglerTest.class, HttpServerTest.class, WranglerTest.class, HelloTest.class })
+@Suite.SuiteClasses({RequestHandlerTest.class, HttpRequestRouterTest.class, HttpGeneratorTest.class, HttpRequestParserTest.class, LoggerTest.class, MimeTypeMatcherTest.class, PostWranglerTest.class, ResourceFetcherTest.class, SocketWriterTest.class, HttpServerTest.class, WranglerTest.class, HelloTest.class, GetWranglerTest.class })
 public class TestSuite {
 }

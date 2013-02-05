@@ -60,15 +60,13 @@ public class HttpServer implements Runnable {
         this.directory = directory;
     }
 
-    public void runServer() throws IOException {
+    public void runServer() throws IOException, SocketException {
+        System.out.println("\nServer started on port: " + port);
         while(isBound()) {
-            try {
                 Socket clientSocket          = welcomeSocket.accept();
                 RequestHandler newRequest    = new RequestHandler(clientSocket, directory);
                 Thread clientThread          = new Thread(newRequest);
                 clientThread.start();
-            } catch ( SocketException f ) {
-            }
         }
     }
 
@@ -110,10 +108,11 @@ public class HttpServer implements Runnable {
 
     @Override
     public void run() {
-            System.out.println("\nServer started on port: " + port);
         try {
             runServer();
-        } catch (IOException e) {
+        } catch (Exception e) {
+            System.out.println("\nThe server could not be started at the specified port: " + port);
+            start = false;
         }
     }
 }

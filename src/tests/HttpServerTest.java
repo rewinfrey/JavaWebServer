@@ -27,7 +27,7 @@ public class HttpServerTest {
 
     @Before
     public void request() {
-        System.setOut(new PrintStream(outContent));
+       //System.setOut(new PrintStream(outContent));
     }
 
     private HttpServer serverFactory(int port) throws Exception {
@@ -45,6 +45,14 @@ public class HttpServerTest {
         HttpServer.server.stop();
         assertTrue(HttpServer.server.isClosed());
         assertTrue(HttpServer.server.isInterrupted());
+    }
+
+    @Test
+    public void throwException() throws IOException, InterruptedException {
+        String[] args = { "-p", "8909", "-d", testDirectory };
+        HttpServer.main(args);
+        HttpServer.server.serverThreadStart();
+        assertEquals(false, HttpServer.start);
     }
 
     @Test

@@ -17,7 +17,7 @@
     <file path="/Game.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1360000229908" ignored="false" />
     <file path="$PROJECT_DIR$/../FifteenthBowlingGameKata/src/Game.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1359987267359" ignored="false" />
     <file path="$PROJECT_DIR$/../FifteenthBowlingGameKata/src/GameTest.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1359987288478" ignored="false" />
-    <file path="/HttpServer.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1360058726815" ignored="false" />
+    <file path="/HttpServer.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1360087399661" ignored="false" />
     <file path="/PostWrangler.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1359993233821" ignored="false" />
     <file path="/Wrangler.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1360047325304" ignored="false" />
     <file path="/HttpRequestRouter.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1360014168282" ignored="false" />
@@ -26,7 +26,7 @@
     <file path="$PROJECT_DIR$/../SeventheenthBowlingGameKata/src/GameTest.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1359997113139" ignored="false" />
     <file path="$PROJECT_DIR$/../SeventheenthBowlingGameKata/src/Game.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1359997062408" ignored="false" />
     <file path="/RequestHandler.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1359997541400" ignored="false" />
-    <file path="/HttpServerTest.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1360083525238" ignored="false" />
+    <file path="/HttpServerTest.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1360087976830" ignored="false" />
     <file path="$PROJECT_DIR$/../BowlingGameKataPerformance/src/GameTest.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1360001840636" ignored="false" />
     <file path="$PROJECT_DIR$/../BowlingGameKataPerformance/src/Game.java" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1360000237845" ignored="false" />
     <file path="/Dummy.txt" changelist="f9f247db-a4e3-4fb0-b4c5-bb16fe343609" time="1360084585087" ignored="false" />
@@ -112,6 +112,9 @@
     <SUITE FILE_PATH="coverage/RickHttpServer$HelloTest.coverage" NAME="HelloTest Coverage Results" MODIFIED="1360073150829" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>tests.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/RickHttpServer$HttpServerTest_throwException.coverage" NAME="HttpServerTest.throwException Coverage Results" MODIFIED="1360087312936" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>tests.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/RickHttpServer$HttpRequestRouterTest.coverage" NAME="HttpRequestRouterTest Coverage Results" MODIFIED="1360020041727" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>tests.*</FILTER>
       <FILTER>server.*</FILTER>
@@ -123,7 +126,7 @@
       <FILTER>tests.*</FILTER>
       <FILTER>server.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/RickHttpServer$tests_in_RickHttpServer.coverage" NAME="tests in RickHttpServer Coverage Results" MODIFIED="1360086118296" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/RickHttpServer$tests_in_RickHttpServer.coverage" NAME="tests in RickHttpServer Coverage Results" MODIFIED="1360087569434" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>tests.*</FILTER>
       <FILTER>server.*</FILTER>
     </SUITE>
@@ -248,19 +251,19 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="HttpServer.java" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="HttpServer.java" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/server/HttpServer.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="13" column="0" selection-start="283" selection-end="283" vertical-scroll-proportion="0.0">
+                <state line="47" column="8" selection-start="1468" selection-end="1468" vertical-scroll-proportion="0.7868217">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="build.xml" pinned="false" current="false" current-in-tab="true">
+          <file leaf-file-name="build.xml" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/build.xml">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="16" column="0" selection-start="577" selection-end="577" vertical-scroll-proportion="0.30495554">
+                <state line="16" column="0" selection-start="577" selection-end="577" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -326,10 +329,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="HttpServerTest.java" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="HttpServerTest.java" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/tests/HttpServerTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="25" column="0" selection-start="640" selection-end="640" vertical-scroll-proportion="0.0">
+                <state line="54" column="0" selection-start="1700" selection-end="1700" vertical-scroll-proportion="0.24777636">
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -337,10 +340,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="GetWranglerTest.java" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="GetWranglerTest.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/tests/GetWranglerTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="94" column="35" selection-start="3597" selection-end="3597" vertical-scroll-proportion="0.2566709">
+                <state line="117" column="5" selection-start="4727" selection-end="4727" vertical-scroll-proportion="0.0">
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -398,7 +401,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/server/GetWrangler.java" />
         <option value="$PROJECT_DIR$/src/server/PostWrangler.java" />
         <option value="$PROJECT_DIR$/src/server/Wrangler.java" />
         <option value="$PROJECT_DIR$/src/tests/HelloTest.java" />
@@ -407,13 +409,14 @@
         <option value="$PROJECT_DIR$/src/tests/HttpGeneratorTest.java" />
         <option value="$PROJECT_DIR$/src/tests/MimeTypeMatcherTest.java" />
         <option value="$PROJECT_DIR$/src/tests/PostWranglerTest.java" />
-        <option value="$PROJECT_DIR$/src/tests/HttpServerTest.java" />
         <option value="$PROJECT_DIR$/src/tests/WranglerTest.java" />
         <option value="$PROJECT_DIR$/src/tests/RequestHandlerTest.java" />
         <option value="$PROJECT_DIR$/src/tests/ResourceFetcherTest.java" />
         <option value="$PROJECT_DIR$/src/tests/SocketWriterTest.java" />
         <option value="$PROJECT_DIR$/src/tests/TestSuite.java" />
         <option value="$PROJECT_DIR$/src/tests/GetWranglerTest.java" />
+        <option value="$PROJECT_DIR$/src/server/HttpServer.java" />
+        <option value="$PROJECT_DIR$/src/tests/HttpServerTest.java" />
       </list>
     </option>
   </component>
@@ -501,7 +504,7 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="GenerateAntBuildDialog.inclineRuntiemClasspath" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="build" />
     <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
@@ -520,7 +523,7 @@
     <property name="options.searchVisible" value="true" />
     <property name="dynamic.classpath" value="false" />
   </component>
-  <component name="RunManager" selected="JUnit.tests in RickHttpServer">
+  <component name="RunManager" selected="JUnit.HttpServerTest">
     <configuration default="false" name="tests in RickHttpServer" type="JUnit" factoryName="JUnit" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" track_test_folders="true" runner="idea">
         <pattern>
@@ -539,76 +542,6 @@
       <option name="MAIN_CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Clover Optimizing Runner">
-        <option name="discardSnapshots" value="false" />
-        <option name="compilesBeforeStaleSnapshot" value="10" />
-        <option name="minimize" value="true" />
-        <option name="reorder" value="FAILFAST" />
-      </RunnerSettings>
-      <RunnerSettings RunnerId="Cover" />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Cover" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="WranglerTest" type="JUnit" factoryName="JUnit" temporary="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" track_test_folders="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="RickHttpServer" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" value="" />
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.WranglerTest" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Clover Optimizing Runner">
-        <option name="discardSnapshots" value="false" />
-        <option name="compilesBeforeStaleSnapshot" value="10" />
-        <option name="minimize" value="true" />
-        <option name="reorder" value="FAILFAST" />
-      </RunnerSettings>
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="HelloTest" type="JUnit" factoryName="JUnit" temporary="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" track_test_folders="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="RickHttpServer" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" value="" />
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.HelloTest" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
@@ -685,6 +618,76 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="RickHttpServer" />
       <envs />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="HttpServerTest.throwException" type="JUnit" factoryName="JUnit" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" track_test_folders="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="RickHttpServer" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.HttpServerTest" />
+      <option name="METHOD_NAME" value="throwException" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Clover Optimizing Runner">
+        <option name="discardSnapshots" value="false" />
+        <option name="compilesBeforeStaleSnapshot" value="10" />
+        <option name="minimize" value="true" />
+        <option name="reorder" value="FAILFAST" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Cover" />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Cover" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="HttpServerTest" type="JUnit" factoryName="JUnit" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" track_test_folders="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="RickHttpServer" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.HttpServerTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Clover Optimizing Runner">
+        <option name="discardSnapshots" value="false" />
+        <option name="compilesBeforeStaleSnapshot" value="10" />
+        <option name="minimize" value="true" />
+        <option name="reorder" value="FAILFAST" />
+      </RunnerSettings>
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
       <method />
@@ -830,18 +833,18 @@
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="JUnit.tests in RickHttpServer" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.tests in RickHttpServer" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.WranglerTest" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.HelloTest" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.GetWranglerTest.getDirProcess" />
-      <item index="5" class="java.lang.String" itemvalue="Application.HttpServer" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.GetWranglerTest.getDirProcess" />
+      <item index="3" class="java.lang.String" itemvalue="Application.HttpServer" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.HttpServerTest.throwException" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.HttpServerTest" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.tests in RickHttpServer" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.GetWranglerTest.getDirProcess" />
-        <item index="2" class="java.lang.String" itemvalue="Application.HttpServer" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.HelloTest" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.WranglerTest" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.HttpServerTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.tests in RickHttpServer" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.HttpServerTest.throwException" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.GetWranglerTest.getDirProcess" />
+        <item index="4" class="java.lang.String" itemvalue="Application.HttpServer" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -874,7 +877,7 @@
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3266564" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13285601" sideWeight="0.6456086" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13285601" sideWeight="0.6456086" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cloverage" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30429596" sideWeight="0.7064715" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
@@ -882,7 +885,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16825776" sideWeight="0.6456086" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35439137" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35439137" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Test Runs" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32975337" sideWeight="0.7064715" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -951,13 +954,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/server/HttpRequestRouter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="29" column="0" selection-start="910" selection-end="910" vertical-scroll-proportion="-0.6">
@@ -995,16 +991,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/HttpRequestRouterTest.java">
+    <entry file="file://$PROJECT_DIR$/src/tests/GetWranglerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="0" selection-start="1210" selection-end="1210" vertical-scroll-proportion="0.0">
+        <state line="117" column="5" selection-start="4727" selection-end="4727" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tests/TestSuite.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="271" selection-start="706" selection-end="706" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/HttpServerTest.java">
+    <entry file="file://$PROJECT_DIR$/src/tests/ResourceFetcherTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="0" selection-start="640" selection-end="640" vertical-scroll-proportion="0.0">
+        <state line="22" column="0" selection-start="465" selection-end="465" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tests/SocketWriterTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="92" column="4" selection-start="3688" selection-end="3688" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1041,32 +1053,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/ResourceFetcherTest.java">
+    <entry file="file://$PROJECT_DIR$/src/tests/HttpRequestRouterTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="465" selection-end="465" vertical-scroll-proportion="0.0">
+        <state line="34" column="0" selection-start="1210" selection-end="1210" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/SocketWriterTest.java">
+    <entry file="file://$PROJECT_DIR$/src/server/HttpServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="4" selection-start="3688" selection-end="3688" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/TestSuite.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="271" selection-start="706" selection-end="706" vertical-scroll-proportion="0.0">
+        <state line="47" column="8" selection-start="1468" selection-end="1468" vertical-scroll-proportion="0.7868217">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/GetWranglerTest.java">
+    <entry file="file://$PROJECT_DIR$/src/tests/HttpServerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="35" selection-start="3597" selection-end="3597" vertical-scroll-proportion="0.2566709">
+        <state line="54" column="0" selection-start="1700" selection-end="1700" vertical-scroll-proportion="0.24777636">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

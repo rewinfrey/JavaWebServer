@@ -27,6 +27,8 @@ public class HttpGeneratorTest {
     private DateFormat dateFormat = new SimpleDateFormat( "HH:mm:ss MM/dd/yyyy" );
     private ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
+    String testDir = System.getProperty("user.dir").toString() + "/testfiles";
+
     @Before
     public void request() {
         System.setOut(new PrintStream(outContent));
@@ -53,7 +55,8 @@ public class HttpGeneratorTest {
     public void generateTime() {
         String time = dateFormat.format(new Date());
         StringBuilder templateTime = new StringBuilder();
-        templateTime.append("<!DOCTYPE html><head></head><html><body style=\"background-color: #ECDFCE; color: #766F67; font-family: FrescoSansPlusBold, Helvetica, Arial, sans-serif;\"><h1 style=\"text-align: center; margin-top: 100px; font-size: 50px; font-family: monaco;\">");
+        templateTime.append("<!DOCTYPE html><head></head><html><body style=\"background-color: #ECDFCE; color: #766F67; font-family: FrescoSansPlusBold, Helvetica, Arial, sans-serif;\">" +
+                            "<h1 style=\"text-align: center; margin-top: 100px; font-size: 50px; font-family: monaco;\">");
         templateTime.append(time);
         templateTime.append("</h1></body></html>");
         assertEquals(templateTime.toString(), httpGenerator.generateTime(time));
@@ -61,25 +64,30 @@ public class HttpGeneratorTest {
 
     @Test
     public void generateform() {
-        String templateForm = "<!DOCTYPE html><head></head><html><body style=\"background-color: #ECDFCE; color: #766F67; font-family: FrescoSansPlusBold, Helvetica, Arial, sans-serif;\"><div style=\"margin: auto; width: 206px;\"><h1 style=\"text-align: center;\">Form!</h1>\n" +
-                "<form action=\"/form\" method=\"post\"><ul style=\"list-style: none;\">\n" +
-                "<li style=\"margin-top: 20px;\"><label for=\"one\"></label><input type=\"text\" name=\"one\" value=\"one\"></li>\n" +
-                "<li style=\"margin-top: 20px;\"><label for=\"two\"></label><input type=\"text\" name=\"two\" value=\"two\"></li>\n" +
-                "<li style=\"margin-top: 20px;\"><label for=\"three\"></label><input type=\"text\" name=\"three\" value=\"three\"></li>\n" +
-                "<input style=\"width: 80px; margin: 20px 22px;\" type=\"submit\" value=\"submit\" /></ul></form></div></body></html>";
+        String templateForm = "<!DOCTYPE html><head></head><html><body style=\"background-color: #ECDFCE; color: #766F67; font-family: FrescoSansPlusBold, Helvetica, Arial, sans-serif;\">" +
+                              "<div style=\"margin: auto; width: 206px;\"><h1 style=\"text-align: center;\">Form!</h1>\n" +
+                              "<form action=\"/form\" method=\"post\"><ul style=\"list-style: none;\">\n" +
+                              "<li style=\"margin-top: 20px;\"><label for=\"one\"></label><input type=\"text\" name=\"one\" value=\"one\"></li>\n" +
+                              "<li style=\"margin-top: 20px;\"><label for=\"two\"></label><input type=\"text\" name=\"two\" value=\"two\"></li>\n" +
+                              "<li style=\"margin-top: 20px;\"><label for=\"three\"></label><input type=\"text\" name=\"three\" value=\"three\"></li>\n" +
+                             "<input style=\"width: 80px; margin: 20px 22px;\" type=\"submit\" value=\"submit\" /></ul></form></div></body></html>";
         assertEquals(templateForm, httpGenerator.generateForm());
     }
 
     @Test
     public void generateIndex() {
-        String templateIndex = "<!DOCTYPE html><head></head><html><body style=\"background-color: #ECDFCE; color: #766F67; font-family: FrescoSansPlusBold, Helvetica, Arial, sans-serif;\"><h2 style=\"margin-left: 210px; font-weight: 500; margin-top: 100px;\">Current Location: /Users/rickwinfrey/serverTestDir</h2><div style=\"margin-top: 12px;\"><a style=\"margin-top: 12px; margin-left: 220px; text-decoration: none; color: #A89E92;\" href=\"/test1.html\">test1.html</a></div><div style=\"margin-top: 12px;\"><a style=\"margin-top: 12px; margin-left: 220px; text-decoration: none; color: #A89E92;\" href=\"/test2.html\">test2.html</a></div><div style=\"margin-top: 12px;\"><a style=\"margin-top: 12px; margin-left: 220px; text-decoration: none; color: #A89E92;\" href=\"/test3.html\">test3.html</a></div><div style=\"margin-top: 12px;\"><a style=\"margin-top: 12px; margin-left: 220px; text-decoration: none; color: #A89E92;\" href=\"/test4.png\">test4.png</a></div><div style=\"margin-top: 12px;\"><a style=\"margin-top: 12px; margin-left: 220px; text-decoration: none; color: #A89E92;\" href=\"/test5.jpg\">test5.jpg</a></div><div style=\"margin-top: 12px;\"><a style=\"margin-top: 12px; margin-left: 220px; text-decoration: none; color: #A89E92;\" href=\"/test6.gif\">test6.gif</a></div><div style=\"margin-top: 12px;\"><a style=\"margin-top: 12px; margin-left: 220px; text-decoration: none; color: #766F67;\" href=\"/testDir2\">testDir2/</a></div></body></html>";
-        assertEquals(templateIndex, httpGenerator.generateIndex("/Users/rickwinfrey/serverTestDir", "/Users/rickwinfrey/serverTestDir"));
+        String templateIndex = "<!DOCTYPE html><head></head><html><body style=\"background-color: #ECDFCE; color: #766F67; font-family: FrescoSansPlusBold, Helvetica, Arial, sans-serif;\">" +
+                               "<h2 style=\"margin-left: 210px; font-weight: 500; margin-top: 100px;\">Current Location: "+testDir+"</h2><div style=\"margin-top: 12px;\">" +
+                               "<a style=\"margin-top: 12px; margin-left: 220px; text-decoration: none; color: #766F67;\" href=\"/test\">test/</a></div><div style=\"margin-top: 12px;\">" +
+                               "<a style=\"margin-top: 12px; margin-left: 220px; text-decoration: none; color: #A89E92;\" href=\"/test.txt\">test.txt</a></div></body></html>";
+        assertEquals(templateIndex, httpGenerator.generateIndex(testDir, testDir));
     }
 
     @Test
     public void generateFileListing() {
-        String templateFileList = "<div style=\"margin-top: 12px;\"><a style=\"margin-top: 12px; margin-left: 220px; text-decoration: none; color: #A89E92;\" href=\"/test1.html\">test1.html</a></div><div style=\"margin-top: 12px;\"><a style=\"margin-top: 12px; margin-left: 220px; text-decoration: none; color: #A89E92;\" href=\"/test2.html\">test2.html</a></div><div style=\"margin-top: 12px;\"><a style=\"margin-top: 12px; margin-left: 220px; text-decoration: none; color: #A89E92;\" href=\"/test3.html\">test3.html</a></div><div style=\"margin-top: 12px;\"><a style=\"margin-top: 12px; margin-left: 220px; text-decoration: none; color: #A89E92;\" href=\"/test4.png\">test4.png</a></div><div style=\"margin-top: 12px;\"><a style=\"margin-top: 12px; margin-left: 220px; text-decoration: none; color: #A89E92;\" href=\"/test5.jpg\">test5.jpg</a></div><div style=\"margin-top: 12px;\"><a style=\"margin-top: 12px; margin-left: 220px; text-decoration: none; color: #A89E92;\" href=\"/test6.gif\">test6.gif</a></div><div style=\"margin-top: 12px;\"><a style=\"margin-top: 12px; margin-left: 220px; text-decoration: none; color: #766F67;\" href=\"/testDir2\">testDir2/</a></div>";
-        assertEquals(templateFileList, httpGenerator.generateFileListing("/Users/rickwinfrey/serverTestDir", "/Users/rickwinfrey/serverTestDir"));
+        String templateFileList = "<div style=\"margin-top: 12px;\"><a style=\"margin-top: 12px; margin-left: 220px; text-decoration: none; color: #766F67;\" href=\"/test\">test/</a>" +
+                                  "</div><div style=\"margin-top: 12px;\"><a style=\"margin-top: 12px; margin-left: 220px; text-decoration: none; color: #A89E92;\" href=\"/test.txt\">test.txt</a></div>";
+        assertEquals(templateFileList, httpGenerator.generateFileListing(testDir, testDir));
     }
 
     @Test

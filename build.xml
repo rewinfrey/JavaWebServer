@@ -1,247 +1,38 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project name="rickhttpserver" default="all">
-  
-  
-  <property file="build.properties"/>
-  <!-- Uncomment the following property if no tests compilation is needed -->
-  <!-- 
-  <property name="skip.tests" value="true"/>
-   -->
-  
-  <!-- Compiler options -->
-  
-  <property name="compiler.debug" value="on"/>
-  <property name="compiler.generate.no.warnings" value="off"/>
-  <property name="compiler.args" value=""/>
-  <property name="compiler.max.memory" value="128m"/>
-  <patternset id="ignored.files">
-    <exclude name="**/CVS/**"/>
-    <exclude name="**/SCCS/**"/>
-    <exclude name="**/RCS/**"/>
-    <exclude name="**/rcs/**"/>
-    <exclude name="**/.DS_Store/**"/>
-    <exclude name="**/.svn/**"/>
-    <exclude name="**/.pyc/**"/>
-    <exclude name="**/.pyo/**"/>
-    <exclude name="**/*.pyc/**"/>
-    <exclude name="**/*.pyo/**"/>
-    <exclude name="**/.git/**"/>
-    <exclude name="**/*.hprof/**"/>
-    <exclude name="**/_svn/**"/>
-    <exclude name="**/.hg/**"/>
-    <exclude name="**/*.lib/**"/>
-    <exclude name="**/*~/**"/>
-    <exclude name="**/__pycache__/**"/>
-    <exclude name="**/.bundle/**"/>
-    <exclude name="**/*.rbc/**"/>
-  </patternset>
-  <patternset id="library.patterns">
-    <include name="*.war"/>
-    <include name="*.ear"/>
-    <include name="*.apk"/>
-    <include name="*.zip"/>
-    <include name="*.swc"/>
-    <include name="*.ane"/>
-    <include name="*.egg"/>
-    <include name="*.jar"/>
-  </patternset>
-  <patternset id="compiler.resources">
-    <exclude name="**/?*.java"/>
-    <exclude name="**/?*.form"/>
-    <exclude name="**/?*.class"/>
-    <exclude name="**/?*.groovy"/>
-    <exclude name="**/?*.scala"/>
-    <exclude name="**/?*.flex"/>
-    <exclude name="**/?*.kt"/>
-    <exclude name="**/?*.clj"/>
-  </patternset>
-  
-  <!-- JDK definitions -->
-  
-  <property name="jdk.bin.1.7" value="${jdk.home.1.7}/bin"/>
-  <path id="jdk.classpath.1.7">
-    <fileset dir="${jdk.home.1.7}">
-      <include name="lib/ant-javafx.jar"/>
-      <include name="lib/dt.jar"/>
-      <include name="lib/javafx-doclet.jar"/>
-      <include name="lib/javafx-mx.jar"/>
-      <include name="lib/jconsole.jar"/>
-      <include name="lib/sa-jdi.jar"/>
-      <include name="lib/tools.jar"/>
-      <include name="jre/lib/charsets.jar"/>
-      <include name="jre/lib/deploy.jar"/>
-      <include name="jre/lib/htmlconverter.jar"/>
-      <include name="jre/lib/javaws.jar"/>
-      <include name="jre/lib/jce.jar"/>
-      <include name="jre/lib/jfr.jar"/>
-      <include name="jre/lib/jfxrt.jar"/>
-      <include name="jre/lib/JObjC.jar"/>
-      <include name="jre/lib/jsse.jar"/>
-      <include name="jre/lib/management-agent.jar"/>
-      <include name="jre/lib/plugin.jar"/>
-      <include name="jre/lib/resources.jar"/>
-      <include name="jre/lib/rt.jar"/>
-      <include name="jre/lib/ext/dnsns.jar"/>
-      <include name="jre/lib/ext/localedata.jar"/>
-      <include name="jre/lib/ext/sunec.jar"/>
-      <include name="jre/lib/ext/sunjce_provider.jar"/>
-      <include name="jre/lib/ext/sunpkcs11.jar"/>
-      <include name="jre/lib/ext/zipfs.jar"/>
-    </fileset>
-  </path>
-  
-  <property name="project.jdk.home" value="${jdk.home.1.7}"/>
-  <property name="project.jdk.bin" value="${jdk.bin.1.7}"/>
-  <property name="project.jdk.classpath" value="jdk.classpath.1.7"/>
-  
-  
-  <!-- Project Libraries -->
-  
-  <path id="library.coverage.classpath">
-    <pathelement location="${idea.home}/plugins/coverage/lib/coverage.jar"/>
-  </path>
-  <!-- Register Custom Compiler Taskdefs -->
-  <property name="javac2.home" value="${idea.home}/lib"/>
-  <path id="javac2.classpath">
-    <pathelement location="${javac2.home}/javac2.jar"/>
-    <pathelement location="${javac2.home}/jdom.jar"/>
-    <pathelement location="${javac2.home}/asm4-all.jar"/>
-    <pathelement location="${javac2.home}/jgoodies-forms.jar"/>
-  </path>
-  <target name="register.custom.compilers">
-    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
-    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
-  </target>
-  
-  <!-- Modules -->
-  
-  
-  <!-- Module RickHttpServer -->
-  
-  <dirname property="module.rickhttpserver.basedir" file="${ant.file}"/>
-  
-  
-  <property name="module.jdk.home.rickhttpserver" value="${project.jdk.home}"/>
-  <property name="module.jdk.bin.rickhttpserver" value="${project.jdk.bin}"/>
-  <property name="module.jdk.classpath.rickhttpserver" value="${project.jdk.classpath}"/>
-  
-  <property name="compiler.args.rickhttpserver" value="${compiler.args}"/>
-  
-  <property name="rickhttpserver.output.dir" value="${module.rickhttpserver.basedir}/out/production/RickHttpServer"/>
-  <property name="rickhttpserver.testoutput.dir" value="${module.rickhttpserver.basedir}/out/test/RickHttpServer"/>
-  
-  <path id="rickhttpserver.module.bootclasspath">
-    <!-- Paths to be included in compilation bootclasspath -->
-  </path>
-  
-  <path id="rickhttpserver.module.production.classpath">
-    <path refid="${module.jdk.classpath.rickhttpserver}"/>
-    <pathelement location="${idea.home}/lib/junit.jar"/>
-    <pathelement location="${idea.home}/lib/junit-4.10.jar"/>
-    <path refid="library.coverage.classpath"/>
-  </path>
-  
-  <path id="rickhttpserver.runtime.production.module.classpath">
-    <pathelement location="${rickhttpserver.output.dir}"/>
-    <pathelement location="${idea.home}/lib/junit.jar"/>
-    <pathelement location="${idea.home}/lib/junit-4.10.jar"/>
-    <path refid="library.coverage.classpath"/>
-  </path>
-  
-  <path id="rickhttpserver.module.classpath">
-    <path refid="${module.jdk.classpath.rickhttpserver}"/>
-    <pathelement location="${rickhttpserver.output.dir}"/>
-    <pathelement location="${idea.home}/lib/junit.jar"/>
-    <pathelement location="${idea.home}/lib/junit-4.10.jar"/>
-    <path refid="library.coverage.classpath"/>
-  </path>
-  
-  <path id="rickhttpserver.runtime.module.classpath">
-    <pathelement location="${rickhttpserver.testoutput.dir}"/>
-    <pathelement location="${rickhttpserver.output.dir}"/>
-    <pathelement location="${idea.home}/lib/junit.jar"/>
-    <pathelement location="${idea.home}/lib/junit-4.10.jar"/>
-    <path refid="library.coverage.classpath"/>
-  </path>
-  
-  
-  <patternset id="excluded.from.module.rickhttpserver">
-    <patternset refid="ignored.files"/>
-  </patternset>
-  
-  <patternset id="excluded.from.compilation.rickhttpserver">
-    <patternset refid="excluded.from.module.rickhttpserver"/>
-  </patternset>
-  
-  <path id="rickhttpserver.module.sourcepath">
-    <dirset dir="${module.rickhttpserver.basedir}">
-      <include name="src"/>
-    </dirset>
-  </path>
-  
-  
-  <target name="compile.module.rickhttpserver" depends="compile.module.rickhttpserver.production,compile.module.rickhttpserver.tests" description="Compile module RickHttpServer"/>
-  
-  <target name="compile.module.rickhttpserver.production" depends="register.custom.compilers" description="Compile module RickHttpServer; production classes">
-    <mkdir dir="${rickhttpserver.output.dir}"/>
-    <javac2 destdir="${rickhttpserver.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.rickhttpserver}/javac">
-      <compilerarg line="${compiler.args.rickhttpserver}"/>
-      <bootclasspath refid="rickhttpserver.module.bootclasspath"/>
-      <classpath refid="rickhttpserver.module.production.classpath"/>
-      <src refid="rickhttpserver.module.sourcepath"/>
-      <patternset refid="excluded.from.compilation.rickhttpserver"/>
-    </javac2>
-    
-    <copy todir="${rickhttpserver.output.dir}">
-      <fileset dir="${module.rickhttpserver.basedir}/src">
-        <patternset refid="compiler.resources"/>
-        <type type="file"/>
-      </fileset>
-    </copy>
-  </target>
-  
-  <target name="compile.module.rickhttpserver.tests" depends="register.custom.compilers,compile.module.rickhttpserver.production" description="compile module RickHttpServer; test classes" unless="skip.tests"/>
-  
-  <target name="clean.module.rickhttpserver" description="cleanup module">
-    <delete dir="${rickhttpserver.output.dir}"/>
-    <delete dir="${rickhttpserver.testoutput.dir}"/>
-  </target>
-  
-  <target name="init" description="Build initialization">
-    <!-- Perform any build initialization in this target -->
-  </target>
-  
-  <target name="clean" depends="clean.module.rickhttpserver" description="cleanup all"/>
-  
-  <target name="build.modules" depends="init, clean, compile.module.rickhttpserver" description="build all modules"/>
-  
-  <target name="init.artifacts">
-    <property name="artifacts.temp.dir" value="${basedir}/__artifacts_temp"/>
-    <property name="artifact.output.rickhttpserver:jar" value="${basedir}/out/artifacts/RickHttpServer_jar"/>
-    <mkdir dir="${artifacts.temp.dir}"/>
-    <property name="temp.jar.path.RickHttpServer.jar" value="${artifacts.temp.dir}/RickHttpServer.jar"/>
-  </target>
-  
-  <target name="artifact.rickhttpserver:jar" depends="init.artifacts, compile.module.rickhttpserver" description="Build &#39;RickHttpServer:jar&#39; artifact">
-    <property name="artifact.temp.output.rickhttpserver:jar" value="${artifacts.temp.dir}/RickHttpServer_jar"/>
-    <mkdir dir="${artifact.temp.output.rickhttpserver:jar}"/>
-    <jar destfile="${temp.jar.path.RickHttpServer.jar}" duplicate="preserve" filesetmanifest="mergewithoutmain">
-      <zipfileset dir="${rickhttpserver.output.dir}"/>
-      <zipfileset src="${idea.home}/lib/junit-4.10.jar"/>
-      <zipfileset src="${idea.home}/lib/junit.jar"/>
-    </jar>
-    <copy file="${temp.jar.path.RickHttpServer.jar}" tofile="${artifact.temp.output.rickhttpserver:jar}/RickHttpServer.jar"/>
-  </target>
-  
-  <target name="build.all.artifacts" depends="artifact.rickhttpserver:jar" description="Build all artifacts">
-    <mkdir dir="${artifact.output.rickhttpserver:jar}"/>
-    <copy todir="${artifact.output.rickhttpserver:jar}">
-      <fileset dir="${artifact.temp.output.rickhttpserver:jar}"/>
-    </copy>
-    
-    <!-- Delete temporary files -->
-    <delete dir="${artifacts.temp.dir}"/>
-  </target>
-  
-  <target name="all" depends="build.modules, build.all.artifacts" description="build all"/>
+<project name="RicksHTTP" default="build" basedir=".">
+    <description>Rick's HTTP</description>
+    <property name="src" location="src"/>
+    <property name="classes" location="classes"/>
+
+    <path id="classpath">
+        <pathelement path="${classes}"/>
+        <fileset dir="lib">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
+
+    <target name="compile" depends="" description="compile the source ">
+        <mkdir dir="classes"/>
+        <javac srcdir="${src}" destdir="${classes}" classpathref="classpath" includeantruntime="false"/>
+    </target>
+
+    <target name="build" depends="compile" description="generate the distribution">
+        <jar jarfile="rickhttp.jar" basedir="${classes}">
+            <manifest>
+                <attribute name="Main-Class" value="server.HttpServer"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="clean" description="clean up">
+        <delete dir="${classes}"/>
+    </target>
+
+    <target name="test" depends="compile" description="run the unit tests">
+         <junit fork="yes" printsummary="on" haltonfailure="yes" haltonerror="yes">
+             <classpath refid="classpath"/>
+             <formatter type="brief" usefile="false"/>
+             <test name="tests.TestSuite" haltonfailure="no"/>
+         </junit>
+     </target>
+
 </project>

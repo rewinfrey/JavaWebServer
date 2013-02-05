@@ -13,18 +13,18 @@ import java.net.Socket;
  */
 
 public class HttpRequestParser {
-    BufferedReader inStream;
+    public BufferedReader inStream;
     public String requestLine;
-    String[] requestLineArray;
-    StringBuilder headers;
+    public String[] requestLineArray;
+    public StringBuilder headers;
 
     public HttpRequestParser(BufferedReader inStream) throws Exception {
-        this.inStream         = inStream;
-        this.requestLine      = this.inStream.readLine();
-        this.requestLineArray = parseRequest();
+        this.inStream    = inStream;
+        requestLine      = this.inStream.readLine();
+        requestLineArray = parseRequest();
     }
 
-    private String[] parseRequest() {
+    public String[] parseRequest() {
         return requestLine.split("[ ]+");
     }
 
@@ -36,7 +36,7 @@ public class HttpRequestParser {
         return requestLineArray[1];
     }
 
-    public String setHttpHeaders() throws IOException {
+    public void setHttpHeaders() throws IOException {
         headers = new StringBuilder();
         String lines = inStream.readLine();
 
@@ -44,8 +44,6 @@ public class HttpRequestParser {
             headers.append(lines + "\r\n");
             lines = inStream.readLine();
         }
-
-        return headers.toString();
     }
 
     public int httpRequestContentLength() {

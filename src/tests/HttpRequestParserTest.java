@@ -1,12 +1,12 @@
 package tests;
 
-import junit.framework.TestCase;
+import org.junit.Before;
+import org.junit.Test;
 import server.HttpRequestParser;
-import server.HttpServer;
 
 import java.io.*;
-import java.net.InetAddress;
-import java.net.Socket;
+
+import static junit.framework.Assert.assertEquals;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,15 +15,18 @@ import java.net.Socket;
  * Time: 10:52 AM
  * To change this template use File | Settings | File Templates.
  */
-public class HttpRequestParserTest extends TestCase {
+public class HttpRequestParserTest {
 
-    HttpRequestParser httpRequestParser;
+    HttpRequestParser httpGetRequestParser;
+    HttpRequestParser httpPostRequestParser;
+    String[] getRequestArray;
+    String[] getPostArray;
+
     String getRequest  = "GET / HTTP/1.1";
-
     String postRequest = "POST /form HTTP/1.1\n" +
             "11:07:39 30/01/2013\n" +
             "Connection: keep-alive\n" +
-            "Content-Length: 27\n" +
+            "Content-Length: 44\n" +
             "Cache-Control: max-age=0\n" +
             "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\n" +
             "Origin: http://localhost:3005\n" +
@@ -33,63 +36,79 @@ public class HttpRequestParserTest extends TestCase {
             "Accept-Encoding: gzip,deflate,sdch\n" +
             "Accept-Language: en-US,en;q=0.8\n" +
             "Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.3\n" +
-            "Cookie: _scrap_session=BAh\n" +
-            "\n";
-            //"\n" +
-            //"Post-Data: first_name=Rick&last_name=Winfrey\n";
-/*
-    private HttpServer configureServer(int port) throws IOException {
-        HttpServer httpServer = new HttpServer(port);
-        httpServer.bindServerSocket();
-        httpServer.serverThreadStart();
-        return httpServer;
-   }
+            "Cookie: _scrap_session=BAh\n\n" +
+            "Post-Data: first_name=Rick&last_name=Winfrey\n";
 
-    private Socket configureSocket(int port, String requestContent) throws IOException {
-        Socket requestSocket = new Socket(InetAddress.getLocalHost(), port);
-        PrintWriter pw = new PrintWriter(requestSocket.getOutputStream());
-        pw.write(requestContent);
-        return requestSocket;
+    BufferedReader inputGetStream = new BufferedReader( new StringReader(getRequest));
+    BufferedReader inputPostStream = new BufferedReader( new StringReader(postRequest));
+    @Before
+    public void setup() throws Exception {
+       httpGetRequestParser = new HttpRequestParser(inputGetStream);
+       httpPostRequestParser = new HttpRequestParser(inputPostStream);
+       getRequestArray = getRequest.split("[ ]+");
+       getPostArray    = postRequest.split("[ ]+");
     }
 
-    private BufferedReader getInputStream(Socket requestSocket) throws IOException {
-        return new BufferedReader( new InputStreamReader( requestSocket.getInputStream() ) );
+    @Test
+    public void httpRequestParser() throws Exception {
+        System.out.println();
+        assertEquals(inputGetStream, httpGetRequestParser.inStream);
+        assertEquals("GET / HTTP/1.1", httpGetRequestParser.requestLine);
+        for(int i = 0; i < httpGetRequestParser.requestLineArray.length; i++) {
+            assertEquals(getRequestArray[i], httpGetRequestParser.requestLineArray[i]);
+        }
     }
 
-    public void testHttpRequestParser() throws Exception {
-        HttpServer httpServer = configureServer(5007);
-        Socket requestSocket  = configureSocket(5007, getRequest);
-        BufferedReader in     = getInputStream(requestSocket);
-        httpRequestParser     = new HttpRequestParser(in, getRequest);
-        assertEquals(getRequest, httpRequestParser.requestLine);
-        httpServer.stop();
+    @Test
+    public void parseRequest() {
+        String[] parsedArray = httpGetRequestParser.parseRequest();
+        for(int i = 0; i < parsedArray.length; i++) {
+            assertEquals(getRequestArray[i], parsedArray[i]);
+        }
     }
 
-    public void testRequestTypes() throws Exception {
-        HttpServer httpServer = configureServer(5007);
-        Socket requestSocket  = configureSocket(5007, getRequest);
-        BufferedReader in     = getInputStream(requestSocket);
-        httpRequestParser     = new HttpRequestParser(in, getRequest);
-        assertEquals("GET", httpRequestParser.httpRequestType());
-        httpServer.stop();
+    @Test
+    public void httpRequestType() {
+        String tempRequestType = httpGetRequestParser.httpRequestType();
+        assertEquals(getRequestArray[0], tempRequestType);
     }
 
-    public void testRequestResource() throws Exception {
-        HttpServer httpServer = configureServer(5007);
-        Socket requestSocket  = configureSocket(5007, getRequest);
-        BufferedReader in     = getInputStream(requestSocket);
-        httpRequestParser     = new HttpRequestParser(in, getRequest);
-        assertEquals("/", httpRequestParser.httpRequestResource());
-        httpServer.stop();
+    @Test
+    public void httpRequestResource() {
+        String tempResource = httpGetRequestParser.httpRequestResource();
+        assertEquals(getRequestArray[1], tempResource);
     }
-/*
-    public void testSetHttpHeaders() throws IOException, InterruptedException {
-        HttpServer httpServer = configureServer(5007);
-        Socket requestSocket  = configureSocket(5007, postRequest);
-        BufferedReader in     = getInputStream(requestSocket);
-        httpRequestParser     = new HttpRequestParser(in, postRequest);
-        assertEquals("/", httpRequestParser.setHttpHeaders());
-        httpServer.stop();
+
+    @Test
+    public void setHttpHeaders() throws IOException {
+        String expectedHeaders = "11:07:39 30/01/2013\r\n" +
+                                 "Connection: keep-alive\r\n" +
+                                 "Content-Length: 44\r\n" +
+                                 "Cache-Control: max-age=0\r\n" +
+                                 "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\r\n" +
+                                 "Origin: http://localhost:3005\r\n" +
+                                 "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1312.56 Safari/537.17\r\n" +
+                                 "Content-Type: application/x-www-form-urlencoded\r\n" +
+                                 "Referer: http://localhost:3005/form\r\n" +
+                                 "Accept-Encoding: gzip,deflate,sdch\r\n" +
+                                 "Accept-Language: en-US,en;q=0.8\r\n" +
+                                 "Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.3\r\n" +
+                                 "Cookie: _scrap_session=BAh\r\n";
+        httpPostRequestParser.setHttpHeaders();
+        assertEquals(expectedHeaders, httpPostRequestParser.headers.toString());
     }
-*/
+
+    @Test
+    public void httpRequestContentLength() throws IOException {
+        httpPostRequestParser.setHttpHeaders();
+        assertEquals(44, httpPostRequestParser.httpRequestContentLength());
+    }
+
+    @Test
+    public void httpPostData() throws IOException {
+        assertEquals("Post-Data: first_name=Rick&last_name=Winfrey", httpPostRequestParser.httpPostData());
+    }
 }
+
+
+

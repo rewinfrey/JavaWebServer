@@ -4,7 +4,7 @@ This is a simple Java Web Server built lovingly from scratch as part of my 8th L
 
 ##Installation & Running
 
-`$ git glone git@github.com:rewinfrey/JavaWebServer.git`
+`$ git clone git@github.com:rewinfrey/JavaWebServer.git`
 
 `$ cd JavaWebServer`
 

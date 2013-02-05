@@ -8,23 +8,33 @@ This is a simple Java Web Server built lovingly from scratch as part of my 8th L
 
 `$ cd JavaWebServer`
 
-`$ ant all`
+`$ ant build`
 
 To run the server, please specify a port and directory you want the server to be bound to and to serve, respectively:
 
-`$ java -jar out/artifacts/RickHttpServer_jar/RickHttpServer.jar -p <port> -d <directory/to/serve>`
-  
+`$ java -jar rickhttp.jar -p <port> -d <directory/to/be/served>`
+
 Example:
 
-`$ java -jar out/artifacts/RickHttpServer_jar/RickHttpServer.jar -p 8765 -d /Users/rickwinfrey/docs`
+`$ java -jar rickhttp.jar -p 8899 -d /Users/rickwinfrey/docs`
 
 If no port argument is provided the server by default binds to port 5813.
 
 If no directory argument is provided by default the /Users directory is served.
 
+###Running The Tests
+
+Assuming the repo has been cloned:
+
+`$ ant build`
+
+`$ ant test`
+
+All test files should be included with the repo when it is cloned.
+
 ###Supported File Types & Predefined Routes
 
-The Java Server currently serves the following file types:
+####The Java Server currently serves the following file types:
 
 * .html
 
@@ -34,8 +44,7 @@ The Java Server currently serves the following file types:
 
 * .txt / .rb / .java / .php
 
-
-The following predefined routes are also available:
+####The following predefined routes are also available:
 
 - /      : takes you to the base directory (supplied when starting the server)
 

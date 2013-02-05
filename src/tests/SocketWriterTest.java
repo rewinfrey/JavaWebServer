@@ -31,9 +31,12 @@ public class SocketWriterTest {
            "Content-Type: text/html\r\n" +
            "Content-Length: 300\r\n\r\n";
 
+    private ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+
     @Before
     public void setup() throws IOException {
         socketWriter = new SocketWriter(outData, outWriter);
+        System.setOut(new PrintStream(outContent));
     }
 
     @Test
@@ -91,11 +94,11 @@ public class SocketWriterTest {
 
     @Test
     public void writeFileToClient() throws IOException {
-        FileWriter outFileWriter = new FileWriter( new File( "/Users/rickwinfrey/play/files/test.txt" ) );
+        FileWriter outFileWriter = new FileWriter( new File( System.getProperty("user.dir") + "/testfiles/test.txt" ) );
         outFileWriter.write("This is a test file");
         outFileWriter.flush();
         outFileWriter.close();
-        socketWriter.writeFileToClient("/Users/rickwinfrey/play/files/test.txt");
+        socketWriter.writeFileToClient(System.getProperty("user.dir") + "/testfiles/test.txt");
         assertEquals("This is a test file", dataStream.toString());
     }
 

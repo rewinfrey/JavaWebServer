@@ -1,9 +1,12 @@
 package tests;
 
+import org.junit.Before;
 import org.junit.Test;
 import server.Hello;
 import server.HttpGenerator;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -22,6 +25,12 @@ public class HttpGeneratorTest {
     HttpGenerator httpGenerator = new HttpGenerator();
 
     private DateFormat dateFormat = new SimpleDateFormat( "HH:mm:ss MM/dd/yyyy" );
+    private ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+
+    @Before
+    public void request() {
+        System.setOut(new PrintStream(outContent));
+    }
 
     @Test
     public void generate404() {

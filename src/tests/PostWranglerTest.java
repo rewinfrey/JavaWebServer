@@ -35,11 +35,14 @@ public class PostWranglerTest {
 
     PostWrangler postWrangler;
 
+    private ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+
     @Before
     public void setup() throws Exception {
         socketWriter = new SocketWriter(outData, outWriter);
         httpRequestParser = new HttpRequestParser(inputPostStream);
         postWrangler  = new PostWrangler(httpRequestParser, socketWriter, testDir );
+        System.setOut(new PrintStream(outContent));
     }
 
     @Test

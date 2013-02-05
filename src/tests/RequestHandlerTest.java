@@ -28,6 +28,8 @@ public class RequestHandlerTest {
     static String testDirectory = "/Users/rickwinfrey/play/files/";
     RequestHandler requestHandler;
 
+    private static ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+
     public static void testSocket() throws IOException {
         testSocket = new Socket(InetAddress.getLocalHost(), port);
         PrintWriter out = new PrintWriter( testSocket.getOutputStream(), true);
@@ -38,6 +40,7 @@ public class RequestHandlerTest {
 
     @BeforeClass
     public static void startServer() throws IOException {
+        System.setOut(new PrintStream(outContent));
         httpServer = new HttpServer(port, testDirectory);
         httpServer.bindServerSocket();
         httpServer.serverThreadStart();

@@ -41,17 +41,20 @@ public class HttpRequestParserTest {
 
     BufferedReader inputGetStream = new BufferedReader( new StringReader(getRequest));
     BufferedReader inputPostStream = new BufferedReader( new StringReader(postRequest));
+
+    private ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+
     @Before
     public void setup() throws Exception {
        httpGetRequestParser = new HttpRequestParser(inputGetStream);
        httpPostRequestParser = new HttpRequestParser(inputPostStream);
        getRequestArray = getRequest.split("[ ]+");
        getPostArray    = postRequest.split("[ ]+");
+       System.setOut(new PrintStream(outContent));
     }
 
     @Test
     public void httpRequestParser() throws Exception {
-        System.out.println();
         assertEquals(inputGetStream, httpGetRequestParser.inStream);
         assertEquals("GET / HTTP/1.1", httpGetRequestParser.requestLine);
         for(int i = 0; i < httpGetRequestParser.requestLineArray.length; i++) {

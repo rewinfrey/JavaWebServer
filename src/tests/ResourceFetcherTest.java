@@ -19,7 +19,8 @@ import static org.junit.Assert.assertTrue;
  * To change this template use File | Settings | File Templates.
  */
 public class ResourceFetcherTest {
-    String testDirectory = "/Users/rickwinfrey/play/files";
+
+    String testDirectory = System.getProperty("user.dir").toString() + "/testfiles";
     ResourceFetcher resourceFetcher = new ResourceFetcher(testDirectory);
 
     private void writeFile() throws IOException {

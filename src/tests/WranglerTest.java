@@ -34,11 +34,15 @@ public class WranglerTest {
     BufferedReader inputGetStream = new BufferedReader( new StringReader(getRequest));
 
     Wrangler wrangler;
+
+    private ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+
     @Before
     public void setup() throws Exception {
         socketWriter = new SocketWriter(outData, outWriter);
         httpRequestParser = new HttpRequestParser(inputGetStream);
         wrangler  = new Wrangler(httpRequestParser, socketWriter, testDir );
+        System.setOut(new PrintStream(outContent));
     }
 
     @Test

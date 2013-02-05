@@ -25,7 +25,7 @@ public class GetWranglerTest {
     DataOutputStream outData            = new DataOutputStream( dataStream );
     OutputStreamWriter outWriter        = new OutputStreamWriter( dataStream );
 
-    String testDir                      = "/Users/rickwinfrey/play/files";
+    String testDir                      = System.getProperty("user.dir").toString() + "/testfiles";
     SocketWriter socketWriter;
     HttpRequestParser httpRequestParser;
 
@@ -42,6 +42,13 @@ public class GetWranglerTest {
 
     private BufferedReader brFactory(String request) {
         return new BufferedReader( new StringReader(request));
+    }
+
+    private ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+
+    @Before
+    public void request() {
+        //System.setOut(new PrintStream(outContent));
     }
 
     GetWrangler getWrangler;
@@ -85,7 +92,7 @@ public class GetWranglerTest {
                 "Server: BoomTown\r\n" +
                 "Last-Modified: "+ getWrangler.dateFormat.format(new Date()) + "\r\n" +
                 "Content-Type: text/html; charset=UTF-8\r\n" +
-                "Content-Length: 2190\r\n\r\n"
+                "Content-Length: 2217\r\n\r\n"
                 );
         resultString.append(getWrangler.httpGenerator.generateIndex(testDir, testDir));
         getWrangler.process();
@@ -104,7 +111,7 @@ public class GetWranglerTest {
                 "Server: BoomTown\r\n" +
                 "Last-Modified: "+ testWrangler.dateFormat.format(new Date()) + "\r\n" +
                 "Content-Type: text/html; charset=UTF-8\r\n" +
-                "Content-Length: 766\r\n\r\n"
+                "Content-Length: 793\r\n\r\n"
                 );
         resultString.append(testWrangler.httpGenerator.generateIndex(testDir+"/test", testDir));
         testWrangler.process();

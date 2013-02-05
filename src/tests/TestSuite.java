@@ -1,7 +1,15 @@
 package tests;
 
+import org.junit.BeforeClass;
+import org.junit.Test;
 import org.junit.runners.Suite;
 import org.junit.runner.RunWith;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
+import static junit.framework.Assert.assertEquals;
+
 /**
  * Created with IntelliJ IDEA.
  * User: rickwinfrey

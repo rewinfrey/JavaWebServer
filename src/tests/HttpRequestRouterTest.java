@@ -31,10 +31,13 @@ public class HttpRequestRouterTest {
     HttpRequestRouter getRequestRouter;
     HttpRequestRouter postRequestRouter;
 
+    private ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+
     @Before
     public void setup() throws Exception {
         getRequestRouter  = new HttpRequestRouter(getBr, outData, outWriter, directory);
         postRequestRouter = new HttpRequestRouter(postBr, outData, outWriter, directory);
+        System.setOut(new PrintStream(outContent));
     }
 
     @Test

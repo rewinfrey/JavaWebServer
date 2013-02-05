@@ -1,5 +1,7 @@
 package tests;
 
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import server.HttpServer;
 
@@ -20,6 +22,13 @@ import static org.junit.Assert.assertTrue;
 public class HttpServerTest {
     String testDirectory = "/Users/rickwinfrey/IdeaProjects/RickHttpServer/files/";
     ByteArrayOutputStream out = new ByteArrayOutputStream();
+
+    private ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+
+    @Before
+    public void request() {
+        System.setOut(new PrintStream(outContent));
+    }
 
     private HttpServer serverFactory(int port) throws Exception {
         return new HttpServer(port, testDirectory);
@@ -88,28 +97,3 @@ public class HttpServerTest {
         assertTrue(testServer2.isInterrupted());
     }
 }
-/*
-    public void testMultipleRequests() throws Exception {
-        int port = 3000;
-        HttpServer server = new HttpServer(port);
-        assertFalse(server.is_running());
-        server.run();
-        assertTrue(server.is_running());
-        ??? request1 = requestOn(port);
-        ??? request2 = requestOn(port);
-
-        server.connectionCount.should == 2; // maybe
-
-        request1.write(get_root);
-        request2.write(get_root);
-        assertEqual(request1.read(), root_response);
-        assertEqual(request2.read(), root_response);
-        request1.close();
-        request2.close();
-
-        server.connectionCount.should == 0; // maybe
-        server.stop();
-        assertFalse(server.is_running());
-    }
-*/
-

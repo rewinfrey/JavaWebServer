@@ -10,9 +10,19 @@ This is a simple Java Web Server built lovingly from scratch as part of my 8th L
 
 `$ ant all`
 
-`$ java -jar out/artifacts/RickHttpServer_jar/RickHttpServer.jar -p 3000 -d /directory/you/want/served`
+To run the server, please specify a port and directory you want the server to be bound to and to serve, respectively:
 
-###Usage & Predefined Routes
+`$ java -jar out/artifacts/RickHttpServer_jar/RickHttpServer.jar -p <port> -d <directory/to/serve>`
+  
+Example:
+
+`$ java -jar out/artifacts/RickHttpServer_jar/RickHttpServer.jar -p 8765 -d /Users/rickwinfrey/docs`
+
+If no port argument is provided the server by default binds to port 5813.
+
+If no directory argument is provided by default the /Users directory is served.
+
+###Supported File Types & Predefined Routes
 
 The Java Server currently serves the following file types:
 

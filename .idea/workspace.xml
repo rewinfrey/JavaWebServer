@@ -243,10 +243,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="HttpServer.java" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="HttpServer.java" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/server/HttpServer.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="20" column="62" selection-start="586" selection-end="586" vertical-scroll-proportion="0.0">
+                <state line="20" column="44" selection-start="568" selection-end="568" vertical-scroll-proportion="0.2700491">
                   <folding />
                 </state>
               </provider>
@@ -261,10 +261,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="GetWrangler.java" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="GetWrangler.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/server/GetWrangler.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="133" column="0" selection-start="4316" selection-end="4316" vertical-scroll-proportion="0.6270903">
+                <state line="120" column="0" selection-start="3863" selection-end="3863" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -308,7 +308,7 @@
           <file leaf-file-name="SocketWriterTest.java" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/tests/SocketWriterTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="17" column="0" selection-start="370" selection-end="370" vertical-scroll-proportion="0.44347826">
+                <state line="27" column="9" selection-start="790" selection-end="790" vertical-scroll-proportion="0.70434785">
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -406,8 +406,8 @@
         <option value="$PROJECT_DIR$/src/tests/WranglerTest.java" />
         <option value="$PROJECT_DIR$/src/tests/TestSuite.java" />
         <option value="$PROJECT_DIR$/src/tests/HelloTest.java" />
-        <option value="$PROJECT_DIR$/src/server/HttpServer.java" />
         <option value="$PROJECT_DIR$/src/server/GetWrangler.java" />
+        <option value="$PROJECT_DIR$/src/server/HttpServer.java" />
       </list>
     </option>
   </component>
@@ -969,15 +969,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/SocketWriterTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="370" selection-end="370" vertical-scroll-proportion="0.44347826">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/server/Hello.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="7" selection-start="773" selection-end="773" vertical-scroll-proportion="0.0">
@@ -999,16 +990,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/HttpServer.java">
+    <entry file="file://$PROJECT_DIR$/src/server/GetWrangler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="62" selection-start="586" selection-end="586" vertical-scroll-proportion="0.0">
+        <state line="120" column="0" selection-start="3863" selection-end="3863" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/GetWrangler.java">
+    <entry file="file://$PROJECT_DIR$/src/tests/SocketWriterTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="133" column="0" selection-start="4316" selection-end="4316" vertical-scroll-proportion="0.6270903">
+        <state line="27" column="9" selection-start="790" selection-end="790" vertical-scroll-proportion="0.70434785">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/HttpServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="44" selection-start="568" selection-end="568" vertical-scroll-proportion="0.2700491">
           <folding />
         </state>
       </provider>

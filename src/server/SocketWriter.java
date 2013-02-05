@@ -34,6 +34,7 @@ public class SocketWriter {
     public String lastModified;
     public String contentType;
     public String contentLength;
+    public String date;
 
     public DateFormat dateFormat = new SimpleDateFormat( "HH:mm:ss MM/dd/yyyy" );
 
@@ -42,17 +43,18 @@ public class SocketWriter {
         this.outStreamWriter = outStreamWriter;
     }
 
-    public void setResponseHeaders(String contentType, String fileLength, String lastModified, String httpStatus) {
+    public void setResponseHeaders(String contentType, String fileLength, String lastModified, String httpStatus, String date) {
         this.contentType     = contentType;
         this.contentLength   = fileLength;
         this.lastModified    = lastModified;
         this.httpStatus      = httpStatus;
+        this.date            = date;
     }
 
     public void writeResponseHeaders() throws IOException {
         outDataStream.writeBytes(HTTPVERSION + httpStatus + CRLF);
         outDataStream.writeBytes(CONNECTION + CRLF);
-        outDataStream.writeBytes(DATE + dateFormat.format(new Date()) + CRLF);
+        outDataStream.writeBytes(DATE + date + CRLF);
         outDataStream.writeBytes(SERVER + CRLF);
         outDataStream.writeBytes(LASTMODIFIED + lastModified + CRLF);
         outDataStream.writeBytes(CONTENTTYPE + contentType + CRLF);
@@ -60,9 +62,9 @@ public class SocketWriter {
         outDataStream.writeBytes(CRLF);
     }
 
-    public void writeLogToTerminal(String requestLine, String requestStatus) {
+    public void writeLogToTerminal(String requestLine, String requestStatus, String date) {
         String requestSummary = requestLine + " " + requestStatus;
-        logger.request(requestSummary, dateFormat.format(new Date()));
+        logger.request(requestSummary, date);
     }
 
     public void writeOutputToClient(String output) throws IOException {

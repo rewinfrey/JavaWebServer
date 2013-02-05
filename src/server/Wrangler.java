@@ -35,9 +35,9 @@ public class Wrangler {
     }
 
     public void outToSocket(String outString, String outStatus) throws IOException {
-        socketWriter.setResponseHeaders("text/html; charset=UTF-8", outString.getBytes().length+"", dateFormat.format(new Date()), outStatus);
+        socketWriter.setResponseHeaders("text/html; charset=UTF-8", outString.getBytes().length+"", dateFormat.format(new Date()), outStatus, dateFormat.format(new Date()));
         socketWriter.writeResponseHeaders();
         socketWriter.writeOutputToClient(outString);
-        socketWriter.writeLogToTerminal(httpRequestParser.requestLine, outStatus);
+        socketWriter.writeLogToTerminal(httpRequestParser.requestLine, outStatus, dateFormat.format(new Date()));
     }
 }

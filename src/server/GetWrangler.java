@@ -143,12 +143,12 @@ public class GetWrangler extends Wrangler {
 
     private void writeFileToSocket(String fileName, File requestedFile) throws IOException {
         System.out.println("Requested file content-length: "+requestedFile.length());
-        socketWriter.setResponseHeaders(mimeTypeMatcher.getMimeType(fileName), requestedFile.length() + "", requestedFile.lastModified() + "", "200 OK");
+        socketWriter.setResponseHeaders(mimeTypeMatcher.getMimeType(fileName), requestedFile.length() + "", requestedFile.lastModified() + "", "200 OK", dateFormat.format(new Date()));
         socketWriter.writeResponseHeaders();
         socketWriter.writeFileToClient(fileName);
     }
 
     private void writeLogToTerminal(String status) {
-        socketWriter.writeLogToTerminal(httpRequestParser.requestLine, status);
+        socketWriter.writeLogToTerminal(httpRequestParser.requestLine, status, dateFormat.format(new Date()));
     }
 }

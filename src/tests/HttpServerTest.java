@@ -20,7 +20,7 @@ import static org.junit.Assert.*;
  * To change this template use File | Settings | File Templates.
  */
 public class HttpServerTest {
-    String testDirectory = "/Users/rickwinfrey/IdeaProjects/RickHttpServer/files/";
+    String testDirectory = System.getProperty("user.dir").toString() + "/testfiles";
     ByteArrayOutputStream out = new ByteArrayOutputStream();
 
     private ByteArrayOutputStream outContent = new ByteArrayOutputStream();

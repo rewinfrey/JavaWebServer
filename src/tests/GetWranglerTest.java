@@ -48,7 +48,7 @@ public class GetWranglerTest {
 
     @Before
     public void request() {
-        //System.setOut(new PrintStream(outContent));
+        System.setOut(new PrintStream(outContent));
     }
 
     GetWrangler getWrangler;

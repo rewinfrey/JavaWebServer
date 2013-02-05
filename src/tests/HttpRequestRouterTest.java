@@ -23,7 +23,7 @@ import static org.junit.Assert.*;
  * To change this template use File | Settings | File Templates.
  */
 public class HttpRequestRouterTest {
-    String directory                    = "/Users/rickwinfrey/play/files";
+    String directory = System.getProperty("user.dir").toString() + "/testfiles";
     BufferedReader getBr                = new BufferedReader(     new StringReader("GET /time HTTP/1.1\r\n"));
     BufferedReader postBr               = new BufferedReader(     new StringReader("POST /form HTTP/1.1\r\n\r\nname=John&age=23"));
     DataOutputStream outData            = new DataOutputStream(   new ByteArrayOutputStream());

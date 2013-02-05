@@ -25,7 +25,7 @@ public class WranglerTest {
     DataOutputStream outData            = new DataOutputStream( dataStream );
     OutputStreamWriter outWriter        = new OutputStreamWriter( dataStream );
 
-    String testDir                      = "/Users/rickwinfrey/play/files";
+    static String testDir = System.getProperty("user.dir") + "/testfiles";
     SocketWriter socketWriter;
     HttpRequestParser httpRequestParser;
 

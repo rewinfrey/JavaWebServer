@@ -18,12 +18,12 @@ import java.util.Date;
  */
 public class Wrangler {
 
-    HttpRequestParser httpRequestParser;
-    SocketWriter socketWriter;
-    String directory;
-    DateFormat dateFormat           = new SimpleDateFormat( "HH:mm:ss dd/MM/yyyy" );
-    MimeTypeMatcher mimeTypeMatcher = new MimeTypeMatcher();
-    HttpGenerator httpGenerator     = new HttpGenerator();
+    public HttpRequestParser httpRequestParser;
+    public SocketWriter socketWriter;
+    public String directory;
+    public DateFormat dateFormat           = new SimpleDateFormat( "HH:mm:ss dd/MM/yyyy" );
+    public MimeTypeMatcher mimeTypeMatcher = new MimeTypeMatcher();
+    public HttpGenerator httpGenerator     = new HttpGenerator();
 
     public Wrangler(HttpRequestParser httpRequestParser, SocketWriter socketWriter, String directory) {
         this.httpRequestParser = httpRequestParser;

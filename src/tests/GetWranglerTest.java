@@ -92,7 +92,7 @@ public class GetWranglerTest {
                 "Server: BoomTown\r\n" +
                 "Last-Modified: "+ getWrangler.dateFormat.format(new Date()) + "\r\n" +
                 "Content-Type: text/html; charset=UTF-8\r\n" +
-                "Content-Length: 617\r\n\r\n"
+                "Content-Length: 616\r\n\r\n"
                 );
         resultString.append(getWrangler.httpGenerator.generateIndex(testDir, testDir));
         getWrangler.process();
@@ -111,7 +111,7 @@ public class GetWranglerTest {
                 "Server: BoomTown\r\n" +
                 "Last-Modified: "+ testWrangler.dateFormat.format(new Date()) + "\r\n" +
                 "Content-Type: text/html; charset=UTF-8\r\n" +
-                "Content-Length: 793\r\n\r\n"
+                "Content-Length: 638\r\n\r\n"
                 );
         resultString.append(testWrangler.httpGenerator.generateIndex(testDir+"/test", testDir));
         testWrangler.process();

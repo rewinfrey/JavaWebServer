@@ -340,10 +340,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="GetWranglerTest.java" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="GetWranglerTest.java" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/tests/GetWranglerTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="117" column="5" selection-start="4727" selection-end="4727" vertical-scroll-proportion="0.0">
+                <state line="94" column="35" selection-start="3597" selection-end="3597" vertical-scroll-proportion="0.2566709">
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -351,10 +351,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="TestSuite.java" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="TestSuite.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/tests/TestSuite.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="21" column="330" selection-start="765" selection-end="765" vertical-scroll-proportion="0.251938">
+                <state line="21" column="330" selection-start="765" selection-end="765" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -411,12 +411,12 @@
         <option value="$PROJECT_DIR$/src/tests/WranglerTest.java" />
         <option value="$PROJECT_DIR$/src/tests/ResourceFetcherTest.java" />
         <option value="$PROJECT_DIR$/src/tests/SocketWriterTest.java" />
-        <option value="$PROJECT_DIR$/src/tests/GetWranglerTest.java" />
         <option value="$PROJECT_DIR$/src/server/HttpServer.java" />
         <option value="$PROJECT_DIR$/src/tests/HttpServerTest.java" />
         <option value="$PROJECT_DIR$/src/server/RequestHandler.java" />
         <option value="$PROJECT_DIR$/src/tests/RequestHandlerTest.java" />
         <option value="$PROJECT_DIR$/src/tests/TestSuite.java" />
+        <option value="$PROJECT_DIR$/src/tests/GetWranglerTest.java" />
       </list>
     </option>
   </component>
@@ -1000,15 +1000,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/GetWranglerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="117" column="5" selection-start="4727" selection-end="4727" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/tests/ResourceFetcherTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="22" column="0" selection-start="465" selection-end="465" vertical-scroll-proportion="0.0">
@@ -1087,8 +1078,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/tests/TestSuite.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="330" selection-start="765" selection-end="765" vertical-scroll-proportion="0.251938">
+        <state line="21" column="330" selection-start="765" selection-end="765" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tests/GetWranglerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="94" column="35" selection-start="3597" selection-end="3597" vertical-scroll-proportion="0.2566709">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

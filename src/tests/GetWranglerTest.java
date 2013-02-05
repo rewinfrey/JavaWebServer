@@ -92,7 +92,7 @@ public class GetWranglerTest {
                 "Server: BoomTown\r\n" +
                 "Last-Modified: "+ getWrangler.dateFormat.format(new Date()) + "\r\n" +
                 "Content-Type: text/html; charset=UTF-8\r\n" +
-                "Content-Length: 2217\r\n\r\n"
+                "Content-Length: 2374\r\n\r\n"
                 );
         resultString.append(getWrangler.httpGenerator.generateIndex(testDir, testDir));
         getWrangler.process();

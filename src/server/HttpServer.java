@@ -18,7 +18,7 @@ public class HttpServer implements Runnable {
     private ServerSocket welcomeSocket;
     public static boolean start = true;
     public static int port = 5813;
-    public static String directory = "/Users/rickwinfrey/serverTestDir";
+    public static String directory = "/Users/rickwinfrey/play";
 
     public static void main(String[] args) throws IOException {
         parseCommands(args);

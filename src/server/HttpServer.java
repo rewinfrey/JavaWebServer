@@ -1,5 +1,6 @@
 package server;
 
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -28,7 +29,6 @@ public class HttpServer implements Runnable {
             server.bindServerSocket();
             server.serverThreadStart();
         } else {
-            System.out.println("not running");
             return;
         }
     }
@@ -50,7 +50,11 @@ public class HttpServer implements Runnable {
     }
 
     public static void displayHelp() {
-        System.out.println("\nUsage: java some_path_to_jar.jar -p 3000 -d dir/you/want/served");
+        System.out.println("\nUsage:");
+        System.out.println("Choose the port the server is to bound to: -p <port>");
+        System.out.println("Choose the directory the server is to serve: -d <directory/to/serve>");
+        System.out.println("\nExample:");
+        System.out.println("$ java -jar out/artifacts/RickHttpServer_jar/RickHttpServer.jar -p 3000 -d /Users/rickwinfrey/docs");
     }
 
     public HttpServer(int port, String directory) {
@@ -91,7 +95,7 @@ public class HttpServer implements Runnable {
     public void stop() throws IOException, InterruptedException {
         serverThread.interrupt();
         unBindServerSocket();
-        System.out.println("Server stopped on port: "+port);
+        System.out.println("\nServer stopped on port: "+port);
 
     }
 
@@ -110,7 +114,7 @@ public class HttpServer implements Runnable {
     @Override
     public void run() {
         try {
-            System.out.println("Server started on port: "+port);
+            System.out.println("\nServer started on port: "+port);
             runServer();
         } catch (IOException e) {
             try {

@@ -62,8 +62,6 @@ public class GetWrangler extends Wrangler {
             case 3:
                 getForm();
                 break;
-            default:
-                processRoute();
         }
     }
 

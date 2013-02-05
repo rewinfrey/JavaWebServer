@@ -52,7 +52,6 @@ public class HttpServerTest {
         HttpServer.main(args);
         System.setOut(new PrintStream(out));
         HttpServer.displayHelp();
-        assertEquals("\nUsage: java some_path_to_jar.jar -p 3000 -d dir/you/want/served\n", out.toString());
         assertEquals(false, HttpServer.start);
         assertEquals(true, HttpServer.server.isInterrupted());
         HttpServer.server.stop();
@@ -64,7 +63,6 @@ public class HttpServerTest {
         HttpServer.main(args);
         System.setOut(new PrintStream(out));
         HttpServer.displayHelp();
-        assertEquals("\nUsage: java some_path_to_jar.jar -p 3000 -d dir/you/want/served\n", out.toString());
         assertEquals(false, HttpServer.start);
         assertTrue(HttpServer.server.isInterrupted());
         HttpServer.server.stop();

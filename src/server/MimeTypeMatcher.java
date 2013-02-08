@@ -44,7 +44,13 @@ public class MimeTypeMatcher {
 
     public String parseFileExtension(String fileName) {
         int index = fileName.lastIndexOf(".");
-        return fileName.substring(index).toLowerCase();
+        String extension;
+        if (index > 0) {
+            extension = fileName.substring(index).toLowerCase();
+        } else {
+            extension = "";
+        }
+        return extension;
     }
 }
 

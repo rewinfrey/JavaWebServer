@@ -34,7 +34,9 @@ public class HttpRequestRouter {
     public void routeRequest() {
         try {
             SocketWriter socketWriter = generateSocketWriter();
-            if (httpRequestParser.httpRequestType().equals("GET")) {
+            if (httpRequestParser.requestLine.equalsIgnoreCase("GET /favicon.ico HTTP/1.1")) {
+                return;
+            } else if (httpRequestParser.httpRequestType().equals("GET")) {
                 wrangler = new GetWrangler(httpRequestParser, socketWriter, directory);
             } else {
                 wrangler = new PostWrangler(httpRequestParser, socketWriter, directory);

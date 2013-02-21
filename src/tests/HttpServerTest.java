@@ -117,13 +117,14 @@ public class HttpServerTest
   }
 
   @Test
-  public void multiplePostAcks() throws IOException {
+  public void multiplePostAcks() throws IOException, InterruptedException {
       int port = 9999;
       httpServerFactory(port);
       ArrayList<BufferedReader> responseArray = new ArrayList<BufferedReader>();
 
       for ( int i = 0; i < 10; i ++ ) {
           responseArray.add(processToBufferedReader(curlPostTest(port, "param1=value1&param2=value2", "/form")));
+          Thread.sleep(100);
       }
 
       for ( int j = 0; j < responseArray.size(); j++ ) {
@@ -154,13 +155,14 @@ public class HttpServerTest
   }
 
   @Test
-  public void MultiplePostAcksWithQueryStrings() throws IOException {
+  public void MultiplePostAcksWithQueryStrings() throws IOException, InterruptedException {
       int port = 9998;
       httpServerFactory(port);
       ArrayList<BufferedReader> responseArray = new ArrayList<BufferedReader>();
 
       for ( int i = 0; i < 10; i ++ ) {
           responseArray.add(processToBufferedReader(curlPostTest(port, "param1=value1&param2=value2", "/form?name=rick&age=30")));
+          Thread.sleep(100);
       }
 
       for ( int j = 0; j < responseArray.size(); j++ ) {

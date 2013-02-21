@@ -2,27 +2,21 @@ package tests;
 
 import org.junit.Before;
 import org.junit.Test;
-import server.Hello;
-import server.HttpGenerator;
+import server.HtmlGenerator;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import static junit.framework.Assert.assertEquals;
 import static server.Hello.*;
 
-/**
- * Created with IntelliJ IDEA.
- * User: rickwinfrey
- * Date: 2/4/13
- * Time: 4:03 PM
- * To change this template use File | Settings | File Templates.
- */
-public class HttpGeneratorTest {
-    HttpGenerator httpGenerator = new HttpGenerator();
+public class HtmlGeneratorTest{
+    HtmlGenerator htmlGenerator = new HtmlGenerator();
 
     private DateFormat dateFormat = new SimpleDateFormat( "HH:mm:ss MM/dd/yyyy" );
     private ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -31,7 +25,7 @@ public class HttpGeneratorTest {
 
     @Before
     public void request() {
-        System.setOut(new PrintStream(outContent));
+       System.setOut(new PrintStream(outContent));
     }
 
     @Test
@@ -42,13 +36,13 @@ public class HttpGeneratorTest {
                 "<div style=\"text-align: center; font-size: 30px;\">\n" +
                 "<p>うつくしいものを</p><p>うつくしいとおもえる</p><p>こころが</p>\n" +
                 "<p>うつくしいものだ</p><p style=\"margin-left: 500px;\">相田みつを</p></div></body></html>\n";
-        assertEquals(template404, httpGenerator.generate404());
+        assertEquals(template404, htmlGenerator.generate404());
     }
 
     @Test
     public void generateHello() {
         String templateHello = helloHTML;
-        assertEquals(templateHello, httpGenerator.generateHello());
+        assertEquals(templateHello, htmlGenerator.generateHello());
     }
 
     @Test
@@ -59,7 +53,7 @@ public class HttpGeneratorTest {
                             "<h1 style=\"text-align: center; margin-top: 100px; font-size: 50px; font-family: monaco;\">");
         templateTime.append(time);
         templateTime.append("</h1></body></html>");
-        assertEquals(templateTime.toString(), httpGenerator.generateTime(time));
+        assertEquals(templateTime.toString(), htmlGenerator.generateTime(time));
     }
 
     @Test
@@ -71,7 +65,7 @@ public class HttpGeneratorTest {
                               "<li style=\"margin-top: 20px;\"><label for=\"two\"></label><input type=\"text\" name=\"two\" value=\"two\"></li>\n" +
                               "<li style=\"margin-top: 20px;\"><label for=\"three\"></label><input type=\"text\" name=\"three\" value=\"three\"></li>\n" +
                              "<input style=\"width: 80px; margin: 20px 22px;\" type=\"submit\" value=\"submit\" /></ul></form></div></body></html>";
-        assertEquals(templateForm, httpGenerator.generateForm());
+        assertEquals(templateForm, htmlGenerator.generateForm());
     }
 
     @Test
@@ -80,32 +74,38 @@ public class HttpGeneratorTest {
                                "<h2 style=\"margin-left: 210px; font-weight: 500; margin-top: 100px;\">Current Location: "+testDir+"</h2><div style=\"margin-top: 12px;\">" +
                                "<a style=\"margin-top: 12px; margin-left: 220px; text-decoration: none; color: #766F67;\" href=\"/test\">test/</a></div><div style=\"margin-top: 12px;\">" +
                                "<a style=\"margin-top: 12px; margin-left: 220px; text-decoration: none; color: #A89E92;\" href=\"/test.txt\">test.txt</a></div></body></html>";
-        assertEquals(templateIndex, httpGenerator.generateIndex(testDir, testDir));
+        assertEquals(templateIndex, htmlGenerator.generateIndex("", testDir));
     }
 
     @Test
     public void generateFileListing() {
         String templateFileList = "<div style=\"margin-top: 12px;\"><a style=\"margin-top: 12px; margin-left: 220px; text-decoration: none; color: #766F67;\" href=\"/test\">test/</a>" +
                                   "</div><div style=\"margin-top: 12px;\"><a style=\"margin-top: 12px; margin-left: 220px; text-decoration: none; color: #A89E92;\" href=\"/test.txt\">test.txt</a></div>";
-        assertEquals(templateFileList, httpGenerator.generateFileListing(testDir, testDir));
+        System.out.println(testDir);
+
+        assertEquals(templateFileList, htmlGenerator.generateFileListing("", testDir));
     }
 
     @Test
     public void generateFormParams() {
-        String templateFormParams = "<!DOCTYPE html><head></head><html><body style=\"background-color: #ECDFCE; color: #766F67; font-family: FrescoSansPlusBold, Helvetica, Arial, sans-serif;\"><div style=\"width: 400px; margin: 60px auto 0 auto;\"><h1>Parameters Received:</h1><h3>one = one</h3><h3>two = two</h3><h3>three = three</h3></div></body></html>";
-        assertEquals(templateFormParams, httpGenerator.generateFormParams("one=one&two=two&three=three"));
+        Map<String, String> testMap = new HashMap<String, String>();
+        testMap.put("two", "two");
+        testMap.put("one", "one");
+        testMap.put("three", "three");
+        String templateFormParams = "<!DOCTYPE html><head></head><html><body style=\"background-color: #ECDFCE; color: #766F67; font-family: FrescoSansPlusBold, Helvetica, Arial, sans-serif;\"><div style=\"width: 400px; margin: 60px auto 0 auto;\"><h1>Parameters Received:</h1><h3>two = two</h3><h3>one = one</h3><h3>three = three</h3></div></body></html>";
+        assertEquals(templateFormParams, htmlGenerator.generateFormParams(testMap));
     }
 
     @Test
     public void generateHtmlHead() {
         String templateHtmlHead = "<!DOCTYPE html><head></head><html><body style=\"background-color: #ECDFCE; color: #766F67; font-family: FrescoSansPlusBold, Helvetica, Arial, sans-serif;\">";
-        assertEquals(templateHtmlHead, httpGenerator.generateHtmlHead());
+        assertEquals(templateHtmlHead, htmlGenerator.generateHtmlHead());
     }
 
     @Test
     public void generateHtmlEnd() {
         String templateHtmlEnd = "</body></html>";
-        assertEquals(templateHtmlEnd, httpGenerator.generateHtmlEnd());
+        assertEquals(templateHtmlEnd, htmlGenerator.generateHtmlEnd());
     }
 }
 

@@ -4,16 +4,10 @@ import java.io.File;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Iterator;
+import java.util.Map;
 
-/**
- * Created with IntelliJ IDEA.
- * User: rickwinfrey
- * Date: 2/3/13
- * Time: 2:55 PM
- * To change this template use File | Settings | File Templates.
- */
-public class HttpGenerator {
-
+public class HtmlGenerator {
 
     public String generate404() {
         StringBuilder notFoundString = new StringBuilder();
@@ -56,7 +50,7 @@ public class HttpGenerator {
     public String generateIndex(String currDirectory, String rootDirectory) {
         StringBuilder indexString = new StringBuilder();
         indexString.append(generateHtmlHead());
-        indexString.append("<h2 style=\"margin-left: 210px; font-weight: 500; margin-top: 100px;\">Current Location: "+currDirectory+"</h2>");
+        indexString.append("<h2 style=\"margin-left: 210px; font-weight: 500; margin-top: 100px;\">Current Location: "+rootDirectory + currDirectory+"</h2>");
         indexString.append(generateFileListing(currDirectory, rootDirectory));
         indexString.append(generateHtmlEnd());
         return indexString.toString();
@@ -65,7 +59,7 @@ public class HttpGenerator {
     public String generateFileListing(String currDirectory, String rootDirectory) {
         StringBuilder indexString = new StringBuilder();
         String tempHrefBase = currDirectory.replace(rootDirectory, "");
-        File nextDir = new File(currDirectory + "/");
+        File nextDir = new File(rootDirectory + currDirectory);
         File[] files = nextDir.listFiles();
 
         for(File dirFile: files) {
@@ -80,16 +74,19 @@ public class HttpGenerator {
         return indexString.toString();
     }
 
-    public String generateFormParams(String unSplitParams) {
+    public String generateFormParams(Map<String, String> params) {
         StringBuilder formParams = new StringBuilder();
         formParams.append(generateHtmlHead());
         formParams.append("<div style=\"width: 400px; margin: 60px auto 0 auto;\">");
         formParams.append("<h1>Parameters Received:</h1>");
 
-        String[] tempParams = unSplitParams.split("[&]");
+        Iterator it = params.entrySet().iterator();
 
-        for(String param: tempParams)
-           formParams.append("<h3>"+param.replace("=", " = ")+"</h3>");
+        while (it.hasNext())
+        {
+            Map.Entry pairs = (Map.Entry)it.next();
+            formParams.append("<h3>" + pairs.getKey() + " = " + pairs.getValue() + "</h3>");
+        }
 
         formParams.append("</div>");
         formParams.append(generateHtmlEnd());

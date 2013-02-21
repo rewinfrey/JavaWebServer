@@ -8,12 +8,12 @@ import server.Router;
 import java.util.HashMap;
 import java.util.Map;
 
-import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertSame;
 
 public class RouterTest
 {
 
+  public Router router;
   public MemoryResponder defaultResponder;
 
   private static class MemoryResponder implements Responder
@@ -28,7 +28,6 @@ public class RouterTest
     }
   }
 
-  public Router router;
 
   @Before
   public void setUp() throws Exception
@@ -44,7 +43,7 @@ public class RouterTest
 
     defaultResponder.response = new HashMap<String, Object>();
 
-    HashMap<String, Object> request = new HashMap<String, Object>();
+    Map<String, Object> request = new HashMap<String, Object>();
     request.put("uri", "/");
 
     Map<String, Object> actualResponse = router.respond(request);
@@ -56,11 +55,24 @@ public class RouterTest
   @Test
   public void unregisteredRoute() throws Exception
   {
-    HashMap<String, Object> request = new HashMap<String, Object>();
+    Map<String, Object> request = new HashMap<String, Object>();
     request.put("uri", "/unregistered_route");
 
+    router.register("default", defaultResponder);
     Map<String, Object> actualResponse = router.respond(request);
 
     assertSame(null, actualResponse);
+  }
+
+  @Test
+  public void handlePhantomRequests() throws Exception
+  {
+      Map<String, Object> request = new HashMap<String, Object>();
+      request.put( null, null );
+
+      router.register("badRequest", defaultResponder);
+      Map<String, Object> actualResponse = router.respond(request);
+
+      assertSame(null, actualResponse);
   }
 }

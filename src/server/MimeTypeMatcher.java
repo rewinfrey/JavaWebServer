@@ -6,19 +6,12 @@ import java.util.List;
 
 import static java.util.Arrays.asList;
 
-/**
- * Created with IntelliJ IDEA.
- * User: rickwinfrey
- * Date: 1/29/13
- * Time: 2:25 AM
- * To change this template use File | Settings | File Templates.
- */
 public class MimeTypeMatcher {
 
     public MimeTypeMatcher() {
     }
 
-    public String getMimeType(String requestFile) {
+    public static String getMimeType(String requestFile) {
         String parsedFileExtension = parseFileExtension(requestFile);
         String mimeType;
         List<String> plain = asList(".txt", ".rb", ".java", ".php", ".coffee");
@@ -42,7 +35,7 @@ public class MimeTypeMatcher {
         return mimeType;
     }
 
-    public String parseFileExtension(String fileName) {
+    public static String parseFileExtension(String fileName) {
         int index = fileName.lastIndexOf(".");
         String extension;
         if (index > 0) {

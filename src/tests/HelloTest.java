@@ -6,13 +6,6 @@ import server.Hello;
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertNotNull;
 
-/**
- * Created with IntelliJ IDEA.
- * User: rickwinfrey
- * Date: 2/5/13
- * Time: 2:54 AM
- * To change this template use File | Settings | File Templates.
- */
 public class HelloTest {
     String hello = "<!DOCTYPE html>\n" +
             "<html>\n" +

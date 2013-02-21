@@ -1,12 +1,5 @@
 package server;
 
-/**
- * Created with IntelliJ IDEA.
- * User: rickwinfrey
- * Date: 2/3/13
- * Time: 6:45 PM
- * To change this template use File | Settings | File Templates.
- */
 public class Hello {
     public static final String helloHTML = "<!DOCTYPE html>\n" +
             "<html>\n" +

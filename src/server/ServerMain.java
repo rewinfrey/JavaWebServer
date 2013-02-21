@@ -76,6 +76,7 @@ public class ServerMain{
             public Map<String, Object> respond(Map<String, Object> request)
             {
                 Map<String, Object> response = new HashMap<String, Object>();
+
                 if (((Map) request.get("params")).isEmpty()) {
                     String bodyString = htmlGenerator.generateForm();
                     response.put("body", convertStringToBytes(bodyString));
@@ -85,6 +86,7 @@ public class ServerMain{
                     response.put("body", convertStringToBytes(bodyString));
                     putHeadersInResponseMap(response, request, "200 OK", "text/html", bodyString.length());
                 }
+
                 return response;
             }
         });
@@ -94,15 +96,16 @@ public class ServerMain{
             @Override
             public Map<String, Object> respond(Map<String, Object> request) throws IOException {
                 Map<String, Object> response;
+
                 if (isDirectory(directory + request.get("uri")))
                     response = directoryResponseGenerator(request);
 
-                else if (resourceExists(expandFilePath((String) request.get("uri")))) {
+                else if (resourceExists(expandFilePath((String) request.get("uri"))))
                     response = fileResponseGenerator(request);
 
-                } else {
+                else
                     response = fourOhFourResponseGenerator(request);
-                }
+
                 return response;
             }
         });

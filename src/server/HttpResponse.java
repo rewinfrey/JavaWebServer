@@ -7,6 +7,11 @@ import java.util.Map;
 public class HttpResponse {
     public static void write(Map<String, Object> responseMap, OutputStream outStream) throws IOException
     {
+       if (responseMap.get("response") == null)
+       {
+           outStream.close();
+           return;
+       }
        log(responseMap);
        outStream.write((byte[])responseMap.get("response"));
        outStream.write((byte[])responseMap.get("connection"));

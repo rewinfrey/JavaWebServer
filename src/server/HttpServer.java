@@ -18,12 +18,14 @@ public class HttpServer implements Runnable
     this.router = new Router();
   }
 
-  public void start() throws IOException {
+  public void start() throws IOException
+  {
       bindServerSocket();
       serverThreadStart();
   }
 
-  public void stop() throws IOException {
+  public void stop() throws IOException
+  {
       welcomeSocket.close();
       serverThread.interrupt();
   }
@@ -42,13 +44,15 @@ public class HttpServer implements Runnable
       new Thread(new Runnable(){
         public void run()
         {
-            try {
+            try
+            {
+                clientSocket.setSoTimeout(5000);
                 Map<String, Object> request = HttpRequestParser.parse(clientSocket.getInputStream());
                 Map<String, Object> responseMap = router.respond(request);
                 HttpResponse.write(responseMap, clientSocket.getOutputStream());
                 clientSocket.close();
-            } catch (Exception e) {
             }
+            catch (Exception e) {}
         }
       }).start();
     }

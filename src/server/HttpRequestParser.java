@@ -14,9 +14,7 @@ public class HttpRequestParser
   public static Map<String, Object> parse(InputStream input) throws Exception
   {
     Map<String, Object> map = new HashMap<String, Object>();
-    if (input.available() == 0) {
-      return map;
-    }
+
     HttpRequestParser parser = new HttpRequestParser(input);
 
     final String[] requestLineBits = parser.requestLine().split("[ ]");
@@ -53,25 +51,27 @@ public class HttpRequestParser
 
   private Map<String, String> parsePostContent(String contentLength) throws Exception
   {
-      Map<String, String> postContent = new HashMap<String, String>();
+    Map<String, String> postContent = new HashMap<String, String>();
 
-      if (contentLength != null && !contentLength.equals("0")) {
+    if (contentLength != null && !contentLength.equals("0"))
+    {
         String postContentString = buildPostDataString(contentLength);
         postContent.putAll(mapifyQueryAndPostParams(postContentString));
-      }
+    }
 
-      return postContent;
+    return postContent;
   }
 
-  private String buildPostDataString(String contentLength) throws IOException {
-      int length = Integer.parseInt(contentLength);
-      char[] characters = new char[length];
-      StringBuilder postData = new StringBuilder();
+  private String buildPostDataString(String contentLength) throws IOException
+  {
+    int length = Integer.parseInt(contentLength);
+    char[] characters = new char[length];
+    StringBuilder postData = new StringBuilder();
 
-      inReader.read(characters, 0, length);
-      postData.append(new String(characters));
+    inReader.read(characters, 0, length);
+    postData.append(new String(characters));
 
-      return postData.toString();
+    return postData.toString();
   }
 
   private Map<String, String> parseQueryStringParams(String requestURI)
@@ -80,23 +80,23 @@ public class HttpRequestParser
     Map<String, String> paramsMap = new HashMap<String, String>();
 
     if(uriAndQueryString.length > 1)
-      paramsMap.putAll(mapifyQueryAndPostParams(uriAndQueryString[1]));
+        paramsMap.putAll(mapifyQueryAndPostParams(uriAndQueryString[1]));
 
     return paramsMap;
   }
 
   private Map<String, String> mapifyQueryAndPostParams(String parsable)
   {
-      Map<String, String> paramsMap = new HashMap<String, String>();
-      String[] parsedString = parsable.split("&");
+    Map<String, String> paramsMap = new HashMap<String, String>();
+    String[] parsedString = parsable.split("&");
 
-      for(int i = 0; i < parsedString.length; i++)
-      {
-          String[] paramPair = parsedString[i].split("=");
-          paramsMap.put(paramPair[0], paramPair[1]);
-      }
+    for(int i = 0; i < parsedString.length; i++)
+    {
+        String[] paramPair = parsedString[i].split("=");
+        paramsMap.put(paramPair[0], paramPair[1]);
+    }
 
-      return paramsMap;
+    return paramsMap;
   }
 
   public Map<String, String> parseHeaders() throws IOException
@@ -105,12 +105,13 @@ public class HttpRequestParser
     String line;
 
     line = inReader.readLine();
-    while(line != null && !line.equals("")) {
+    while(line != null && !line.equals(""))
+    {
         String[] tempLine = line.split(": ");
 
-        if(tempLine.length > 1) {
+        if(tempLine.length > 1)
             headerMap.put(tempLine[0], tempLine[1]);
-        }
+
         line = inReader.readLine();
     }
 

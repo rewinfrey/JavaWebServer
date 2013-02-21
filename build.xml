@@ -18,7 +18,7 @@
     <target name="build" depends="compile" description="generate the distribution">
         <jar jarfile="rickhttp.jar" basedir="${classes}">
             <manifest>
-                <attribute name="Main-Class" value="server.HttpServer"/>
+                <attribute name="Main-Class" value="server.MainServer"/>
             </manifest>
         </jar>
     </target>

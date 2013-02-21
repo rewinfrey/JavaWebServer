@@ -164,18 +164,6 @@ public class ServerMainTest {
     }
 
     @Test
-    public void callBadRequest() throws IOException
-    {
-        callMain("8999");
-        Socket newSocket = new Socket(InetAddress.getLocalHost(), 8999);
-        BufferedReader inputStream = new BufferedReader( new InputStreamReader( newSocket.getInputStream()));
-        System.out.println("In bad request: " );
-        assertEquals("HTTP/1.1 400 Bad Request", inputStream.readLine());
-        stopMain();
-    }
-
-
-    @Test
     public void callMainWithHelp() throws IOException
     {
         ByteArrayOutputStream outArray = new ByteArrayOutputStream();

@@ -12,11 +12,8 @@ public class HtmlGenerator {
     public String generate404() {
         StringBuilder notFoundString = new StringBuilder();
         notFoundString.append("<!DOCTYPE html><html><head><title>404</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /></head>\n");
-        notFoundString.append("<body style=\"background-color: #171717; color: whitesmoke;\"><h1 style=\"margin: 100px auto 20px auto; width: 1080px; font-size: 60px;\">探しているページが見つけられません！</h1>\n");
-        notFoundString.append("<h1 style=\"margin: 0px auto 50px auto; width: 1080px; font-size: 30px; text-align: center;\">Error 404. The page you are looking for cannot be found</h1>\n");
-        notFoundString.append("<div style=\"text-align: center; font-size: 30px;\">\n");
-        notFoundString.append("<p>うつくしいものを</p><p>うつくしいとおもえる</p><p>こころが</p>\n");
-        notFoundString.append("<p>うつくしいものだ</p><p style=\"margin-left: 500px;\">相田みつを</p></div></body></html>\n");
+        notFoundString.append("<body style=\"background-color: whitesmoke;\"><div style=\"width: 1681px; margin: 10px auto;\"><img src=\"error404.png\" /></div>\n");
+        notFoundString.append("</body></html>\n");
         return notFoundString.toString();
     }
 

@@ -9,7 +9,7 @@ public class HttpServer implements Runnable
 {
   private int port;
   private Router router;
-  private Thread serverThread;
+  public Thread serverThread;
   private ServerSocket welcomeSocket;
 
   public HttpServer(int port)
@@ -27,7 +27,6 @@ public class HttpServer implements Runnable
   public void stop() throws IOException
   {
       welcomeSocket.close();
-      serverThread.interrupt();
   }
 
   public void registerRoute(String uri, Responder responder)
@@ -38,24 +37,25 @@ public class HttpServer implements Runnable
   public void runServer() throws IOException
   {
     System.out.println("\nServer started on port: " + port);
-    while(isBound())
-    {
-      final Socket clientSocket = welcomeSocket.accept();
-      new Thread(new Runnable(){
-        public void run()
+      try{
+        while(true)
         {
-            try
+          final Socket clientSocket = welcomeSocket.accept();
+          new Thread(new Runnable(){
+            public void run()
             {
-                clientSocket.setSoTimeout(5000);
-                Map<String, Object> request = HttpRequestParser.parse(clientSocket.getInputStream());
-                Map<String, Object> responseMap = router.respond(request);
-                HttpResponse.write(responseMap, clientSocket.getOutputStream());
-                clientSocket.close();
+                try
+                {
+                    Map<String, Object> request = HttpRequestParser.parse(clientSocket.getInputStream());
+                    Map<String, Object> responseMap = router.respond(request);
+                    HttpResponse.write(responseMap, clientSocket.getOutputStream());
+                    clientSocket.close();
+                }
+                catch (Exception e) {}
             }
-            catch (Exception e) {}
+          }).start();
         }
-      }).start();
-    }
+      } catch(Exception e) {};
   }
 
   private void bindServerSocket() throws IOException
@@ -82,9 +82,7 @@ public class HttpServer implements Runnable
       runServer();
     }
     catch(Exception e)
-    {
-      System.out.println("\nThe server could not be started at the specified port: " + port);
-    }
+    {}
   }
 }
 

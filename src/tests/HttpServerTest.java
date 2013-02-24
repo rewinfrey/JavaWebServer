@@ -59,16 +59,17 @@ public class HttpServerTest
   }
 
   @Test
-  public void oneAckResponse() throws IOException {
+  public void oneAckResponse() throws IOException, InterruptedException {
       int port = 9990;
       httpServerFactory(port);
       BufferedReader response = processToBufferedReader(curlTest(port, "/"));
       assertEquals("ACK", response.readLine());
       stop();
+      httpServer.serverThread.join();
   }
 
   @Test
-  public void twoAckResponses() throws IOException {
+  public void twoAckResponses() throws IOException, InterruptedException {
       int port = 9991;
       httpServerFactory(port);
       BufferedReader response = processToBufferedReader(curlTest(port, "/"));
@@ -76,6 +77,7 @@ public class HttpServerTest
       assertEquals("ACK", response.readLine());
       assertEquals("ACK", response2.readLine());
       stop();
+      httpServer.serverThread.join();
   }
 
   @Test
@@ -84,29 +86,30 @@ public class HttpServerTest
       httpServerFactory(port);
       ArrayList<BufferedReader> responseArray = new ArrayList<BufferedReader>();
 
-      for ( int i = 0; i < 10; i ++ ) {
+      for ( int i = 0; i < 100; i ++ ) {
           responseArray.add(processToBufferedReader(curlTest(port, "/")));
       }
 
       for ( int j = 0; j < responseArray.size(); j++ ) {
           assertEquals("ACK", responseArray.get(j).readLine());
       }
-
       stop();
+      httpServer.serverThread.join();
   }
 
   @Test
-  public void onePostAck() throws IOException {
+  public void onePostAck() throws IOException, InterruptedException {
       int port = 9993;
       httpServerFactory(port);
       BufferedReader response = processToBufferedReader(curlPostTest(port, "param1=value1&param2=value2", "/form"));
       assertEquals("\"param1 = value1 param2 = value2\"", response.readLine());
       stop();
+      httpServer.serverThread.join();
   }
 
 
   @Test
-  public void twoPostAcks() throws IOException {
+  public void twoPostAcks() throws IOException, InterruptedException {
       int port = 9994;
       httpServerFactory(port);
       BufferedReader response = processToBufferedReader(curlPostTest(port, "param1=value1&param2=value2", "/form"));
@@ -114,6 +117,7 @@ public class HttpServerTest
       assertEquals("\"param1 = value1 param2 = value2\"", response.readLine());
       assertEquals("\"param1 = value1 param2 = value2\"", response2.readLine());
       stop();
+      httpServer.serverThread.join();
   }
 
   @Test
@@ -122,9 +126,8 @@ public class HttpServerTest
       httpServerFactory(port);
       ArrayList<BufferedReader> responseArray = new ArrayList<BufferedReader>();
 
-      for ( int i = 0; i < 10; i ++ ) {
+      for ( int i = 0; i < 100; i ++ ) {
           responseArray.add(processToBufferedReader(curlPostTest(port, "param1=value1&param2=value2", "/form")));
-          Thread.sleep(100);
       }
 
       for ( int j = 0; j < responseArray.size(); j++ ) {
@@ -132,19 +135,21 @@ public class HttpServerTest
       }
 
       stop();
+      httpServer.serverThread.join();
   }
 
   @Test
-  public void onePostAckWithQueryString() throws IOException {
+  public void onePostAckWithQueryString() throws IOException, InterruptedException {
       int port = 9996;
       httpServerFactory(port);
       BufferedReader response = processToBufferedReader(curlPostTest(port, "param1=value1&param2=value2", "/form?name=rick&age=30"));
       assertEquals("\"param1 = value1 param2 = value2\" age = 30 name = rick", response.readLine());
       stop();
+      httpServer.serverThread.join();
   }
 
   @Test
-  public void twoPostAcksWithQueryStrings() throws IOException {
+  public void twoPostAcksWithQueryStrings() throws IOException, InterruptedException {
       int port = 9997;
       httpServerFactory(port);
       BufferedReader response = processToBufferedReader(curlPostTest(port, "param1=value1&param2=value2", "/form?name=rick&age=30"));
@@ -152,6 +157,7 @@ public class HttpServerTest
       assertEquals("\"param1 = value1 param2 = value2\" age = 30 name = rick", response.readLine());
       assertEquals("\"param1 = value1 param2 = value2\" age = 32 name = colin", response2.readLine());
       stop();
+      httpServer.serverThread.join();
   }
 
   @Test
@@ -160,9 +166,8 @@ public class HttpServerTest
       httpServerFactory(port);
       ArrayList<BufferedReader> responseArray = new ArrayList<BufferedReader>();
 
-      for ( int i = 0; i < 10; i ++ ) {
+      for ( int i = 0; i < 100; i ++ ) {
           responseArray.add(processToBufferedReader(curlPostTest(port, "param1=value1&param2=value2", "/form?name=rick&age=30")));
-          Thread.sleep(100);
       }
 
       for ( int j = 0; j < responseArray.size(); j++ ) {
@@ -170,6 +175,7 @@ public class HttpServerTest
       }
 
       stop();
+      httpServer.serverThread.join();
   }
 
   public MockRegister mockRegister;

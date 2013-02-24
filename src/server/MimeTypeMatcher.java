@@ -29,6 +29,10 @@ public class MimeTypeMatcher {
             mimeType = "image/jpg";
         } else if (parsedFileExtension.equals(".ico")) {
             mimeType = "image/png";
+        } else if (parsedFileExtension.equals(".css")) {
+            mimeType = "text/css";
+        } else if (parsedFileExtension.equals(".js")) {
+            mimeType = "text/javascript";
         } else {
             mimeType = "text/plain";
         }

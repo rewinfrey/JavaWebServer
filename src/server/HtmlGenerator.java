@@ -12,7 +12,7 @@ public class HtmlGenerator {
     public String generate404() {
         StringBuilder notFoundString = new StringBuilder();
         notFoundString.append("<!DOCTYPE html><html><head><title>404</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /></head>\n");
-        notFoundString.append("<body style=\"background-color: whitesmoke;\"><div style=\"width: 1681px; margin: 10px auto;\"><img src=\"error404.png\" /></div>\n");
+        notFoundString.append("<body style=\"background-color: whitesmoke;\"><div style=\"width: 1400px; margin: auto;\"><img src=\"error404.png\" style=\"width: 1400px; height: 800px;\"/></div>\n");
         notFoundString.append("</body></html>\n");
         return notFoundString.toString();
     }

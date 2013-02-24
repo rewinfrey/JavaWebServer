@@ -16,7 +16,7 @@
     </target>
 
     <target name="build" depends="compile" description="generate the distribution">
-        <jar jarfile="rickhttp.jar" basedir="${classes}">
+        <jar jarfile="httpServer.jar" basedir="${classes}">
             <manifest>
                 <attribute name="Main-Class" value="server.ServerMain"/>
             </manifest>
@@ -27,7 +27,7 @@
         <delete dir="${classes}"/>
     </target>
 
-    <target name="test" depends="compile" description="run the unit tests">
+    <target name="test" depends="compile" description="run the tests">
          <junit fork="yes" printsummary="on" haltonfailure="yes" haltonerror="yes">
              <classpath refid="classpath"/>
              <formatter type="brief" usefile="false"/>

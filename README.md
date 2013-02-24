@@ -12,11 +12,11 @@ This is a simple Java Web Server built lovingly from scratch as part of my 8th L
 
 To run the server, please specify a port and directory you want the server to be bound to and to serve, respectively:
 
-`$ java -jar rickhttp.jar -p <port> -d <directory/to/be/served>`
+`$ java -jar httpServer.jar -p <port> -d <directory/to/be/served>`
 
 Example:
 
-`$ java -jar rickhttp.jar -p 8899 -d /Users/rickwinfrey/docs`
+`$ java -jar httpServer.jar -p 8899 -d /Users/rickwinfrey/docs`
 
 If no port argument is provided the server by default binds to port 5813.
 
@@ -29,8 +29,6 @@ Assuming the repo has been cloned:
 `$ ant build`
 
 `$ ant test`
-
-All test files should be included with the repo when it is cloned.
 
 ###Supported File Types & Predefined Routes
 

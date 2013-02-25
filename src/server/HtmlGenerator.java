@@ -12,7 +12,7 @@ public class HtmlGenerator {
     public String generate404() {
         StringBuilder notFoundString = new StringBuilder();
         notFoundString.append("<!DOCTYPE html><html><head><title>404</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /></head>\n");
-        notFoundString.append("<body style=\"background-color: whitesmoke;\"><div style=\"width: 1400px; margin: auto;\"><img src=\"error404.png\" style=\"width: 1400px; height: 800px;\"/></div>\n");
+        notFoundString.append("<body style=\"background-color: whitesmoke;\"><div style=\"width: 1400px; margin: auto;\"><img src=\"public/images/error404.png\" style=\"width: 1400px; height: 800px;\"/></div>\n");
         notFoundString.append("</body></html>\n");
         return notFoundString.toString();
     }
@@ -91,7 +91,7 @@ public class HtmlGenerator {
     }
 
     public String generateHtmlHead() {
-        return "<!DOCTYPE html><head></head><html><body style=\"background-color: #ECDFCE; color: #766F67; font-family: FrescoSansPlusBold, Helvetica, Arial, sans-serif;\">";
+        return "<!DOCTYPE html><head><link href=\"/public/images/favicon.ico\" rel=\"shortcut icon\" type=\"image/vnd.microsoft.icon\"></head><html><body style=\"background-color: #ECDFCE; color: #766F67; font-family: FrescoSansPlusBold, Helvetica, Arial, sans-serif;\">";
     }
 
     public String generateHtmlEnd() {

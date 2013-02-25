@@ -93,7 +93,7 @@ public class HttpRequestParser
     for(int i = 0; i < parsedString.length; i++)
     {
         String[] paramPair = parsedString[i].split("=");
-        paramsMap.put(paramPair[0], paramPair[1]);
+        paramsMap.put(paramPair[0].replace("+", " "), paramPair[1].replace("+", " "));
     }
 
     return paramsMap;

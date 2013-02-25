@@ -31,7 +31,7 @@ public class HtmlGeneratorTest{
     @Test
     public void generate404() {
         String template404 = "<!DOCTYPE html><html><head><title>404</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /><link href=\"/public/images/favicon.ico\" rel=\"shortcut icon\" type=\"image/vnd.microsoft.icon\"></head>\n" +
-                             "<body style=\"background-color: whitesmoke;\"><div style=\"width: 1400px; margin: auto;\"><img src=\"public/images/error404.png\" style=\"width: 1400px; height: 800px;\"/></div>\n" +
+                             "<body style=\"background-color: whitesmoke;\"><div style=\"width: 1400px; margin: auto;\"><img src=\"/public/images/error404.png\" style=\"width: 1400px; height: 800px;\"/></div>\n" +
                              "</body></html>\n";
         assertEquals(template404, htmlGenerator.generate404());
     }

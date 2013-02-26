@@ -4,7 +4,8 @@ This is a simple Java Web Server built lovingly from scratch as part of my 8th L
 
 ##Installation & Running
 
-`$ git clone git@github.com:rewinfrey/JavaWebServer.git`
+<code>
+$ git clone git@github.com:rewinfrey/JavaWebServer.git
 
 `$ cd JavaWebServer`
 
@@ -20,7 +21,7 @@ Example:
 
 If no port argument is provided the server by default binds to port 5813.
 
-If no directory argument is provided by default the /Users directory is served.
+If no directory argument is provided by default the directory from which the server is started is served.
 
 ###Running The Tests
 
@@ -34,7 +35,7 @@ Assuming the repo has been cloned:
 
 ####The Java Server currently serves the following file types:
 
-* .html
+* .html / .js / .css
 
 * .pdf
 
